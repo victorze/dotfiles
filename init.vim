@@ -1,4 +1,4 @@
-"scriptencoding utf-8
+scriptencoding utf-8
 
 " .........................................................
 " # Plugins
@@ -93,7 +93,7 @@ set autoindent
 " ## Theme & Colorscheme
 
 set termguicolors  " Active true colors on terminal
-set background=dark
+set background=light
 colorscheme one  " NeoSolarized, nova
 
 
@@ -125,7 +125,6 @@ set backspace=indent,eol,start " backspace will always work on insert mode
 " --------------------------------------------
 " Mappings
 " --------------------------------------------
-
 
 " Map <leader> to space and <localleader> to comma
 let g:mapleader = ' '
@@ -171,9 +170,7 @@ nnoremap <leader>f :Files<CR>
 
 
 " Exit terminal mode with escape
-tnoremap <Esc> <C-\><C-n>
-tnoremap jk <C-\><C-n>
-tnoremap <A-[> <Esc>
+tnoremap <C-q> <C-\><C-n>
 
 
 " Close buffer
@@ -187,12 +184,20 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 
+" Go terminal. fg return
+map <C-m> <C-z>
+
+
+" Run current script
+nnoremap <leader>rp :!python3 %:t<CR>
+nnoremap <leader>rh :!php %:t<CR>
+nnoremap <leader>rn :!node %:t<CR>
+
+
 
 " --------------------------------------------
 " # Plugins Settings
 " --------------------------------------------
-
-
 
 " ## NerdTree
 
@@ -227,7 +232,6 @@ let g:airline#extensions#tabline#fnamemod = ':t'  " Show just the filename
 let g:mta_filetypes = {
     \ 'php' : 1,
     \}
-
 
 
 " ## Deoplete
