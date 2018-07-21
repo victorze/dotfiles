@@ -1,6 +1,6 @@
 {
     // -------------------------------------
-    // Plugins Settings
+    // Settings
     // -------------------------------------
     "workbench.colorTheme": "Django Extra - JetBrains",
     "editor.fontSize": 12.5,
