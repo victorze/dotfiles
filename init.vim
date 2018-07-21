@@ -65,7 +65,6 @@ call plug#end()
 " --------------------------------------------
 
 " ## GUI
-
 set title
 set mouse=a
 set noshowmode
@@ -75,7 +74,6 @@ set colorcolumn=80  " Set & show limit column
 
 
 " ## Lines
-
 set nowrap  " No wrap lines (display long lines)
 set number  " Display line numbers
 set relativenumber  " Show relative line numbers
@@ -83,7 +81,6 @@ set cursorline  " Highlight current line
 
 
 " ## Indentation
-
 set shiftwidth=4
 set softtabstop=4
 set expandtab
@@ -91,14 +88,12 @@ set autoindent
 
 
 " ## Theme & Colorscheme
-
 set termguicolors  " Active true colors on terminal
-set background=light
+set background=dark
 colorscheme one  " NeoSolarized, nova
 
 
 " ## Buffers
-
 set hidden  " Allow change buffers without saving
 
 
@@ -217,7 +212,7 @@ nnoremap <leader>N :NERDTreeFind<CR>
 
 
 " ## vim-closetag
-let g:closetag_filenames = "*.html,*.html.erb,*.xml, *.blade"
+let g:closetag_filenames = "*.html,*.html.erb,*.xml, *.blade.php"
 
 
 " ## Airline
@@ -240,7 +235,6 @@ let g:deoplete#enable_at_startup = 1
 
 
 " ### Jedi
-
 let g:python_host_prog = '/usr/bin/python'
 let g:python3_host_prog = '/usr/bin/python3'
 
