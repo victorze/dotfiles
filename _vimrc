@@ -17,11 +17,13 @@ Plug 'scrooloose/nerdtree'
 " Language support
 Plug 'alvan/vim-closetag'
 Plug 'davidhalter/jedi-vim'
-Plug 'valloric/MatchTagAlways'
 
 " Colorschemes
 Plug 'morhetz/gruvbox'
 Plug 'joshdick/onedark.vim'
+Plug 'rakr/vim-one'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'kaicataldo/material.vim'
 call plug#end()
 
 
@@ -30,6 +32,8 @@ call plug#end()
 " --------------------------------------------
 
 " ## GUI
+set title
+set mouse=a
 set noshowmode
 
 set colorcolumn=80  " Set & show limit column
@@ -53,24 +57,22 @@ set autoindent
 " ## Theme & Colorscheme
 set termguicolors  " Active true colors on terminal
 let g:gruvbox_contrast_dark = 'hard'
+let g:material_theme_style = 'dark'
 set background=dark
 colorscheme gruvbox
+
+" Mark trailing spaces.
+if &t_Co > 2 || has("gui_running")
+    highlight ExtraWhitespace ctermbg=red guibg=red
+    match ExtraWhitespace /\s\+$/
+else
+    set listchars=trail:~
+    set list
+endif
 
 
 " ## Buffers
 set hidden  " Allow change buffers without saving
-
-
-" ## Mark trailing spaces
-if &t_Co >= 2 || has("gui_running")
-    " Fancy highlighting for space groups.
-    highlight ExtraWhitespace ctermbg=red guibg=red
-    match ExtraWhitespace /\s\+$/
-else
-    " Fallback trailing system.
-    set listchars=trail:~
-    set list
-endif
 
 
 " ## Disable aditional files.
@@ -78,6 +80,9 @@ set noswapfile " disable swapfiles (maybe a bad idea? 🤔)
 set nobackup " disable backup files (use git)
 set encoding=utf-8 " windows needs to be reminded about utf-8
 set backspace=indent,eol,start " backspace will always work on insert mode
+
+
+set fillchars+=vert:\   " Remove unpleasant pipes from vertical splits
 
 
 
@@ -122,6 +127,14 @@ vnoremap <leader>P "+P
 " ## Scroll
 nnoremap <up> <c-y>
 nnoremap <down> <c-e>
+
+
+" ## Exit terminal mode with escape
+tnoremap <C-q> <C-\><C-n>
+
+
+" ## Open terminal (Cmder)
+nnoremap <leader>t :term bash<CR>
 
 
 " ## Close buffer
@@ -215,4 +228,4 @@ let g:jedi#rename_command = '<localleader>r'
 
 
 " ## Ctrl-P remapping
-let g:ctrlp_map = '<Leader>,'
+let g:ctrlp_map = '<Leader>f'
