@@ -141,6 +141,10 @@ nnoremap <leader>t :term bash<CR>
 nnoremap <leader>w :bd<CR>
 
 
+" ## Close all buffers
+nnoremap <leader>kw :bufdo bd<CR>
+
+
 " ## Make window navigation less painful.
 map <C-h> <C-w>h
 map <C-j> <C-w>j
@@ -175,7 +179,7 @@ if has("gui_running")
   elseif has("gui_macvim")
     set guifont=Menlo\ Regular:h14
   elseif has("gui_win32")
-    set guifont=Consolas:h10.5:cANSI
+    set guifont=Consolas:h11:cANSI
   endif
 endif
 
@@ -225,7 +229,7 @@ let g:jedi#goto_command = '<localleader>d'
 let g:jedi#goto_assignments_command = '<localleader>g'
 let g:jedi#usages_command = '<localleader>n'
 let g:jedi#rename_command = '<localleader>r'
-
+let g:jedi#auto_initialization = 0
 
 " ## Ctrl-P remapping
 let g:ctrlp_map = '<Leader>f'
