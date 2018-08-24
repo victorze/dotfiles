@@ -65,12 +65,12 @@ call plug#end()
 " --------------------------------------------
 
 " ## GUI
-set title
+"set title
 set mouse=a
 set noshowmode
 
 set colorcolumn=80  " Set & show limit column
-"set scrolloff=3  " Display at least 3 lines around you cursor
+set scrolloff=3  " Display at least 3 lines around you cursor
 
 
 " ## Lines
@@ -89,8 +89,9 @@ set autoindent
 
 " ## Theme & Colorscheme
 set termguicolors  " Active true colors on terminal
+let g:gruvbox_contrast_dark = 'hard'
 set background=dark
-colorscheme one  " NeoSolarized, nova
+colorscheme gruvbox  " NeoSolarized, nova
 
 
 " ## Buffers
@@ -172,6 +173,10 @@ tnoremap <C-q> <C-\><C-n>
 nnoremap <leader>w :bd<CR>
 
 
+" Save file
+nnoremap <leader>s :w<CR>
+
+
 " Make window navigation less painful.
 map <C-h> <C-w>h
 map <C-j> <C-w>j
@@ -187,6 +192,10 @@ map <C-m> <C-z>
 nnoremap <leader>rp :!python3 %:t<CR>
 nnoremap <leader>rh :!php %:t<CR>
 nnoremap <leader>rn :!node %:t<CR>
+
+
+" Add semicolon at end of line
+inoremap <C-s> <C-o>A;
 
 
 
@@ -255,3 +264,4 @@ let g:deoplete#sources#ternjs#docs = 1
 " ## Ternjs for vim
 let g:tern#command = ['tern']
 let g:tern#arguments = ['--persistent']
+let base16colorspace=256
