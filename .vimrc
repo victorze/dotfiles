@@ -75,7 +75,8 @@ let g:mapleader = ' '
 let g:maplocalleader = ','
 
 " Edit .vimrc
-nnoremap <leader>e :e $MYVIMRC<CR>
+nnoremap <leader>ev :e $MYVIMRC<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
 
 " Copy to clipboard
 vnoremap <leader>y "+y
@@ -91,6 +92,9 @@ vnoremap <leader>p "+p
 
 " Search files fzf
 nnoremap <leader>f :Files<CR>
+
+" Open terminal
+nnoremap <leader>ot :bel term<CR>
 
 " Exit terminal mode with escape
 tnoremap <esc> <C-\><C-n>
