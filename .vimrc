@@ -102,10 +102,10 @@ nnoremap <leader>w :bd<CR>
 nnoremap <leader>s :w<CR>
 
 " Make window navigation less painful
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 " Run current file
 nnoremap <leader>rp :!python3 %:t<CR>
@@ -117,15 +117,20 @@ nnoremap <leader>rb :!bash %:t<CR>
 nnoremap <leader>ra :!nasm -felf64 % -o a.o && ld -o a a.o && ./a<CR>
 
 " Current word to uppercase
-:imap <c-u> <esc>viwUi
-:nmap <c-u> viwU<esc>
+:inoremap <c-u> <esc>viwU<esc>A
+:nnoremap <c-u> viwU<esc>
 
 " Cursor end line
-:imap <c-l> <esc>$a
+:inoremap <c-l> <esc>A
 
 " Copy current word
-:nmap <c-y> viwy<esc>
+:nnoremap <leader>y viwy<esc>
 
+" Copy content document
+:nnoremap <leader>a ggvG$"+y
+
+" Next line
+:inoremap <c-o> <esc>o
 
 " --------------------------------------------
 " # Plugins Settings
