@@ -13,6 +13,9 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'alvan/vim-closetag'
 
 Plug 'cseelus/vim-colors-lucid'
+Plug 'chriskempson/base16-vim'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end()
 
 
@@ -43,7 +46,7 @@ set autoindent
 " ## Theme & Colorscheme
 set termguicolors  " Active true colors on terminal
 set background=dark
-colorscheme lucid
+colorscheme dracula
 
 " Mark trailing spaces.
 if &t_Co > 2 || has("gui_running")
@@ -134,6 +137,7 @@ nnoremap <C-l> <C-w>l
 nnoremap <leader>rp :!python %:t<CR>
 nnoremap <leader>rh :!php %:t<CR>
 nnoremap <leader>rn :!node %:t<CR>
+nnoremap <leader>rj :!javac %:t && java %:t:r<CR>
 
 if has("gui_running")
   if has("gui_gtk2")
@@ -153,7 +157,7 @@ nnoremap <c-u> viwU<esc>
 inoremap <c-l> <esc>A
 
 " Copy current word
-nnoremap <leader>y viwy<esc>
+nnoremap <localleader>y viwy<esc>
 
 " Copy content document
 nnoremap <leader>a ggvG$"+y
