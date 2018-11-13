@@ -76,7 +76,7 @@ let g:maplocalleader = ','
 
 " Edit .vimrc
 nnoremap <leader>ev :e $MYVIMRC<CR>
-nnoremap <leader>sv :source $MYVIMRC<CR>
+nnoremap <leader>es :source $MYVIMRC<CR>
 
 " Copy to clipboard
 vnoremap <leader>y "+y
@@ -119,22 +119,36 @@ nnoremap <leader>rc :!gcc % && ./a.out<CR>
 nnoremap <leader>rl :!g++ % && ./a.out<CR>
 nnoremap <leader>rb :!bash %:t<CR>
 nnoremap <leader>ra :!nasm -felf64 % -o a.o && ld -o a a.o && ./a<CR>
+nnoremap <leader>rj :!javac %:t && java %:t:r<CR>
+
+" Mode normal
+inoremap jk <esc>
+inoremap <esc> <nop>
 
 " Current word to uppercase
-:inoremap <c-u> <esc>viwU<esc>A
-:nnoremap <c-u> viwU<esc>
+inoremap <c-u> <esc>viwU<esc>A
+nnoremap <c-u> viwU<esc>
 
-" Cursor end line
-:inoremap <c-l> <esc>A
+" Cursor end of the current line
+inoremap <c-l> <esc>A
 
 " Copy current word
-:nnoremap <leader>y viwy<esc>
+nnoremap <localleader>y viwy<esc>
 
 " Copy content document
-:nnoremap <leader>a ggvG$"+y
+nnoremap <leader>a ggvG$"+y
 
 " Next line
-:inoremap <c-o> <esc>o
+inoremap <c-o> <esc>o
+
+" beginning of the current line
+nnoremap H 0
+
+" end of the current line
+nnoremap L $
+
+" print java
+iabbrev sso System.out.print
 
 " --------------------------------------------
 " # Plugins Settings
