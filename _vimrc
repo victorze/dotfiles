@@ -46,7 +46,7 @@ set autoindent
 " ## Theme & Colorscheme
 set termguicolors  " Active true colors on terminal
 set background=dark
-colorscheme dracula
+colorscheme lucid
 
 " Mark trailing spaces.
 if &t_Co > 2 || has("gui_running")
@@ -76,8 +76,11 @@ set guioptions-=r  " hide the bar scroll
 set guioptions-=L  " hide the bar scroll
 set linespace=3
 
-au GUIEnter * simalt ~x " start gVim maximized
+"au GUIEnter * simalt ~x " start gVim maximized
 
+" to set the initial window size.
+set columns=85
+set lines=18
 
 " --------------------------------------------
 " # Mappings
@@ -149,6 +152,10 @@ if has("gui_running")
   endif
 endif
 
+" Mode normal
+inoremap jk <esc>
+inoremap <esc> <nop>
+
 " Current word to uppercase
 inoremap <c-u> <esc>viwU<esc>A
 nnoremap <c-u> viwU<esc>
@@ -165,6 +172,14 @@ nnoremap <leader>a ggvG$"+y
 " Next line
 inoremap <c-o> <esc>o
 
+" beginning of the current line
+nnoremap H 0
+
+" end of the current line
+nnoremap L $
+
+" Abbreviations java
+iabbrev sso System.out.print
 
 " --------------------------------------------
 " # Plugins Settings
