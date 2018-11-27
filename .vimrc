@@ -135,8 +135,8 @@ inoremap <c-l> <esc>A
 " Copy current word
 nnoremap <localleader>y viwy<esc>
 
-" Copy content document
-nnoremap <leader>a ggvG$"+y
+" Select content document
+nnoremap <leader>a ggvG$
 
 " Next line
 inoremap <c-o> <esc>o
