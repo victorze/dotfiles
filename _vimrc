@@ -4,20 +4,20 @@ scriptencoding utf-8
 " # Plugins
 " .........................................................
 call plug#begin('~/.vim/plugged/')
-Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mattn/emmet-vim'
 Plug 'scrooloose/nerdtree'
 Plug 'jiangmiao/auto-pairs'
 Plug 'alvan/vim-closetag'
+Plug 'vim-airline/vim-airline-themes'
 
 Plug 'cseelus/vim-colors-lucid'
-Plug 'chriskempson/base16-vim'
 Plug 'NLKNguyen/papercolor-theme'
-Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'koirand/tokyo-metro.vim'
+Plug 'morhetz/gruvbox'
+Plug 'nanotech/jellybeans.vim'
 call plug#end()
-
 
 " --------------------------------------------
 " # Settings
@@ -28,7 +28,7 @@ set title
 set mouse=a
 set noshowmode
 
-set colorcolumn=80  " Set & show limit column
+"set colorcolumn=80  " Set & show limit column
 set scrolloff=3  " Display at least 3 lines around you cursor
 
 " ## Lines
@@ -45,6 +45,7 @@ set autoindent
 
 " ## Theme & Colorscheme
 set termguicolors  " Active true colors on terminal
+let g:gruvbox_contrast_dark = 'hard'
 set background=dark
 colorscheme lucid
 
@@ -141,6 +142,7 @@ nnoremap <leader>rp :!python %:t<CR>
 nnoremap <leader>rh :!php %:t<CR>
 nnoremap <leader>rn :!node %:t<CR>
 nnoremap <leader>rj :!javac %:t && java %:t:r<CR>
+nnoremap <leader>rd :!dotnet run<CR>
 
 if has("gui_running")
   if has("gui_gtk2")
@@ -178,8 +180,13 @@ nnoremap H 0
 " end of the current line
 nnoremap L $
 
-" Abbreviations java
+" code snippets
+" java
 iabbrev sso System.out.print
+
+" c#
+iabbrev ccw Console.WriteLine
+iabbrev ccr Console.ReadLine();
 
 " --------------------------------------------
 " # Plugins Settings
@@ -213,3 +220,5 @@ let g:airline#extensions#tabline#fnamemod = ':t'  " Show just the filename
 let g:mta_filetypes = {
     \ 'php' : 1,
     \}
+
+let g:airline_theme='distinguished'
