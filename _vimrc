@@ -168,8 +168,8 @@ inoremap <c-l> <esc>A
 " Copy current word
 nnoremap <localleader>y viwy<esc>
 
-" Copy content document
-nnoremap <leader>a ggvG$"+y
+" Select content document
+nnoremap <leader>a ggvG$
 
 " Next line
 inoremap <c-o> <esc>o
@@ -196,7 +196,7 @@ iabbrev ccr Console.ReadLine();
 " Ignored files
 let g:NERDTreeIgnore = [
     \ '\.pyc$', '^__pycache__$',
-    \ 'node_modules', '\.git'
+    \ '\.git$'
     \]
 
 let g:NERDTreeMinimalUI = 1  " Hide help text
@@ -222,3 +222,7 @@ let g:mta_filetypes = {
     \}
 
 let g:airline_theme='distinguished'
+
+" ## ctrl-p
+nnoremap <leader>f :CtrlP<CR>
+set wildignore+=*\\vendor\\*,*\\node_modules\\*,*.swp,*.zip,*.exe  " Windows
