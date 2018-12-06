@@ -64,7 +64,7 @@ endif
 set hidden  " Allow change buffers without saving
 
 " ## Disable aditional files.
-set noswapfile " disable swapfiles (maybe a bad idea? 🤔)
+set noswapfile " disable swapfiles
 set nobackup " disable backup files (use git)
 set encoding=utf-8 " windows needs to be reminded about utf-8
 set backspace=indent,eol,start " backspace will always work on insert mode
@@ -86,8 +86,7 @@ set columns=85
 set lines=18
 
 " Disable beep sound
-set visualbell 
-set t_vb=
+set belloff=all
 
 " --------------------------------------------
 " # Mappings
