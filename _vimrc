@@ -17,6 +17,7 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'koirand/tokyo-metro.vim'
 Plug 'morhetz/gruvbox'
 Plug 'nanotech/jellybeans.vim'
+Plug 'ayu-theme/ayu-vim'
 call plug#end()
 
 " --------------------------------------------
@@ -24,7 +25,7 @@ call plug#end()
 " --------------------------------------------
 
 " ## GUI
-set title
+set notitle
 set mouse=a
 set noshowmode
 
@@ -47,7 +48,8 @@ set autoindent
 set termguicolors  " Active true colors on terminal
 let g:gruvbox_contrast_dark = 'hard'
 set background=dark
-colorscheme lucid
+let ayucolor="dark"
+colorscheme ayu
 
 " Mark trailing spaces.
 if &t_Co > 2 || has("gui_running")
@@ -82,6 +84,10 @@ set linespace=3
 " to set the initial window size.
 set columns=85
 set lines=18
+
+" Disable beep sound
+set visualbell 
+set t_vb=
 
 " --------------------------------------------
 " # Mappings
@@ -221,7 +227,7 @@ let g:mta_filetypes = {
     \ 'php' : 1,
     \}
 
-let g:airline_theme='distinguished'
+"let g:airline_theme='distinguished'
 
 " ## ctrl-p
 nnoremap <leader>f :CtrlP<CR>
