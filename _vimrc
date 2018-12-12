@@ -64,7 +64,7 @@ endif
 set hidden  " Allow change buffers without saving
 
 " ## Disable aditional files.
-set noswapfile " disable swapfiles
+set noswapfile " disable swapfiles (maybe a bad idea? 🤔)
 set nobackup " disable backup files (use git)
 set encoding=utf-8 " windows needs to be reminded about utf-8
 set backspace=indent,eol,start " backspace will always work on insert mode
@@ -148,6 +148,7 @@ nnoremap <leader>rh :!php %:t<CR>
 nnoremap <leader>rn :!node %:t<CR>
 nnoremap <leader>rj :!javac %:t && java %:t:r<CR>
 nnoremap <leader>rd :!dotnet run<CR>
+nnoremap <leader>tp :!python -m unittest<CR>
 
 if has("gui_running")
   if has("gui_gtk2")
@@ -226,7 +227,7 @@ let g:mta_filetypes = {
     \ 'php' : 1,
     \}
 
-"let g:airline_theme='distinguished'
+let g:airline_theme='distinguished'
 
 " ## ctrl-p
 nnoremap <leader>f :CtrlP<CR>
