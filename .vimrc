@@ -14,6 +14,8 @@ Plug 'jiangmiao/auto-pairs'  " Autopair quotes, parentheses, etc.
 Plug 'airblade/vim-gitgutter'
 Plug 'mattn/emmet-vim'
 Plug 'cseelus/vim-colors-lucid'
+Plug 'morhetz/gruvbox'
+Plug 'ayu-theme/ayu-vim'
 call plug#end()
 
 
@@ -42,8 +44,10 @@ set autoindent
 
 " ## Theme & Colorscheme
 set termguicolors  " Active true colors on terminal
+let g:gruvbox_contrast_dark = 'hard'
 set background=dark
-colorscheme lucid
+let ayucolor="dark"
+colorscheme ayu
 
 " ## Buffers
 set hidden  " Allow change buffers without saving
@@ -65,6 +69,8 @@ set nobackup        " disable backup files (use git)
 set encoding=utf-8  " windows needs to be reminded about utf-8
 set backspace=indent,eol,start " backspace will always work on insert mode
 
+" Disable beep sound
+set belloff=all
 
 " --------------------------------------------
 " Mappings
@@ -120,6 +126,8 @@ nnoremap <leader>rl :!g++ % && ./a.out<CR>
 nnoremap <leader>rb :!bash %:t<CR>
 nnoremap <leader>ra :!nasm -felf64 % -o a.o && ld -o a a.o && ./a<CR>
 nnoremap <leader>rj :!javac %:t && java %:t:r<CR>
+nnoremap <leader>rd :!dotnet run<CR>
+nnoremap <leader>tp :!python3 -m unittest<CR>
 
 " Mode normal
 inoremap jk <esc>
@@ -147,8 +155,13 @@ nnoremap H 0
 " end of the current line
 nnoremap L $
 
-" print java
+" ## code snippets
+" java
 iabbrev sso System.out.print
+
+" c#
+iabbrev ccw Console.WriteLine
+iabbrev ccr Console.ReadLine();
 
 " --------------------------------------------
 " # Plugins Settings
@@ -158,7 +171,7 @@ iabbrev sso System.out.print
 " Ignored files
 let g:NERDTreeIgnore = [
     \ '\.pyc$', '^__pycache__$',
-    \ 'node_modules', '\.git'
+    \ 'node_modules', '\.git$'
     \]
 
 let g:NERDTreeMinimalUI = 1  " Hide help text
