@@ -7,6 +7,7 @@ scriptencoding utf-8
 " vim-plug plugins
 call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'  " Status bar & tabline
+Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'  " General fuzzy finder
 Plug 'scrooloose/nerdtree'
@@ -197,3 +198,5 @@ let g:airline#extensions#tabline#fnamemod = ':t'  " Show just the filename
 let g:mta_filetypes = {
     \ 'php' : 1,
     \}
+
+let g:airline_theme='distinguished'
