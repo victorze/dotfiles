@@ -11,6 +11,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'jiangmiao/auto-pairs'
 Plug 'alvan/vim-closetag'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'digitaltoad/vim-pug'
 
 Plug 'cseelus/vim-colors-lucid'
 Plug 'NLKNguyen/papercolor-theme'
@@ -49,11 +50,12 @@ set termguicolors  " Active true colors on terminal
 let g:gruvbox_contrast_dark = 'hard'
 set background=dark
 let ayucolor="dark"
-colorscheme ayu
+colorscheme gruvbox
 
 " Mark trailing spaces.
 if &t_Co > 2 || has("gui_running")
-    highlight ExtraWhitespace ctermbg=red guibg=lightblue
+    highlight ExtraWhitespace ctermbg=red guibg=gray
+    "highlight ExtraWhitespace ctermbg=red guibg=lightblue
     match ExtraWhitespace /\s\+$/
 else
     set listchars=trail:~
@@ -77,13 +79,13 @@ set guioptions-=m  " hide the menu bar
 set guioptions-=T  " hide the menu tools
 set guioptions-=r  " hide the bar scroll
 set guioptions-=L  " hide the bar scroll
-set linespace=3
+"set linespace=10
 
 "au GUIEnter * simalt ~x " start gVim maximized
 
 " to set the initial window size.
-set columns=85
-set lines=18
+set columns=75
+set lines=17
 
 " Disable beep sound
 set belloff=all
@@ -156,7 +158,7 @@ if has("gui_running")
   elseif has("gui_macvim")
     set guifont=Menlo\ Regular:h14
   elseif has("gui_win32")
-    set guifont=Consolas:h10:cANSI
+    set guifont=Consolas:h10cANSI
   endif
 endif
 
@@ -194,6 +196,12 @@ iabbrev sso System.out.print
 iabbrev ccw Console.WriteLine
 iabbrev ccr Console.ReadLine();
 
+" no close gvim
+noremap <s-z> <esc>
+
+" add comment python
+nnoremap <leader>ñ I#<esc>
+
 " --------------------------------------------
 " # Plugins Settings
 " --------------------------------------------
@@ -227,7 +235,7 @@ let g:mta_filetypes = {
     \ 'php' : 1,
     \}
 
-let g:airline_theme='distinguished'
+"let g:airline_theme='distinguished'
 
 " ## ctrl-p
 nnoremap <leader>f :CtrlP<CR>
