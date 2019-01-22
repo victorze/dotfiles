@@ -12,6 +12,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'alvan/vim-closetag'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'digitaltoad/vim-pug'
+Plug 'davidhalter/jedi-vim'
 
 Plug 'cseelus/vim-colors-lucid'
 Plug 'NLKNguyen/papercolor-theme'
@@ -240,3 +241,12 @@ let g:mta_filetypes = {
 " ## ctrl-p
 nnoremap <leader>f :CtrlP<CR>
 set wildignore+=*\\vendor\\*,*\\node_modules\\*,*.swp,*.zip,*.exe  " Windows
+
+
+" ### Jedi
+let g:jedi#completions_enabled = 1
+
+let g:jedi#goto_command = '<localleader>d'
+let g:jedi#goto_assignments_command = '<localleader>g'
+let g:jedi#usages_command = '<localleader>n'
+let g:jedi#rename_command = '<localleader>r'
