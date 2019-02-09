@@ -12,7 +12,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'alvan/vim-closetag'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'digitaltoad/vim-pug'
-Plug 'davidhalter/jedi-vim'
 
 Plug 'cseelus/vim-colors-lucid'
 Plug 'NLKNguyen/papercolor-theme'
@@ -20,6 +19,7 @@ Plug 'koirand/tokyo-metro.vim'
 Plug 'morhetz/gruvbox'
 Plug 'nanotech/jellybeans.vim'
 Plug 'ayu-theme/ayu-vim'
+Plug 'rakr/vim-one'
 call plug#end()
 
 " --------------------------------------------
@@ -49,9 +49,9 @@ set autoindent
 " ## Theme & Colorscheme
 set termguicolors  " Active true colors on terminal
 let g:gruvbox_contrast_dark = 'hard'
-set background=dark
 let ayucolor="dark"
-colorscheme gruvbox
+set background=light
+colorscheme one
 
 " Mark trailing spaces.
 if &t_Co > 2 || has("gui_running")
@@ -103,6 +103,9 @@ let g:maplocalleader = ','
 nnoremap <leader>ev :e ~\_vimrc<CR>
 nnoremap <leader>es :source ~\_vimrc<CR>
 
+" ## Copy the full path of current buffer to clipboard
+nnoremap <leader>c :let @+=expand('%:p')<CR>
+
 " ## Copy to clipboard
 vnoremap <leader>y "+y
 nnoremap <leader>y "+y
@@ -151,7 +154,9 @@ nnoremap <leader>rh :!php %:t<CR>
 nnoremap <leader>rn :!node %:t<CR>
 nnoremap <leader>rj :!javac %:t && java %:t:r<CR>
 nnoremap <leader>rd :!dotnet run<CR>
-nnoremap <leader>tp :!python -m unittest<CR>
+nnoremap <leader>tp :!p>ython -m unittest<CR>
+nnoremap <leader>rc :!gcc % && a<CR>
+nnoremap <leader>rl :!g++ % && a<CR>
 
 if has("gui_running")
   if has("gui_gtk2")
@@ -172,7 +177,7 @@ inoremap <c-u> <esc>viwU<esc>A
 nnoremap <c-u> viwU<esc>
 
 " Cursor end line
-inoremap <c-l> <esc>A
+inoremap <c-s> <esc>A;
 
 " Copy current word
 nnoremap <localleader>y viwy<esc>
@@ -244,7 +249,7 @@ set wildignore+=*\\vendor\\*,*\\node_modules\\*,*.swp,*.zip,*.exe  " Windows
 
 
 " ### Jedi
-let g:jedi#completions_enabled = 1
+let g:jedi#completions_enabled = 0
 
 let g:jedi#goto_command = '<localleader>d'
 let g:jedi#goto_assignments_command = '<localleader>g'
