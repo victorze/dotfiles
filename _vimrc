@@ -67,7 +67,7 @@ endif
 set hidden  " Allow change buffers without saving
 
 " ## Disable aditional files.
-set noswapfile " disable swapfiles (maybe a bad idea? 🤔)
+set noswapfile " disable swapfiles
 set nobackup " disable backup files (use git)
 set encoding=utf-8 " windows needs to be reminded about utf-8
 set backspace=indent,eol,start " backspace will always work on insert mode
@@ -90,6 +90,9 @@ set lines=17
 
 " Disable beep sound
 set belloff=all
+
+" add html syntax to dotnet razor files
+autocmd BufNewFile,BufRead *.cshtml set syntax=html
 
 " --------------------------------------------
 " # Mappings
@@ -154,9 +157,10 @@ nnoremap <leader>rh :!php %:t<CR>
 nnoremap <leader>rn :!node %:t<CR>
 nnoremap <leader>rj :!javac %:t && java %:t:r<CR>
 nnoremap <leader>rd :!dotnet run<CR>
-nnoremap <leader>tp :!p>ython -m unittest<CR>
+nnoremap <leader>tp :!python -m unittest<CR>
 nnoremap <leader>rc :!gcc % && a<CR>
 nnoremap <leader>rl :!g++ % && a<CR>
+nnoremap <leader>rf :!mvn package && java -cp target\Caligula-1.0-SNAPSHOT.jar pe.victorze.caligula.MainApp<CR>
 
 if has("gui_running")
   if has("gui_gtk2")
@@ -227,7 +231,7 @@ nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>N :NERDTreeFind<CR>
 
 " ## vim-closetag
-let g:closetag_filenames = "*.html,*.xml,*.blade.php"
+let g:closetag_filenames = "*.html,*.xml,*.blade.php,*.cshtml"
 
 " ## Airline
 " Mappings to change buffer
@@ -246,12 +250,3 @@ let g:mta_filetypes = {
 " ## ctrl-p
 nnoremap <leader>f :CtrlP<CR>
 set wildignore+=*\\vendor\\*,*\\node_modules\\*,*.swp,*.zip,*.exe  " Windows
-
-
-" ### Jedi
-let g:jedi#completions_enabled = 0
-
-let g:jedi#goto_command = '<localleader>d'
-let g:jedi#goto_assignments_command = '<localleader>g'
-let g:jedi#usages_command = '<localleader>n'
-let g:jedi#rename_command = '<localleader>r'
