@@ -12,11 +12,12 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'  " General fuzzy finder
 Plug 'scrooloose/nerdtree'
 Plug 'jiangmiao/auto-pairs'  " Autopair quotes, parentheses, etc.
-Plug 'airblade/vim-gitgutter'
 Plug 'mattn/emmet-vim'
 Plug 'cseelus/vim-colors-lucid'
 Plug 'morhetz/gruvbox'
 Plug 'ayu-theme/ayu-vim'
+Plug 'mhartington/oceanic-next'
+Plug 'sjl/badwolf'
 call plug#end()
 
 
@@ -33,7 +34,7 @@ set colorcolumn=80  " Set & show limit column
 set scrolloff=3     " Display at least 3 lines around you cursor
 
 " ## Lines
-set nowrap  " No wrap lines (display long lines)
+"set nowrap  " No wrap lines (display long lines)
 set number  " Display line numbers
 set relativenumber  " Show relative line numbers
 
@@ -48,7 +49,7 @@ set termguicolors  " Active true colors on terminal
 let g:gruvbox_contrast_dark = 'hard'
 set background=dark
 let ayucolor="dark"
-colorscheme ayu
+colorscheme badwolf
 
 " ## Buffers
 set hidden  " Allow change buffers without saving
@@ -56,7 +57,7 @@ set hidden  " Allow change buffers without saving
 " Mark trailing spaces.
 if &t_Co >= 2 || has("gui_running")
     " Fancy highlighting for space groups.
-    highlight ExtraWhitespace ctermbg=red guibg=lightblue
+    highlight ExtraWhitespace ctermbg=red guibg=gray
     match ExtraWhitespace /\s\+$/
 else
     " Fallback trailing system.
