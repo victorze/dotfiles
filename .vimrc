@@ -8,16 +8,16 @@ scriptencoding utf-8
 call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'  " Status bar & tabline
 Plug 'vim-airline/vim-airline-themes'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'  " General fuzzy finder
 Plug 'scrooloose/nerdtree'
 Plug 'jiangmiao/auto-pairs'  " Autopair quotes, parentheses, etc.
 Plug 'mattn/emmet-vim'
 Plug 'cseelus/vim-colors-lucid'
 Plug 'morhetz/gruvbox'
 Plug 'ayu-theme/ayu-vim'
+Plug 'arcticicestudio/nord-vim'
 Plug 'mhartington/oceanic-next'
 Plug 'sjl/badwolf'
+Plug 'smallwat3r/vim-hashpunk-sw'
 call plug#end()
 
 
@@ -30,11 +30,11 @@ call plug#end()
 set mouse=a
 set noshowmode
 
-set colorcolumn=80  " Set & show limit column
+"set colorcolumn=80  " Set & show limit column
 set scrolloff=3     " Display at least 3 lines around you cursor
 
 " ## Lines
-"set nowrap  " No wrap lines (display long lines)
+set nowrap  " No wrap lines (display long lines)
 set number  " Display line numbers
 set relativenumber  " Show relative line numbers
 
@@ -49,7 +49,7 @@ set termguicolors  " Active true colors on terminal
 let g:gruvbox_contrast_dark = 'hard'
 set background=dark
 let ayucolor="dark"
-colorscheme badwolf
+colorscheme hashpunk-sw-sweet
 
 " ## Buffers
 set hidden  " Allow change buffers without saving
@@ -99,7 +99,7 @@ nnoremap <leader>p "+p
 vnoremap <leader>p "+p
 
 " Search files fzf
-nnoremap <leader>f :Files<CR>
+nnoremap <leader>f :FZF<CR>
 
 " Open terminal
 nnoremap <leader>ot :bel term<CR>
@@ -132,8 +132,8 @@ nnoremap <leader>rd :!dotnet run<CR>
 nnoremap <leader>tp :!python3 -m unittest<CR>
 
 " Mode normal
-inoremap jk <esc>
-inoremap <esc> <nop>
+"inoremap jk <esc>
+"inoremap <esc> <nop>
 
 " Current word to uppercase
 inoremap <c-u> <esc>viwU<esc>A
@@ -173,7 +173,7 @@ iabbrev ccr Console.ReadLine();
 " Ignored files
 let g:NERDTreeIgnore = [
     \ '\.pyc$', '^__pycache__$',
-    \ 'node_modules', '\.git$'
+    \ '\.git$'
     \]
 
 let g:NERDTreeMinimalUI = 1  " Hide help text
