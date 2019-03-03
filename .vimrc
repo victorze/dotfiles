@@ -30,7 +30,7 @@ call plug#end()
 set mouse=a
 set noshowmode
 
-"set colorcolumn=80  " Set & show limit column
+set colorcolumn=80  " Set & show limit column
 set scrolloff=3     " Display at least 3 lines around you cursor
 
 " ## Lines
@@ -157,13 +157,10 @@ nnoremap H 0
 " end of the current line
 nnoremap L $
 
-" ## code snippets
-" java
-iabbrev sso System.out.print
+" Tab
+nnoremap <Tab> >>
+nnoremap <S-Tab> <<
 
-" c#
-iabbrev ccw Console.WriteLine
-iabbrev ccr Console.ReadLine();
 
 " --------------------------------------------
 " # Plugins Settings
