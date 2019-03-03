@@ -201,3 +201,6 @@ let g:mta_filetypes = {
     \}
 
 let g:airline_theme='distinguished'
+
+" ctrlp
+set runtimepath^=~/.vim/bundle/ctrlp.vim
