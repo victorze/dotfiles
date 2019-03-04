@@ -18,6 +18,7 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'mhartington/oceanic-next'
 Plug 'sjl/badwolf'
 Plug 'smallwat3r/vim-hashpunk-sw'
+Plug 'victorze/foo'
 call plug#end()
 
 
@@ -49,7 +50,7 @@ set termguicolors  " Active true colors on terminal
 let g:gruvbox_contrast_dark = 'hard'
 set background=dark
 let ayucolor="dark"
-colorscheme hashpunk-sw-sweet
+colorscheme foo-mrrobot
 
 " ## Buffers
 set hidden  " Allow change buffers without saving
@@ -74,6 +75,10 @@ set backspace=indent,eol,start " backspace will always work on insert mode
 " Disable beep sound
 set belloff=all
 
+" Sarch
+set ignorecase
+
+
 " --------------------------------------------
 " Mappings
 " --------------------------------------------
@@ -86,6 +91,9 @@ let g:maplocalleader = ','
 nnoremap <leader>ev :e $MYVIMRC<CR>
 nnoremap <leader>es :source $MYVIMRC<CR>
 
+" You can see all the groups - Highlight
+nnoremap <leader>g :so $VIMRUNTIME/syntax/hitest.vim<CR>
+
 " Copy to clipboard
 vnoremap <leader>y "+y
 nnoremap <leader>y "+y
@@ -97,9 +105,6 @@ nnoremap <leader>d "+d
 " Paste from clipboard
 nnoremap <leader>p "+p
 vnoremap <leader>p "+p
-
-" Search files fzf
-nnoremap <leader>f :FZF<CR>
 
 " Open terminal
 nnoremap <leader>ot :bel term<CR>
