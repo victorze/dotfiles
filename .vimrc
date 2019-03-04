@@ -11,13 +11,12 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
 Plug 'jiangmiao/auto-pairs'  " Autopair quotes, parentheses, etc.
 Plug 'mattn/emmet-vim'
+Plug 'ctrlpvim/ctrlp.vim'
+
 Plug 'cseelus/vim-colors-lucid'
 Plug 'morhetz/gruvbox'
 Plug 'ayu-theme/ayu-vim'
-Plug 'arcticicestudio/nord-vim'
-Plug 'mhartington/oceanic-next'
 Plug 'sjl/badwolf'
-Plug 'smallwat3r/vim-hashpunk-sw'
 Plug 'victorze/foo'
 call plug#end()
 
@@ -27,7 +26,7 @@ call plug#end()
 " --------------------------------------------
 
 " ## GUI
-"set title
+set notitle
 set mouse=a
 set noshowmode
 
@@ -47,9 +46,7 @@ set autoindent
 
 " ## Theme & Colorscheme
 set termguicolors  " Active true colors on terminal
-let g:gruvbox_contrast_dark = 'hard'
 set background=dark
-let ayucolor="dark"
 colorscheme foo-mrrobot
 
 " ## Buffers
@@ -75,8 +72,11 @@ set backspace=indent,eol,start " backspace will always work on insert mode
 " Disable beep sound
 set belloff=all
 
-" Sarch
+" Search
 set ignorecase
+
+" Disable recording
+map q <Nop>
 
 
 " --------------------------------------------
@@ -93,6 +93,9 @@ nnoremap <leader>es :source $MYVIMRC<CR>
 
 " You can see all the groups - Highlight
 nnoremap <leader>g :so $VIMRUNTIME/syntax/hitest.vim<CR>
+
+" Copy the full path of current buffer to clipboard
+nnoremap <localleader>fp :let @+=expand('%:p')<CR>
 
 " Copy to clipboard
 vnoremap <leader>y "+y
@@ -126,6 +129,7 @@ nnoremap <C-l> <C-w>l
 
 " Run current file
 nnoremap <leader>rp :!python3 %:t<CR>
+nnoremap <leader>tp :!python3 -m unittest<CR>
 nnoremap <leader>rh :!php %:t<CR>
 nnoremap <leader>rn :!node %:t<CR>
 nnoremap <leader>rc :!gcc % && ./a.out<CR>
@@ -133,28 +137,13 @@ nnoremap <leader>rl :!g++ % && ./a.out<CR>
 nnoremap <leader>rb :!bash %:t<CR>
 nnoremap <leader>ra :!nasm -felf64 % -o a.o && ld -o a a.o && ./a<CR>
 nnoremap <leader>rj :!javac %:t && java %:t:r<CR>
-nnoremap <leader>rd :!dotnet run<CR>
-nnoremap <leader>tp :!python3 -m unittest<CR>
-
-" Mode normal
-"inoremap jk <esc>
-"inoremap <esc> <nop>
 
 " Current word to uppercase
 inoremap <c-u> <esc>viwU<esc>A
 nnoremap <c-u> viwU<esc>
 
-" Cursor end of the current line
-inoremap <c-l> <esc>A
-
-" Copy current word
-nnoremap <localleader>y viwy<esc>
-
 " Select content document
 nnoremap <leader>a ggvG$
-
-" Next line
-inoremap <c-o> <esc>o
 
 " beginning of the current line
 nnoremap H 0
@@ -204,5 +193,20 @@ let g:mta_filetypes = {
 
 let g:airline_theme='distinguished'
 
-" ctrlp
+" ## ctrlp
 set runtimepath^=~/.vim/bundle/ctrlp.vim
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/*,*/node_modules/*,*/venv/*
+
+" win32 gvim
+if has("gui_win32")
+    set guifont=Consolas:h10:cANSI
+    set guioptions-=m  " hide the menu bar
+    set guioptions-=T  " hide the menu tools
+    set guioptions-=r  " hide the bar scroll
+    set guioptions-=L  " hide the bar scroll
+    "set linespace=10
+    set columns=80
+    set lines=17
+    noremap <s-z> <esc>
+    set wildignore+=*\\vendor\\*,*\\node_modules\\*,*.swp,*.zip,*.exe,*\\venv\\*
+endif
