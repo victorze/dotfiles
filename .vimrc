@@ -155,6 +155,8 @@ nnoremap L $
 nnoremap <Tab> >>
 nnoremap <S-Tab> <<
 
+" Expand window
+nnoremap <leader>e <c-w>100+
 
 " --------------------------------------------
 " # Plugins Settings
