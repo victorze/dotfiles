@@ -18,6 +18,7 @@ Plug 'morhetz/gruvbox'
 Plug 'ayu-theme/ayu-vim'
 Plug 'sjl/badwolf'
 Plug 'victorze/foo'
+Plug 'digitaltoad/vim-pug'
 call plug#end()
 
 
@@ -43,6 +44,7 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 set autoindent
+autocmd Filetype pug setlocal ts=2 sw=2 sts=0 expandtab
 
 " ## Theme & Colorscheme
 set termguicolors  " Active true colors on terminal
