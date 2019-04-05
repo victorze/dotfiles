@@ -1,0 +1,9 @@
+[
+    { "keys": ["ctrl+."], "command": "toggle_side_bar" },
+
+    // php companion
+    { "keys": ["ctrl+alt+g"], "command": "goto_definition_scope" },
+    { "keys": ["ctrl+alt+s"], "command": "find_use" },
+    { "keys": ["ctrl+alt+e"], "command": "expand_fqcn", "args": {"leading_separator": true} },
+    { "keys": ["ctrl+shift+e"], "command": "expand_fqcn" }
+]
