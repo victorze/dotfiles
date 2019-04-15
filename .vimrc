@@ -12,6 +12,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'jiangmiao/auto-pairs'  " Autopair quotes, parentheses, etc.
 Plug 'mattn/emmet-vim'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'leafgarland/typescript-vim'
 
 Plug 'cseelus/vim-colors-lucid'
 Plug 'morhetz/gruvbox'
@@ -19,6 +20,8 @@ Plug 'ayu-theme/ayu-vim'
 Plug 'sjl/badwolf'
 Plug 'victorze/foo'
 Plug 'digitaltoad/vim-pug'
+Plug 'cormacrelf/vim-colors-github'
+Plug 'cocopon/iceberg.vim'
 call plug#end()
 
 
@@ -45,11 +48,13 @@ set softtabstop=4
 set expandtab
 set autoindent
 autocmd Filetype pug setlocal ts=2 sw=2 sts=0 expandtab
+autocmd Filetype ruby setlocal ts=2 sw=2 sts=0 expandtab
 
 " ## Theme & Colorscheme
 set termguicolors  " Active true colors on terminal
+let g:gruvbox_contrast_dark = "hard"
 set background=dark
-colorscheme foo-mrrobot
+colorscheme iceberg
 
 " ## Buffers
 set hidden  " Allow change buffers without saving
@@ -129,7 +134,7 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-" Run current file
+" Run app
 nnoremap <leader>rp :!python3 %:t<CR>
 nnoremap <leader>tp :!python3 -m unittest<CR>
 nnoremap <leader>rh :!php %:t<CR>
@@ -139,6 +144,8 @@ nnoremap <leader>rl :!g++ % && ./a.out<CR>
 nnoremap <leader>rb :!bash %:t<CR>
 nnoremap <leader>ra :!nasm -felf64 % -o a.o && ld -o a a.o && ./a<CR>
 nnoremap <leader>rj :!javac %:t && java %:t:r<CR>
+nnoremap <leader>rr :!cargo run<CR>
+nnoremap <leader>rk :!cargo check<CR>
 
 " Current word to uppercase
 inoremap <c-u> <esc>viwU<esc>A
@@ -195,7 +202,7 @@ let g:mta_filetypes = {
     \ 'php' : 1,
     \}
 
-let g:airline_theme='distinguished'
+"let g:airline_theme='distinguished'
 
 " ## ctrlp
 set runtimepath^=~/.vim/bundle/ctrlp.vim
