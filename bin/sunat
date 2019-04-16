@@ -12,7 +12,7 @@ const nameMonths = [0, 'enero','febrero','marzo','abril',
 function consultForMonth(year, month) {
     const limitMonth = limit[year][month]
 
-    console.log(`Periodo tributario: ${nameMonths[3].toUpperCase()}`)
+    console.log(`Periodo tributario: ${nameMonths[3].toUpperCase()} - ${year}`)
     console.log()
 
     console.log(`RUC\tVencimiento`)
