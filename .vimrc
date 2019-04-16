@@ -22,6 +22,7 @@ Plug 'victorze/foo'
 Plug 'digitaltoad/vim-pug'
 Plug 'cormacrelf/vim-colors-github'
 Plug 'cocopon/iceberg.vim'
+Plug 'joshdick/onedark.vim'
 call plug#end()
 
 
@@ -81,9 +82,6 @@ set belloff=all
 
 " Search
 set ignorecase
-
-" Disable recording
-map q <Nop>
 
 
 " --------------------------------------------
@@ -167,6 +165,9 @@ nnoremap <S-Tab> <<
 " Expand window
 nnoremap <leader>e <c-w>100+
 
+" Top cursor on screen
+nnoremap <localleader>g zz15<c-e>
+
 " --------------------------------------------
 " # Plugins Settings
 " --------------------------------------------
@@ -182,9 +183,7 @@ let g:NERDTreeMinimalUI = 1  " Hide help text
 let g:NERDTreeAutoDeleteBuffer = 1
 let NERDTreeShowHidden = 1
 
-nnoremap <leader>n :NERDTreeToggle<CR>
-nnoremap <leader>N :NERDTreeFind<CR>
-
+nnoremap <c-b> :NERDTreeToggle<CR>
 
 " ## vim-closetag
 let g:closetag_filenames = "*.html,*.html.erb,*.xml, *.blade.php"
