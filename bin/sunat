@@ -1,0 +1,56 @@
+#!/usr/bin/node
+
+const limit = require('./sunatvctos')
+
+const shortNameMonths = [0, 'ene', 'feb', 'mar', 'abr', 'may', 'jun',
+                        'jul', 'ago', 'set', 'oct', 'nov', 'dic']
+
+const nameMonths = [0, 'enero','febrero','marzo','abril',
+                   'mayo','junio','julio','agosto',
+                   'septiembre','octubre','noviembre','diciembre']
+
+function consultForMonth(year, month) {
+    const limitMonth = limit[year][month]
+
+    console.log(`Periodo tributario: ${nameMonths[3].toUpperCase()}`)
+    console.log()
+
+    console.log(`RUC\tVencimiento`)
+    for (let digitRuc in limitMonth) {
+        console.log(` ${digitRuc}\t${limitMonth[digitRuc]} de ${nameMonths[+month + 1]}`)
+    }
+}
+
+function consultForYear(year) {
+    const limitYear = limit[year]
+    console.log(`Año: ${year}`)
+    console.log()
+
+    console.log('Mes    0       1       2       3       4       5       6       7       8       9      bc')
+
+    for (let month in limitYear) {
+        let infoMonth = ` ${month}  `
+
+        for(let day of Object.values(limitYear[month])) {
+            infoMonth += `${day}-${shortNameMonths[+month + 1]}  `
+        }
+
+        console.log(infoMonth)
+    }
+}
+
+if (process.argv.length === 4) {
+    const year = process.argv[2]
+    const month = process.argv[3]
+    consultForMonth(year, month)
+}
+
+if (process.argv.length === 3) {
+    const year = process.argv[2]
+    consultForYear(year)
+}
+
+
+if (process.argv.length === 2) {
+    consultForMonth(new Date().getUTCFullYear(), new Date().getUTCMonth())
+}
