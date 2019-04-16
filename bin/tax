@@ -1,0 +1,29 @@
+#!/bin/bash
+
+IGV=18
+
+print_result() {
+    echo Base: $1
+    echo IGV: $2
+    echo Total: $3
+}
+
+if [ $# -ne 2 ]; then
+    echo 'Debe ingresar dos argumentos. Ejemplo:'
+    echo 'tax + 100'
+    exit 2
+fi
+
+if [ $1 = '+' ]; then
+    base=$2
+    total=$(echo "$2 * 1.$IGV" | bc -l)
+    igv=$(echo "$total - $base" | bc -l)
+
+    print_result $base $igv $total
+elif [ $1 = '-' ]; then
+    base=$(echo "$2 / 1.$IGV" | bc -l)
+    total=$2
+    igv=$(echo "$total - $base" | bc -l)
+
+    print_result $base $igv $total
+fi
