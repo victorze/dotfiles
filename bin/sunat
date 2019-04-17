@@ -11,28 +11,30 @@ const nameMonths = [0, 'enero','febrero','marzo','abril',
 
 function consultForMonth(year, month) {
     const limitMonth = limit[year][month]
+    const monthPresentation = Number.parseInt(month) % 12 + 1
 
-    console.log(`Periodo tributario: ${nameMonths[3].toUpperCase()} - ${year}`)
-    console.log()
+    console.log(`\n\nPERIODO TRIBUTARIO: ${nameMonths[month].toUpperCase()} - ${year}\n`)
 
     console.log(`RUC\tVencimiento`)
     for (let digitRuc in limitMonth) {
-        console.log(` ${digitRuc}\t${limitMonth[digitRuc]} de ${nameMonths[+month + 1]}`)
+        console.log(` ${digitRuc}\t${limitMonth[digitRuc]} de ${nameMonths[monthPresentation]}`)
     }
 }
 
 function consultForYear(year) {
     const limitYear = limit[year]
-    console.log(`Año: ${year}`)
-    console.log()
+    console.log(`\n\nCRONOGRAMA DE OBLIGACIONES MENSUALES - EJERCICIO: ${year}\n`)
 
     console.log('Mes    0       1       2       3       4       5       6       7       8       9      bc')
 
     for (let month in limitYear) {
         let infoMonth = ` ${month}  `
+        const monthPresentation = Number.parseInt(month) % 12 + 1
+
+        if (month > 9) infoMonth = ` ${month} `
 
         for(let day of Object.values(limitYear[month])) {
-            infoMonth += `${day}-${shortNameMonths[+month + 1]}  `
+            infoMonth += `${day}-${shortNameMonths[monthPresentation]}  `
         }
 
         console.log(infoMonth)
