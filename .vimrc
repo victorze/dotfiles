@@ -13,16 +13,16 @@ Plug 'jiangmiao/auto-pairs'  " Autopair quotes, parentheses, etc.
 Plug 'mattn/emmet-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'leafgarland/typescript-vim'
+Plug 'digitaltoad/vim-pug'
 
 Plug 'cseelus/vim-colors-lucid'
 Plug 'morhetz/gruvbox'
 Plug 'ayu-theme/ayu-vim'
 Plug 'sjl/badwolf'
 Plug 'victorze/foo'
-Plug 'digitaltoad/vim-pug'
 Plug 'cormacrelf/vim-colors-github'
 Plug 'cocopon/iceberg.vim'
-Plug 'joshdick/onedark.vim'
+Plug 'rakr/vim-one'
 call plug#end()
 
 
@@ -53,9 +53,9 @@ autocmd Filetype ruby setlocal ts=2 sw=2 sts=0 expandtab
 
 " ## Theme & Colorscheme
 set termguicolors  " Active true colors on terminal
-let g:gruvbox_contrast_dark = "hard"
+"let g:gruvbox_contrast_dark = "hard"
 set background=dark
-colorscheme iceberg
+colorscheme one
 
 " ## Buffers
 set hidden  " Allow change buffers without saving
@@ -183,7 +183,7 @@ let g:NERDTreeMinimalUI = 1  " Hide help text
 let g:NERDTreeAutoDeleteBuffer = 1
 let NERDTreeShowHidden = 1
 
-nnoremap <c-b> :NERDTreeToggle<CR>
+nnoremap <leader>n :NERDTreeToggle<CR>
 
 " ## vim-closetag
 let g:closetag_filenames = "*.html,*.html.erb,*.xml, *.blade.php"
@@ -201,6 +201,7 @@ let g:mta_filetypes = {
     \ 'php' : 1,
     \}
 
+let g:airline_theme='one'
 "let g:airline_theme='distinguished'
 
 " ## ctrlp
