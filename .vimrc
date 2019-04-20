@@ -87,6 +87,9 @@ set belloff=all
 " Search
 set ignorecase
 
+" Jump between matching HTML/XML tags
+runtime macros/matchit.vim
+
 
 " --------------------------------------------
 " Mappings
