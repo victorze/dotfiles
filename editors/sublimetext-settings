@@ -1,17 +1,24 @@
 {
 	"close_windows_when_empty": true,
-	"color_scheme": "Packages/Material Theme/schemes/Material-Theme-Darker.tmTheme",
+	"color_scheme": "Packages/Theme - One Dark/Widget - One Dark.tmTheme",
 	"ensure_newline_at_eof_on_save": true,
 	"font_face": "consolas",
 	"font_size": 9.5,
 	"hot_exit": false,
 	"ignored_packages":
 	[
-		"Vintage"
+		"Six",
+		"Vintage",
+		"Vintageous"
 	],
-	"line_padding_bottom": 12,
-	"line_padding_top": 12,
-	"theme": "Material-Theme-Darker.sublime-theme",
+	"line_padding_bottom": 1,
+	"line_padding_top": 2,
+	"margin": 0,
+	"neovintageous_build_version": 11100,
+	"theme": "One Dark.sublime-theme",
 	"translate_tabs_to_spaces": true,
-	"trim_trailing_white_space_on_save": true
+	"trim_trailing_white_space_on_save": true,
+	"vintageous_use_ctrl_keys": null,
+	"vintageous_use_super_keys": null,
+	"show_definitions": false,
 }
