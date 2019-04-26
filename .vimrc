@@ -160,12 +160,6 @@ nnoremap <c-u> viwU<esc>
 " Select content document
 nnoremap <leader>a ggvG$
 
-" beginning of the current line
-nnoremap H 0
-
-" end of the current line
-nnoremap L $
-
 " Tab
 nnoremap <Tab> >>
 nnoremap <S-Tab> <<
@@ -175,6 +169,11 @@ nnoremap <leader>e <c-w>100+
 
 " Top cursor on screen
 nnoremap <localleader>g zz15<c-e>
+
+" Add semicolon
+inoremap <c-l> <esc>A;
+nnoremap <c-l> A;<esc>
+
 
 " --------------------------------------------
 " # Plugins Settings
