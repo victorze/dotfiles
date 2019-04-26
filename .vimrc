@@ -19,6 +19,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'jwalton512/vim-blade'
+Plug 'Glench/Vim-Jinja2-Syntax'
 
 Plug 'cseelus/vim-colors-lucid'
 Plug 'morhetz/gruvbox'
