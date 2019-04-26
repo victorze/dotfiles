@@ -18,6 +18,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
+Plug 'jwalton512/vim-blade'
 
 Plug 'cseelus/vim-colors-lucid'
 Plug 'morhetz/gruvbox'
