@@ -12,12 +12,13 @@ Plug 'scrooloose/nerdtree'
 Plug 'jiangmiao/auto-pairs'  " Autopair quotes, parentheses, etc.
 Plug 'mattn/emmet-vim'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'leafgarland/typescript-vim'
-Plug 'digitaltoad/vim-pug'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
+
+Plug 'leafgarland/typescript-vim'
+Plug 'digitaltoad/vim-pug'
 Plug 'jwalton512/vim-blade'
 Plug 'Glench/Vim-Jinja2-Syntax'
 
@@ -30,6 +31,7 @@ Plug 'cormacrelf/vim-colors-github'
 Plug 'cocopon/iceberg.vim'
 Plug 'rakr/vim-one'
 Plug 'mhartington/oceanic-next'
+Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end()
 
 
@@ -59,6 +61,7 @@ autocmd Filetype pug setlocal ts=2 sw=2 sts=0 expandtab
 autocmd Filetype ruby setlocal ts=2 sw=2 sts=0 expandtab
 
 " ## Theme & Colorscheme
+syntax enable
 set termguicolors  " Active true colors on terminal
 let ayucolor="mirage"
 let g:gruvbox_contrast_dark = "hard"
@@ -207,8 +210,7 @@ let g:mta_filetypes = {
     \ 'php' : 1,
     \}
 
-"let g:airline_theme='one'
-"let g:airline_theme='distinguished'
+let g:airline_theme='distinguished'
 
 " ## ctrlp
 set runtimepath^=~/.vim/bundle/ctrlp.vim
