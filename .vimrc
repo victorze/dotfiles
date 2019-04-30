@@ -29,6 +29,7 @@ Plug 'victorze/foo'
 Plug 'cormacrelf/vim-colors-github'
 Plug 'cocopon/iceberg.vim'
 Plug 'rakr/vim-one'
+Plug 'mhartington/oceanic-next'
 call plug#end()
 
 
@@ -37,7 +38,7 @@ call plug#end()
 " --------------------------------------------
 
 " ## GUI
-set notitle
+set title titlestring=👽
 set mouse=a
 set noshowmode
 
@@ -59,7 +60,8 @@ autocmd Filetype ruby setlocal ts=2 sw=2 sts=0 expandtab
 
 " ## Theme & Colorscheme
 set termguicolors  " Active true colors on terminal
-"let g:gruvbox_contrast_dark = "hard"
+let ayucolor="mirage"
+let g:gruvbox_contrast_dark = "hard"
 set background=dark
 colorscheme one
 
@@ -80,7 +82,7 @@ endif
 " Disable aditional files.
 set noswapfile      " disable swapfiles
 set nobackup        " disable backup files (use git)
-set encoding=utf-8  " windows needs to be reminded about utf-8
+set encoding=UTF-8  " windows needs to be reminded about utf-8
 set backspace=indent,eol,start " backspace will always work on insert mode
 
 " Disable beep sound
@@ -171,10 +173,6 @@ nnoremap <leader>e <c-w>100+
 " Top cursor on screen
 nnoremap <localleader>g zz15<c-e>
 
-" Add semicolon
-inoremap <c-l> <esc>A;
-nnoremap <c-l> A;<esc>
-
 
 " --------------------------------------------
 " # Plugins Settings
@@ -209,7 +207,7 @@ let g:mta_filetypes = {
     \ 'php' : 1,
     \}
 
-let g:airline_theme='one'
+"let g:airline_theme='one'
 "let g:airline_theme='distinguished'
 
 " ## ctrlp
