@@ -21,6 +21,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'digitaltoad/vim-pug'
 Plug 'jwalton512/vim-blade'
 Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'chemzqm/vim-jsx-improve'
 
 Plug 'cseelus/vim-colors-lucid'
 Plug 'morhetz/gruvbox'
@@ -40,7 +41,7 @@ call plug#end()
 " --------------------------------------------
 
 " ## GUI
-set title titlestring=👽
+set title titlestring=:)
 set mouse=a
 set noshowmode
 
@@ -57,6 +58,8 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 set autoindent
+autocmd Filetype typescript setlocal ts=2 sw=2 sts=0 expandtab
+autocmd Filetype javascript setlocal ts=2 sw=2 sts=0 expandtab
 autocmd Filetype pug setlocal ts=2 sw=2 sts=0 expandtab
 autocmd Filetype ruby setlocal ts=2 sw=2 sts=0 expandtab
 
@@ -176,6 +179,9 @@ nnoremap <leader>e <c-w>100+
 " Top cursor on screen
 nnoremap <localleader>g zz15<c-e>
 
+" Add semicolons to the end of the line
+inoremap <c-l> <esc>A;
+
 
 " --------------------------------------------
 " # Plugins Settings
@@ -210,7 +216,7 @@ let g:mta_filetypes = {
     \ 'php' : 1,
     \}
 
-let g:airline_theme='distinguished'
+"let g:airline_theme='distinguished'
 
 " ## ctrlp
 set runtimepath^=~/.vim/bundle/ctrlp.vim
