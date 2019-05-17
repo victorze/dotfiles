@@ -69,7 +69,7 @@ set termguicolors  " Active true colors on terminal
 let ayucolor="mirage"
 let g:gruvbox_contrast_dark = "hard"
 set background=dark
-colorscheme one
+colorscheme gruvbox
 
 " ## Buffers
 set hidden  " Allow change buffers without saving
@@ -138,7 +138,7 @@ nnoremap <leader>ot :bel term<CR>
 tnoremap <esc> <C-\><C-n>
 
 " Close buffer
-nnoremap <leader>w :bd<CR>
+nnoremap <c-w> :bd<CR>
 
 " Save file
 nnoremap <leader>s :w<CR>
