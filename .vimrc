@@ -9,30 +9,20 @@ call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'  " Status bar & tabline
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
-Plug 'jiangmiao/auto-pairs'  " Autopair quotes, parentheses, etc.
 Plug 'mattn/emmet-vim'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
 
 Plug 'leafgarland/typescript-vim'
 Plug 'digitaltoad/vim-pug'
 Plug 'jwalton512/vim-blade'
 Plug 'Glench/Vim-Jinja2-Syntax'
-Plug 'chemzqm/vim-jsx-improve'
 
 Plug 'cseelus/vim-colors-lucid'
 Plug 'morhetz/gruvbox'
 Plug 'ayu-theme/ayu-vim'
 Plug 'sjl/badwolf'
 Plug 'victorze/foo'
-Plug 'cormacrelf/vim-colors-github'
 Plug 'cocopon/iceberg.vim'
-Plug 'rakr/vim-one'
-Plug 'mhartington/oceanic-next'
-Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end()
 
 
@@ -41,7 +31,7 @@ call plug#end()
 " --------------------------------------------
 
 " ## GUI
-set title titlestring=:)
+set notitle
 set mouse=a
 set noshowmode
 
@@ -58,18 +48,14 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 set autoindent
-autocmd Filetype typescript setlocal ts=2 sw=2 sts=0 expandtab
-autocmd Filetype javascript setlocal ts=2 sw=2 sts=0 expandtab
 autocmd Filetype pug setlocal ts=2 sw=2 sts=0 expandtab
 autocmd Filetype ruby setlocal ts=2 sw=2 sts=0 expandtab
 
 " ## Theme & Colorscheme
-syntax enable
 set termguicolors  " Active true colors on terminal
-let ayucolor="mirage"
 let g:gruvbox_contrast_dark = "hard"
 set background=dark
-colorscheme gruvbox
+colorscheme foo-hyper
 
 " ## Buffers
 set hidden  " Allow change buffers without saving
@@ -88,7 +74,7 @@ endif
 " Disable aditional files.
 set noswapfile      " disable swapfiles
 set nobackup        " disable backup files (use git)
-set encoding=UTF-8  " windows needs to be reminded about utf-8
+set encoding=utf-8  " windows needs to be reminded about utf-8
 set backspace=indent,eol,start " backspace will always work on insert mode
 
 " Disable beep sound
@@ -113,12 +99,6 @@ let g:maplocalleader = ','
 nnoremap <leader>ev :e $MYVIMRC<CR>
 nnoremap <leader>es :source $MYVIMRC<CR>
 
-" You can see all the groups - Highlight
-nnoremap <leader>g :so $VIMRUNTIME/syntax/hitest.vim<CR>
-
-" Copy the full path of current buffer to clipboard
-nnoremap <localleader>fp :let @+=expand('%:p')<CR>
-
 " Copy to clipboard
 vnoremap <leader>y "+y
 nnoremap <leader>y "+y
@@ -131,36 +111,14 @@ nnoremap <leader>d "+d
 nnoremap <leader>p "+p
 vnoremap <leader>p "+p
 
-" Open terminal
-nnoremap <leader>ot :bel term<CR>
-
-" Exit terminal mode with escape
-tnoremap <esc> <C-\><C-n>
-
 " Close buffer
-nnoremap <c-w> :bd<CR>
+nnoremap <leader>w :bd<CR>
 
 " Save file
 nnoremap <leader>s :w<CR>
 
-" Make window navigation less painful
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
-" Run app
-nnoremap <leader>rp :!python3 %:t<CR>
-nnoremap <leader>tp :!python3 -m unittest<CR>
-nnoremap <leader>rh :!php %:t<CR>
-nnoremap <leader>rn :!node %:t<CR>
-nnoremap <leader>rc :!gcc % && ./a.out<CR>
-nnoremap <leader>rl :!g++ % && ./a.out<CR>
-nnoremap <leader>rb :!bash %:t<CR>
-nnoremap <leader>ra :!nasm -felf64 % -o a.o && ld -o a a.o && ./a<CR>
-nnoremap <leader>rj :!javac %:t && java %:t:r<CR>
-nnoremap <leader>rr :!cargo run<CR>
-nnoremap <leader>rk :!cargo check<CR>
+" Escape sequence newline
+inoremap <c-n> \n
 
 " Current word to uppercase
 inoremap <c-u> <esc>viwU<esc>A
@@ -169,18 +127,41 @@ nnoremap <c-u> viwU<esc>
 " Select content document
 nnoremap <leader>a ggvG$
 
-" Tab
-nnoremap <Tab> >>
-nnoremap <S-Tab> <<
+" Insert mode to normal mode
+inoremap jk <esc>
 
-" Expand window
-nnoremap <leader>e <c-w>100+
+" Go to the beginning of the current line
+nnoremap H 0
 
-" Top cursor on screen
-nnoremap <localleader>g zz15<c-e>
+" Go to the end of the current line
+nnoremap L $
 
-" Add semicolons to the end of the line
-inoremap <c-l> <esc>A;
+" Disabling the old keys
+inoremap <esc> <nop>
+inoremap 0 <nop>
+inoremap $ <nop>
+
+" You can see all the groups - Highlight
+nnoremap <leader>g :so $VIMRUNTIME/syntax/hitest.vim<CR>
+
+" Copy the full path of current buffer to clipboard
+nnoremap <localleader>fp :let @+=expand('%:p')<CR>
+
+" Run app
+nnoremap <leader>rp :!python3 %:t<CR>
+nnoremap <leader>tp :!python3 -m unittest<CR>
+nnoremap <leader>rh :!php %:t<CR>
+nnoremap <leader>rn :!node %:t<CR>
+nnoremap <leader>rc :!gcc -Wall % && ./a.out<CR>
+nnoremap <leader>rl :!g++ % && ./a.out<CR>
+nnoremap <leader>rb :!bash %:t<CR>
+nnoremap <leader>ra :!nasm -f elf64 % -o a.o && ld -o a a.o && ./a<CR>
+nnoremap <leader>rj :!javac %:t && java %:t:r<CR>
+nnoremap <leader>rr :!cargo run<CR>
+nnoremap <leader>rk :!cargo check<CR>
+
+" Abbreviations
+iabbrev sop System.out.print
 
 
 " --------------------------------------------
@@ -200,9 +181,6 @@ let NERDTreeShowHidden = 1
 
 nnoremap <leader>n :NERDTreeToggle<CR>
 
-" ## vim-closetag
-let g:closetag_filenames = "*.html,*.html.erb,*.xml, *.blade.php"
-
 
 " ## Airline
 " Mappings to change buffer
@@ -216,11 +194,15 @@ let g:mta_filetypes = {
     \ 'php' : 1,
     \}
 
-"let g:airline_theme='distinguished'
+
+"let g:airline_theme='one'
+let g:airline_theme='distinguished'
+
 
 " ## ctrlp
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/*,*/node_modules/*,*/venv/*
+
 
 " win32 gvim
 if has("gui_win32")
