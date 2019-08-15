@@ -138,8 +138,8 @@ nnoremap L $
 
 " Disabling the old keys
 inoremap <esc> <nop>
-inoremap 0 <nop>
-inoremap $ <nop>
+nnoremap 0 <nop>
+nnoremap $ <nop>
 
 " You can see all the groups - Highlight
 nnoremap <leader>g :so $VIMRUNTIME/syntax/hitest.vim<CR>
