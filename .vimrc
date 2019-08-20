@@ -23,6 +23,7 @@ Plug 'ayu-theme/ayu-vim'
 Plug 'sjl/badwolf'
 Plug 'victorze/foo'
 Plug 'cocopon/iceberg.vim'
+Plug 'NLKNguyen/papercolor-theme'
 call plug#end()
 
 
@@ -55,7 +56,7 @@ autocmd Filetype ruby setlocal ts=2 sw=2 sts=0 expandtab
 set termguicolors  " Active true colors on terminal
 let g:gruvbox_contrast_dark = "hard"
 set background=dark
-colorscheme foo-hyper
+colorscheme gruvbox
 
 " ## Buffers
 set hidden  " Allow change buffers without saving
@@ -110,6 +111,12 @@ nnoremap <leader>d "+d
 " Paste from clipboard
 nnoremap <leader>p "+p
 vnoremap <leader>p "+p
+
+" Make window navigation less painful
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 " Close buffer
 nnoremap <leader>w :bd<CR>
