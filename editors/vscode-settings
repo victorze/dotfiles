@@ -38,6 +38,10 @@
             "after": ["g", "g", "v", "G"]
         },
         {
+            "before": ["leader", "w"],
+            "commands": ["workbench.action.closeActiveEditor"]
+        },
+        {
             "before": ["H"],
             "after": ["0"]
         },
