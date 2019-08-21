@@ -154,9 +154,12 @@ nnoremap <leader>g :so $VIMRUNTIME/syntax/hitest.vim<CR>
 " Copy the full path of current buffer to clipboard
 nnoremap <localleader>fp :let @+=expand('%:p')<CR>
 
+" Top cursor on screen
+nnoremap <localleader>g zz15<c-e>
+
 " Run app
-nnoremap <leader>rp :!python3 %:t<CR>
-nnoremap <leader>tp :!python3 -m unittest<CR>
+nnoremap <leader>rp :!python %:t<CR>
+nnoremap <leader>tp :!python -m unittest<CR>
 nnoremap <leader>rh :!php %:t<CR>
 nnoremap <leader>rn :!node %:t<CR>
 nnoremap <leader>rc :!gcc -Wall % && ./a.out<CR>
@@ -203,7 +206,7 @@ let g:mta_filetypes = {
 
 
 "let g:airline_theme='one'
-let g:airline_theme='distinguished'
+"let g:airline_theme='distinguished'
 
 
 " ## ctrlp
