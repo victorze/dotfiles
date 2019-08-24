@@ -56,7 +56,7 @@ autocmd Filetype ruby setlocal ts=2 sw=2 sts=0 expandtab
 set termguicolors  " Active true colors on terminal
 let g:gruvbox_contrast_dark = "hard"
 set background=dark
-colorscheme gruvbox
+colorscheme foo-hyper
 
 " ## Buffers
 set hidden  " Allow change buffers without saving
@@ -128,7 +128,7 @@ nnoremap <leader>s :w<CR>
 inoremap <c-n> \n
 
 " Current word to uppercase
-inoremap <c-u> <esc>viwU<esc>A
+inoremap <c-u> <esc>viwU<esc>Ea
 nnoremap <c-u> viwU<esc>
 
 " Select content document
@@ -158,8 +158,8 @@ nnoremap <localleader>fp :let @+=expand('%:p')<CR>
 nnoremap <localleader>g zz15<c-e>
 
 " Run app
-nnoremap <leader>rp :!python %:t<CR>
-nnoremap <leader>tp :!python -m unittest<CR>
+nnoremap <leader>rp :!python3 %:t<CR>
+nnoremap <leader>tp :!python3 -m unittest<CR>
 nnoremap <leader>rh :!php %:t<CR>
 nnoremap <leader>rn :!node %:t<CR>
 nnoremap <leader>rc :!gcc -Wall % && ./a.out<CR>
@@ -206,7 +206,7 @@ let g:mta_filetypes = {
 
 
 "let g:airline_theme='one'
-"let g:airline_theme='distinguished'
+let g:airline_theme='distinguished'
 
 
 " ## ctrlp
