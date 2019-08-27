@@ -134,6 +134,9 @@ nnoremap <c-u> viwU<esc>
 " Select content document
 nnoremap <leader>a ggvG$
 
+" Format a block of code {  }
+nnoremap <leader>f vi{=<esc>
+
 " Insert mode to normal mode
 inoremap jk <esc>
 
