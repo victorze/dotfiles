@@ -16,6 +16,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'digitaltoad/vim-pug'
 Plug 'jwalton512/vim-blade'
 Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'neoclide/vim-jsx-improve'
 
 Plug 'cseelus/vim-colors-lucid'
 Plug 'morhetz/gruvbox'
@@ -36,7 +37,7 @@ set notitle
 set mouse=a
 set noshowmode
 
-set colorcolumn=80  " Set & show limit column
+"set colorcolumn=80  " Set & show limit column
 set scrolloff=3     " Display at least 3 lines around you cursor
 
 " ## Lines
@@ -56,7 +57,7 @@ autocmd Filetype ruby setlocal ts=2 sw=2 sts=0 expandtab
 set termguicolors  " Active true colors on terminal
 let g:gruvbox_contrast_dark = "hard"
 set background=dark
-colorscheme foo-hyper
+colorscheme lucid
 
 " ## Buffers
 set hidden  " Allow change buffers without saving
@@ -162,8 +163,9 @@ nnoremap <localleader>g zz15<c-e>
 
 " Run app
 nnoremap <leader>rp :!python3 %:t<CR>
-nnoremap <leader>tp :!python3 -m unittest<CR>
+nnoremap <leader>tp :!python3 -m unittest discover<CR>
 nnoremap <leader>rh :!php %:t<CR>
+nnoremap <leader>th :!./vendor/bin/phpunit<CR>
 nnoremap <leader>rn :!node %:t<CR>
 nnoremap <leader>rc :!gcc -Wall % && ./a.out<CR>
 nnoremap <leader>rl :!g++ % && ./a.out<CR>
@@ -172,6 +174,8 @@ nnoremap <leader>ra :!nasm -f elf64 % -o a.o && ld -o a a.o && ./a<CR>
 nnoremap <leader>rj :!javac %:t && java %:t:r<CR>
 nnoremap <leader>rr :!cargo run<CR>
 nnoremap <leader>rk :!cargo check<CR>
+nnoremap <leader>rs :!dotnet run<CR>
+nnoremap <leader>ts :!dotnet test<CR>
 
 " Abbreviations
 iabbrev sop System.out.print
@@ -225,7 +229,7 @@ if has("gui_win32")
     set guioptions-=r  " hide the bar scroll
     set guioptions-=L  " hide the bar scroll
     "set linespace=10
-    set columns=80
+    "set columns=80
     set lines=17
     noremap <s-z> <esc>
     set wildignore+=*\\vendor\\*,*\\node_modules\\*,*.swp,*.zip,*.exe,*\\venv\\*
