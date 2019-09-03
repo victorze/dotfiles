@@ -143,9 +143,11 @@ inoremap jk <esc>
 
 " Go to the beginning of the current line
 nnoremap H 0
+vnoremap H 0
 
 " Go to the end of the current line
 nnoremap L $
+vnoremap L $
 
 " Disabling the old keys
 inoremap <esc> <nop>
@@ -180,6 +182,14 @@ nnoremap <leader>ts :!dotnet test<CR>
 " Abbreviations
 iabbrev sop System.out.print
 
+" Delete spaces at end of line in current file
+nnoremap <localleader>c :%s/\s\+$//e<CR>
+
+" 1 tab to 4 spaces (view)
+nnoremap <localleader>t :set tabstop=4<CR>
+
+" Convert 1 tab to 4 spaces in current file
+nnoremap <localleader>r :retab<CR>
 
 " --------------------------------------------
 " # Plugins Settings
@@ -229,7 +239,7 @@ if has("gui_win32")
     set guioptions-=r  " hide the bar scroll
     set guioptions-=L  " hide the bar scroll
     "set linespace=10
-    "set columns=80
+    set columns=80
     set lines=17
     noremap <s-z> <esc>
     set wildignore+=*\\vendor\\*,*\\node_modules\\*,*.swp,*.zip,*.exe,*\\venv\\*
