@@ -37,7 +37,7 @@ set notitle
 set mouse=a
 set noshowmode
 
-"set colorcolumn=80  " Set & show limit column
+set colorcolumn=80  " Set & show limit column
 set scrolloff=3     " Display at least 3 lines around you cursor
 
 " ## Lines
@@ -56,6 +56,8 @@ autocmd Filetype javascript setlocal ts=2 sw=2 sts=0 expandtab
 autocmd Filetype html setlocal ts=2 sw=2 sts=0 expandtab
 autocmd Filetype scss setlocal ts=2 sw=2 sts=0 expandtab
 autocmd Filetype css setlocal ts=2 sw=2 sts=0 expandtab
+
+autocmd FileType gitcommit setlocal colorcolumn=72 tw=72
 
 " ## Theme & Colorscheme
 set termguicolors  " Active true colors on terminal
