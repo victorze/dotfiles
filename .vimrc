@@ -52,6 +52,8 @@ set expandtab
 set autoindent
 autocmd Filetype pug setlocal ts=2 sw=2 sts=0 expandtab
 autocmd Filetype ruby setlocal ts=2 sw=2 sts=0 expandtab
+autocmd Filetype javascript setlocal ts=2 sw=2 sts=0 expandtab
+autocmd Filetype html setlocal ts=2 sw=2 sts=0 expandtab
 
 " ## Theme & Colorscheme
 set termguicolors  " Active true colors on terminal
@@ -113,12 +115,6 @@ nnoremap <leader>d "+d
 nnoremap <leader>p "+p
 vnoremap <leader>p "+p
 
-" Make window navigation less painful
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
 " Close buffer
 nnoremap <leader>w :bd<CR>
 
@@ -169,6 +165,7 @@ nnoremap <leader>tp :!python3 -m unittest discover<CR>
 nnoremap <leader>rh :!php %:t<CR>
 nnoremap <leader>th :!./vendor/bin/phpunit<CR>
 nnoremap <leader>rn :!node %:t<CR>
+nnoremap <leader>rs :!npm run build<CR>
 nnoremap <leader>rc :!gcc -Wall % && ./a.out<CR>
 nnoremap <leader>rl :!g++ % && ./a.out<CR>
 nnoremap <leader>rb :!bash %:t<CR>
@@ -176,8 +173,8 @@ nnoremap <leader>ra :!nasm -f elf64 % -o a.o && ld -o a a.o && ./a<CR>
 nnoremap <leader>rj :!javac %:t && java %:t:r<CR>
 nnoremap <leader>rr :!cargo run<CR>
 nnoremap <leader>rk :!cargo check<CR>
-nnoremap <leader>rs :!dotnet run<CR>
-nnoremap <leader>ts :!dotnet test<CR>
+nnoremap <leader>rd :!dotnet run<CR>
+nnoremap <leader>td :!dotnet test<CR>
 
 " Abbreviations
 iabbrev sop System.out.print
