@@ -25,6 +25,7 @@ Plug 'sjl/badwolf'
 Plug 'victorze/foo'
 Plug 'cocopon/iceberg.vim'
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'dracula/vim'
 call plug#end()
 
 
@@ -63,7 +64,7 @@ autocmd FileType gitcommit setlocal colorcolumn=72 tw=72
 set termguicolors  " Active true colors on terminal
 let g:gruvbox_contrast_dark = "hard"
 set background=dark
-colorscheme lucid
+colorscheme foo-hyper
 
 " ## Buffers
 set hidden  " Allow change buffers without saving
@@ -92,7 +93,7 @@ set belloff=all
 set ignorecase
 
 " Jump between matching HTML/XML tags
-runtime macros/matchit.vim
+"runtime macros/matchit.vim
 
 
 " --------------------------------------------
@@ -165,9 +166,9 @@ nnoremap <localleader>g zz15<c-e>
 
 " Run app
 nnoremap <leader>rp :!python3 %:t<CR>
-nnoremap <leader>tp :!python3 -m unittest discover<CR>
+nnoremap <leader>tp :!clear && python3 -m unittest discover<CR>
 nnoremap <leader>rh :!php %:t<CR>
-nnoremap <leader>th :!./vendor/bin/phpunit<CR>
+nnoremap <leader>th :!clear && ./vendor/bin/phpunit<CR>
 nnoremap <leader>rn :!node %:t<CR>
 nnoremap <leader>rs :!npm run build<CR>
 nnoremap <leader>rc :!gcc -Wall % && ./a.out<CR>
@@ -178,10 +179,11 @@ nnoremap <leader>rj :!javac %:t && java %:t:r<CR>
 nnoremap <leader>rr :!cargo run<CR>
 nnoremap <leader>rk :!cargo check<CR>
 nnoremap <leader>rd :!dotnet run<CR>
-nnoremap <leader>td :!dotnet test<CR>
+nnoremap <leader>td :!clear && dotnet test<CR>
 
 " Abbreviations
 iabbrev sop System.out.print
+iabbrev csl console.log(
 
 " Delete spaces at end of line in current file
 nnoremap <localleader>c :%s/\s\+$//e<CR>
@@ -223,7 +225,6 @@ let g:mta_filetypes = {
     \}
 
 
-"let g:airline_theme='one'
 let g:airline_theme='distinguished'
 
 
