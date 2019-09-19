@@ -142,6 +142,7 @@ nnoremap <leader>f vi{=<esc>
 
 " Insert mode to normal mode
 inoremap jk <esc>
+vnoremap jk <esc>
 
 " Go to the beginning of the current line
 nnoremap H 0
@@ -166,21 +167,21 @@ nnoremap <localleader>fp :let @+=expand('%:p')<CR>
 nnoremap <localleader>g zz15<c-e>
 
 " Run app
-nnoremap <leader>rp :!clear && python3 %:t<CR>
-nnoremap <leader>tp :!clear && python3 -m unittest discover<CR>
-nnoremap <leader>rh :!clear && php %:t<CR>
-nnoremap <leader>th :!clear && ./vendor/bin/phpunit<CR>
-nnoremap <leader>rn :!clear && node %:t<CR>
-nnoremap <leader>rs :!clear && npm run build<CR>
-nnoremap <leader>rc :!clear && gcc -Wall % && ./a.out<CR>
-nnoremap <leader>rl :!clear && g++ % && ./a.out<CR>
-nnoremap <leader>rb :!clear && bash %:t<CR>
-nnoremap <leader>ra :!clear && nasm -f elf64 % -o a.o && ld -o a a.o && ./a<CR>
-nnoremap <leader>rj :!clear && javac %:t && java %:t:r<CR>
-nnoremap <leader>rr :!clear && cargo run<CR>
-nnoremap <leader>rk :!clear && cargo check<CR>
-nnoremap <leader>rd :!clear && dotnet run<CR>
-nnoremap <leader>td :!clear && dotnet test<CR>
+nnoremap <leader>rp :!python3 %:t<CR>
+nnoremap <leader>tp :!python3 -m unittest discover<CR>
+nnoremap <leader>rh :!php %:t<CR>
+nnoremap <leader>th :!./vendor/bin/phpunit<CR>
+nnoremap <leader>rn :!node %:t<CR>
+nnoremap <leader>rs :!npm run build<CR>
+nnoremap <leader>rc :!gcc -Wall % && ./a.out<CR>
+nnoremap <leader>rl :!g++ % && ./a.out<CR>
+nnoremap <leader>rb :!bash %:t<CR>
+nnoremap <leader>ra :!nasm -f elf64 % -o a.o && ld -o a a.o && ./a<CR>
+nnoremap <leader>rj :!javac %:t && java %:t:r<CR>
+nnoremap <leader>rr :!cargo run<CR>
+nnoremap <leader>rk :!cargo check<CR>
+nnoremap <leader>rd :!dotnet run<CR>
+nnoremap <leader>td :!dotnet test<CR>
 
 " Abbreviations
 iabbrev sop System.out.print
