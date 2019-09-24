@@ -58,6 +58,7 @@ autocmd Filetype javascript setlocal ts=2 sw=2 sts=0 expandtab
 autocmd Filetype html setlocal ts=2 sw=2 sts=0 expandtab
 autocmd Filetype scss setlocal ts=2 sw=2 sts=0 expandtab
 autocmd Filetype css setlocal ts=2 sw=2 sts=0 expandtab
+autocmd Filetype json setlocal ts=2 sw=2 sts=0 expandtab
 
 autocmd FileType gitcommit setlocal colorcolumn=72 tw=72
 
@@ -94,7 +95,7 @@ set belloff=all
 set ignorecase
 
 " Jump between matching HTML/XML tags
-"runtime macros/matchit.vim
+runtime macros/matchit.vim
 
 
 " --------------------------------------------
@@ -142,7 +143,6 @@ nnoremap <leader>f vi{=<esc>
 
 " Insert mode to normal mode
 inoremap jk <esc>
-vnoremap jk <esc>
 
 " Go to the beginning of the current line
 nnoremap H 0
@@ -204,7 +204,7 @@ nnoremap <localleader>r :retab<CR>
 " Ignored files
 let g:NERDTreeIgnore = [
     \ '\.pyc$', '^__pycache__$',
-    \ '\.git$'
+    \ '\.git$', 'node_modules$'
     \]
 
 let g:NERDTreeMinimalUI = 1  " Hide help text
@@ -232,7 +232,7 @@ let g:airline_theme='distinguished'
 
 " ## ctrlp
 set runtimepath^=~/.vim/bundle/ctrlp.vim
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/*,*/node_modules/*,*/venv/*
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/*,*/node_modules/*,*/venv/*,*/build/*
 
 
 " win32 gvim
