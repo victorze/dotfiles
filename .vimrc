@@ -125,8 +125,14 @@ vnoremap <leader>p "+p
 " Close buffer
 nnoremap <leader>w :bd<CR>
 
+" Close all buffers
+nnoremap <leader>kw :bufdo bd<CR>
+
 " Save file
 nnoremap <leader>s :w<CR>
+
+" Save all files
+nnoremap <leader>ks :wa<CR>
 
 " Escape sequence newline
 inoremap <c-n> \n
