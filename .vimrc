@@ -127,13 +127,13 @@ vnoremap <leader>p "+p
 nnoremap <leader>w :bd<CR>
 
 " Close all buffers
-nnoremap <leader>kw :bufdo bd<CR>
+nnoremap <localleader>w :bufdo bd<CR>
 
 " Save file
 nnoremap <leader>s :w<CR>
 
 " Save all files
-nnoremap <leader>ks :wa<CR>
+nnoremap <localleader>s :wa<CR>
 
 " Escape sequence newline
 inoremap <c-n> \n
@@ -146,7 +146,10 @@ nnoremap <c-u> viwU<esc>
 nnoremap <leader>a ggvG$
 
 " Format a block of code {  }
-nnoremap <leader>f vi{=<esc>
+nnoremap <localleader>f vi{=<esc>
+
+" Format document
+nnoremap <leader>f ggvG$=<esc>
 
 " Insert mode to normal mode
 inoremap jk <esc>
@@ -168,7 +171,7 @@ nnoremap $ <nop>
 nnoremap <leader>g :so $VIMRUNTIME/syntax/hitest.vim<CR>
 
 " Copy the full path of current buffer to clipboard
-nnoremap <localleader>fp :let @+=expand('%:p')<CR>
+nnoremap <localleader>p :let @+=expand('%:p')<CR>
 
 " Top cursor on screen
 nnoremap <localleader>g zz15<c-e>
@@ -202,6 +205,10 @@ nnoremap <localleader>t :set tabstop=4<CR>
 
 " Convert 1 tab to 4 spaces in current file
 nnoremap <localleader>r :retab<CR>
+
+" Consult documentation in Zeal
+nnoremap <leader>z :!zeal "<cword>"<CR><CR>
+
 
 " --------------------------------------------
 " # Plugins Settings
