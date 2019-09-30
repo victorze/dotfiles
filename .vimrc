@@ -209,6 +209,9 @@ nnoremap <localleader>r :retab<CR>
 " Consult documentation in Zeal
 nnoremap <leader>z :!zeal "<cword>"<CR><CR>
 
+" Add semicolon
+inoremap <c-l> <esc>A;
+
 
 " --------------------------------------------
 " # Plugins Settings
@@ -239,7 +242,6 @@ let g:airline#extensions#tabline#fnamemod = ':t'  " Show just the filename
 let g:mta_filetypes = {
     \ 'php' : 1,
     \}
-
 
 let g:airline_theme='distinguished'
 
