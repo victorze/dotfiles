@@ -1,66 +1,144 @@
 {
-    "window.menuBarVisibility": "toggle",
+    "editor.fontSize": 12.5,
+    "editor.renderIndentGuides": true,
+    "editor.suggestSelection": "first",
+    "editor.minimap.enabled": false,
+    "editor.dragAndDrop": false,
+    "editor.lineNumbers": "relative",
+    "editor.renderLineHighlight": "none",
+    "editor.detectIndentation": false,
+    "editor.tabSize": 2,
+    "[python]": {
+        "editor.tabSize": 4
+    },
+    "[php]": {
+        "editor.tabSize": 4
+    },
+
+    "workbench.colorTheme": "Iceberg",
+    "workbench.activityBar.visible": true,
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.tree.renderIndentGuides": "none",
+
+    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+    "terminal.integrated.rendererType": "dom",
+    "terminal.integrated.fontSize": 12.5,
+    "terminal.integrated.fontWeightBold": "100",
+
     "files.trimTrailingWhitespace": true,
     "files.insertFinalNewline": true,
-    "editor.minimap.enabled": true,
+    "window.menuBarVisibility": "toggle",
     "explorer.openEditors.visible": 0,
-    "terminal.integrated.rendererType": "dom",
-    "workbench.startupEditor": "newUntitledFile",
-    "editor.dragAndDrop": false,
-    "terminal.integrated.fontSize": 12,
     "window.zoomLevel": 0,
-    "markdown.preview.fontSize": 13,
-    "editor.lineNumbers": "relative",
-    "terminal.integrated.fontWeightBold": "100",
+    "markdown.preview.fontSize": 12.5,
     "liveServer.settings.donotShowInfoMsg": true,
-    "workbench.activityBar.visible": true,
-    "editor.renderIndentGuides": false,
-    "workbench.tree.renderIndentGuides": "none",
     "extensions.ignoreRecommendations": false,
-    "editor.fontSize": 11.5,
+
+    "vim.leader": "<space>",
     "vim.useSystemClipboard": true,
     "vim.incsearch": true,
     "vim.useCtrlKeys": true,
     "vim.insertModeKeyBindings": [
         {
-            "before": ["j", "k"],
-            "after": ["<Esc>"]
-        },
+            "before": [
+                "j",
+                "k"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
     ],
     "vim.normalModeKeyBindingsNonRecursive": [
         {
-            "before": ["leader", "s"],
-            "commands": ["workbench.action.files.save"]
+            "before": [
+                "leader",
+                "a"
+            ],
+            "after": [
+                "g",
+                "g",
+                "v",
+                "G"
+            ]
         },
         {
-            "before": ["leader", "w"],
-            "commands": ["workbench.action.closeActiveEditor"]
+            "before": [
+                "leader",
+                "w"
+            ],
+            "commands": [
+                "workbench.action.closeActiveEditor"
+            ]
         },
         {
-            "before": ["leader", "a"],
-            "after": ["g", "g", "v", "G"]
+            "before": [
+                "H"
+            ],
+            "after": [
+                "0"
+            ]
         },
         {
-            "before": ["<C-u>"],
-            "commands": ["editor.action.transformToUppercase"]
+            "before": [
+                "L"
+            ],
+            "after": [
+                "$"
+            ]
         },
         {
-            "before": ["H"],
-            "after": ["0"]
+            "before": [
+                "<leader>",
+                "s"
+            ],
+            "commands": [
+                "workbench.action.files.save"
+            ]
         },
         {
-            "before": ["L"],
-            "after": ["$"]
+            "before": [
+                "0"
+            ],
+            "commands": [
+                ":nohl"
+            ]
         },
         {
-            "before": ["$"],
-            "commands": [":nohl"]
+            "before": [
+                "$"
+            ],
+            "commands": [
+                ":nohl"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "r",
+                "p"
+            ],
+            "commands": [
+                "python.execInTerminal"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "j",
+            ],
+            "commands": [
+                "workbench.action.previousEditor",
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "k",
+            ],
+            "commands": [
+                "workbench.action.nextEditor",
+            ]
         },
     ],
-    "vim.leader": "<space>",
-    "zenMode.hideLineNumbers": false,
-    "debug.console.fontSize": 12,
-    "workbench.colorTheme": "Visual Studio Dark",
-    "editor.renderLineHighlight": "none",
-    "editor.codeLens": false,
 }
