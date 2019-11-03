@@ -177,8 +177,8 @@ nnoremap <localleader>p :let @+=expand('%:p')<CR>
 nnoremap <localleader>g zz15<c-e>
 
 " Run app
-nnoremap <leader>rp :!python3 %:t<CR>
-nnoremap <leader>tp :!python3 -m unittest discover<CR>
+nnoremap <leader>rp :!python %:t<CR>
+nnoremap <leader>tp :!python -m unittest discover<CR>
 nnoremap <leader>rh :!php %:t<CR>
 nnoremap <leader>th :!./vendor/bin/phpunit<CR>
 nnoremap <leader>rn :!node %:t<CR>
@@ -263,4 +263,5 @@ if has("gui_win32")
     set lines=17
     noremap <s-z> <esc>
     set wildignore+=*\\vendor\\*,*\\node_modules\\*,*.swp,*.zip,*.exe,*\\venv\\*
+    hi Cursor guifg=black guibg=#89ca78
 endif
