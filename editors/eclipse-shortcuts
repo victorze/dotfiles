@@ -1,0 +1,42 @@
+Para comentar, descomentar líneas y bloques
+Ctrl + /
+
+Mover una linea hacia arriba o abajo
+Alt + up
+Alt + Down
+
+Para borrar una linea
+Ctrl + D
+
+Para ir y venir durante la edición
+Alt + right
+Alt + left
+
+Dar formato al texto seleccionado
+Ctrl + Shift + F
+
+Para organizar imports
+Ctrl + Shift + o
+
+
+
+Solución rápida
+Ctrl + 1
+
+Para navegar de miembro a miembro (variables y métodos)
+Ctrl + Shift + up
+Ctrl + Shift + down
+
+Seleccionar clase y presionar F4 para ver su jerarquía de tipos
+
+Ir a una linea
+Ctrl + l
+
+Para ir al último lugar editado
+Ctrl + Q
+
+Para alternar entre supertipo y subtipo
+Ctrl + T
+
+Pase al siguiente | anterior error
+Ctrl + . | Ctrl + ,
