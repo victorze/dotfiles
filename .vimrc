@@ -193,10 +193,6 @@ nnoremap <leader>rk :!cargo check<CR>
 nnoremap <leader>rd :!dotnet run<CR>
 nnoremap <leader>td :!dotnet test<CR>
 
-" Abbreviations
-iabbrev sop System.out.print
-iabbrev csl console.log(
-
 " Delete spaces at end of line in current file
 nnoremap <localleader>c :%s/\s\+$//e<CR>
 
@@ -211,6 +207,12 @@ nnoremap <leader>z :!zeal "<cword>"<CR><CR>
 
 " Add semicolon
 inoremap <c-l> <esc>A;
+nnoremap <c-l> A;<esc>
+
+" Abbreviations
+iabbrev sop System.out.print
+iabbrev csl console.log(
+iabbrev cw Console.WriteLine(
 
 
 " --------------------------------------------
@@ -264,4 +266,5 @@ if has("gui_win32")
     noremap <s-z> <esc>
     set wildignore+=*\\vendor\\*,*\\node_modules\\*,*.swp,*.zip,*.exe,*\\venv\\*
     hi Cursor guifg=black guibg=#89ca78
+    " prompt $p$_$g$s
 endif
