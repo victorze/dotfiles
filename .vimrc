@@ -27,6 +27,11 @@ Plug 'victorze/foo'
 Plug 'cocopon/iceberg.vim'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'dracula/vim'
+Plug 'tomasiser/vim-code-dark'
+Plug 'rakr/vim-one'
+Plug 'cormacrelf/vim-colors-github'
+Plug 'drewtempelmeyer/palenight.vim'
+Plug 'mhartington/oceanic-next'
 call plug#end()
 
 
@@ -66,8 +71,11 @@ autocmd FileType gitcommit setlocal colorcolumn=72 tw=72
 " ## Theme & Colorscheme
 set termguicolors  " Active true colors on terminal
 let g:gruvbox_contrast_dark = "hard"
-set background=dark
-colorscheme foo-hyper
+set background=light
+let ayucolor="mirage"
+colorscheme github
+"let g:airline_theme='distinguished'
+"let g:airline_theme='one'
 
 " ## Buffers
 set hidden  " Allow change buffers without saving
@@ -177,8 +185,9 @@ nnoremap <localleader>p :let @+=expand('%:p')<CR>
 nnoremap <localleader>g zz15<c-e>
 
 " Run app
-nnoremap <leader>rp :!python %:t<CR>
-nnoremap <leader>tp :!python -m unittest discover<CR>
+nnoremap <leader>rp :!python3 %:t<CR>
+"nnoremap <leader>tp :!python3 -m unittest discover<CR>
+nnoremap <leader>tp :!python3 -m pytest<CR>
 nnoremap <leader>rh :!php %:t<CR>
 nnoremap <leader>th :!./vendor/bin/phpunit<CR>
 nnoremap <leader>rn :!node %:t<CR>
@@ -245,9 +254,6 @@ let g:mta_filetypes = {
     \ 'php' : 1,
     \}
 
-let g:airline_theme='distinguished'
-
-
 " ## ctrlp
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/*,*/node_modules/*,*/venv/*,*/build/*
@@ -265,6 +271,6 @@ if has("gui_win32")
     set lines=17
     noremap <s-z> <esc>
     set wildignore+=*\\vendor\\*,*\\node_modules\\*,*.swp,*.zip,*.exe,*\\venv\\*
-    hi Cursor guifg=black guibg=#89ca78
+"    hi Cursor guifg=black guibg=#89ca78
     " prompt $p$_$g$s
 endif
