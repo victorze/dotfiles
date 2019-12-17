@@ -44,13 +44,15 @@ set notitle
 set mouse=a
 set noshowmode
 
-set colorcolumn=80  " Set & show limit column
-set scrolloff=3     " Display at least 3 lines around you cursor
+set colorcolumn=80      " Set & show limit column
+set scrolloff=3         " Display at least 3 lines around you cursor
 
 " ## Lines
-set nowrap  " No wrap lines (display long lines)
-set number  " Display line numbers
-set relativenumber  " Show relative line numbers
+set nowrap                  " No wrap lines (display long lines)
+set number                  " Display line numbers
+set relativenumber          " Show relative line numbers
+set fileformats=unix,dos    " End of line LF
+set fileformat=unix
 
 " ## Indentation
 set shiftwidth=4
@@ -64,7 +66,6 @@ autocmd Filetype typescript setlocal ts=2 sw=2 sts=0 expandtab
 autocmd Filetype html setlocal ts=2 sw=2 sts=0 expandtab
 autocmd Filetype scss setlocal ts=2 sw=2 sts=0 expandtab
 autocmd Filetype css setlocal ts=2 sw=2 sts=0 expandtab
-autocmd Filetype json setlocal ts=2 sw=2 sts=0 expandtab
 
 autocmd FileType gitcommit setlocal colorcolumn=72 tw=72
 
@@ -73,8 +74,8 @@ set termguicolors  " Active true colors on terminal
 let g:gruvbox_contrast_dark = "hard"
 set background=light
 let ayucolor="mirage"
-colorscheme github
-"let g:airline_theme='distinguished'
+colorscheme foo-github
+let g:airline_theme='distinguished'
 "let g:airline_theme='one'
 
 " ## Buffers
@@ -185,11 +186,11 @@ nnoremap <localleader>p :let @+=expand('%:p')<CR>
 nnoremap <localleader>g zz15<c-e>
 
 " Run app
-nnoremap <leader>rp :!python3 %:t<CR>
-"nnoremap <leader>tp :!python3 -m unittest discover<CR>
-nnoremap <leader>tp :!python3 -m pytest<CR>
+nnoremap <leader>rp :!python %:t<CR>
+"nnoremap <leader>tp :!python -m unittest discover<CR>
+nnoremap <leader>tp :!python -m pytest<CR>
 nnoremap <leader>rh :!php %:t<CR>
-nnoremap <leader>th :!./vendor/bin/phpunit<CR>
+nnoremap <leader>th :!vendor\bin\phpunit<CR>
 nnoremap <leader>rn :!node %:t<CR>
 nnoremap <leader>rs :!npm run build<CR>
 nnoremap <leader>rc :!gcc -Wall % && ./a.out<CR>
@@ -220,7 +221,8 @@ nnoremap <c-l> A;<esc>
 
 " Abbreviations
 iabbrev sop System.out.print
-iabbrev csl console.log(
+iabbrev clg console.log(
+iabbrev clt console.table(
 iabbrev cw Console.WriteLine(
 
 
@@ -271,6 +273,6 @@ if has("gui_win32")
     set lines=17
     noremap <s-z> <esc>
     set wildignore+=*\\vendor\\*,*\\node_modules\\*,*.swp,*.zip,*.exe,*\\venv\\*
-"    hi Cursor guifg=black guibg=#89ca78
+    "hi Cursor guifg=black guibg=#89ca78
     " prompt $p$_$g$s
 endif
