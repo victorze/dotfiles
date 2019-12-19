@@ -72,9 +72,9 @@ autocmd FileType gitcommit setlocal colorcolumn=72 tw=72
 " ## Theme & Colorscheme
 set termguicolors  " Active true colors on terminal
 let g:gruvbox_contrast_dark = "hard"
-set background=light
+set background=dark
 let ayucolor="mirage"
-colorscheme foo-github
+colorscheme foo-hyper
 let g:airline_theme='distinguished'
 "let g:airline_theme='one'
 
@@ -170,6 +170,10 @@ vnoremap H 0
 " Go to the end of the current line
 nnoremap L $
 vnoremap L $
+
+" Move by paragraph
+nnoremap <c-j> }
+nnoremap <c-k> {
 
 " Disabling the old keys
 inoremap <esc> <nop>
