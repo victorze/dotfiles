@@ -13,6 +13,11 @@ Plug 'mattn/emmet-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
 
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+
 Plug 'leafgarland/typescript-vim'
 Plug 'digitaltoad/vim-pug'
 Plug 'jwalton512/vim-blade'
@@ -117,7 +122,7 @@ let g:mapleader = ' '
 let g:maplocalleader = ','
 
 " Edit .vimrc
-nnoremap <leader>ev :e $MYVIMRC<CR>
+nnoremap <leader>ev :edit $MYVIMRC<CR>
 nnoremap <leader>es :source $MYVIMRC<CR>
 
 " Copy to clipboard
@@ -144,9 +149,6 @@ nnoremap <leader>s :w<CR>
 " Save all files
 nnoremap <localleader>s :wa<CR>
 
-" Escape sequence newline
-inoremap <c-n> \n
-
 " Current word to uppercase
 inoremap <c-u> <esc>viwU<esc>Ea
 nnoremap <c-u> viwU<esc>
@@ -171,7 +173,7 @@ vnoremap H 0
 nnoremap L $
 vnoremap L $
 
-" Move by paragraph
+" Jump paragraphs
 nnoremap <c-j> }
 nnoremap <c-k> {
 
@@ -210,7 +212,7 @@ nnoremap <leader>td :!dotnet test<CR>
 " Delete spaces at end of line in current file
 nnoremap <localleader>c :%s/\s\+$//e<CR>
 
-" 1 tab to 4 spaces (view)
+" Convert 1 tab to 4 spaces (view)
 nnoremap <localleader>t :set tabstop=4<CR>
 
 " Convert 1 tab to 4 spaces in current file
@@ -280,3 +282,73 @@ if has("gui_win32")
     "hi Cursor guifg=black guibg=#89ca78
     " prompt $p$_$g$s
 endif
+
+
+" LANGUAGE SERVER PROTOCOL
+
+" Python
+if executable('pyls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'pyls',
+        \ 'cmd': {server_info->['pyls']},
+        \ 'whitelist': ['python'],
+        \ 'workspace_config': {'pyls': {'plugins': {'jedi': {'environment': '/home/victorze/.local/share/virtualenvs/peewee-orm-emZpsE8W'}}}}
+        \ })
+endif
+
+" PHP
+au User lsp_setup call lsp#register_server({
+    \ 'name': 'intelephense',
+    \ 'cmd': {server_info->['intelephense', '--stdio']},
+    \ 'initialization_options': {"storagePath": "~/.temp-lsp/intelephense"},
+    \ 'whitelist': ['php'],
+    \ 'workspace_config': { 'intelephense': {
+    \   'files.associations': ['*.php'],
+    \ }},
+    \ })
+
+" Typescript
+if executable('typescript-language-server')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'typescript-language-server',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+        \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
+        \ 'whitelist': ['typescript', 'typescript.tsx'],
+        \ })
+endif
+
+" Javascript
+if executable('typescript-language-server')
+    au User lsp_setup call lsp#register_server({
+      \ 'name': 'javascript support using typescript-language-server',
+      \ 'cmd': { server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+      \ 'root_uri': { server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_directory(lsp#utils#get_buffer_path(), '.git/..'))},
+      \ 'whitelist': ['javascript', 'javascript.jsx', 'javascriptreact']
+      \ })
+endif
+
+" Rust
+if executable('rls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'rls',
+        \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
+        \ 'workspace_config': {'rust': {'clippy_preference': 'on'}},
+        \ 'whitelist': ['rust'],
+        \ })
+endif
+
+let g:asyncomplete_auto_popup = 0
+
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <TAB>
+  \ pumvisible() ? "\<C-n>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ asyncomplete#force_refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+" Command LSP
+nnoremap <localleader>d :LspDefinition<CR>
