@@ -34,7 +34,6 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'dracula/vim'
 Plug 'tomasiser/vim-code-dark'
 Plug 'rakr/vim-one'
-Plug 'cormacrelf/vim-colors-github'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'mhartington/oceanic-next'
 call plug#end()
@@ -77,11 +76,10 @@ autocmd FileType gitcommit setlocal colorcolumn=72 tw=72
 " ## Theme & Colorscheme
 set termguicolors  " Active true colors on terminal
 let g:gruvbox_contrast_dark = "hard"
-set background=dark
+set background=light
 let ayucolor="mirage"
-colorscheme foo-hyper
+colorscheme github
 let g:airline_theme='distinguished'
-"let g:airline_theme='one'
 
 " ## Buffers
 set hidden  " Allow change buffers without saving
@@ -174,13 +172,15 @@ nnoremap L $
 vnoremap L $
 
 " Jump paragraphs
-nnoremap <c-j> }
-nnoremap <c-k> {
+nnoremap <s-j> }
+nnoremap <s-k> {
 
 " Disabling the old keys
 inoremap <esc> <nop>
 nnoremap 0 <nop>
 nnoremap $ <nop>
+nnoremap } <nop>
+nnoremap { <nop>
 
 " You can see all the groups - Highlight
 nnoremap <leader>g :so $VIMRUNTIME/syntax/hitest.vim<CR>
@@ -196,10 +196,10 @@ nnoremap <leader>rp :!python %:t<CR>
 "nnoremap <leader>tp :!python -m unittest discover<CR>
 nnoremap <leader>tp :!python -m pytest<CR>
 nnoremap <leader>rh :!php %:t<CR>
-nnoremap <leader>th :!vendor\bin\phpunit<CR>
+nnoremap <leader>th :!./vendor/bin/phpunit<CR>
 nnoremap <leader>rn :!node %:t<CR>
 nnoremap <leader>rs :!npm run build<CR>
-nnoremap <leader>rc :!gcc -Wall % && ./a.out<CR>
+nnoremap <leader>rc :!clear && gcc -Wall % && ./a.out<CR>
 nnoremap <leader>rl :!g++ % && ./a.out<CR>
 nnoremap <leader>rb :!bash %:t<CR>
 nnoremap <leader>ra :!nasm -f elf64 % -o a.o && ld -o a a.o && ./a<CR>
@@ -240,7 +240,7 @@ iabbrev cw Console.WriteLine(
 " Ignored files
 let g:NERDTreeIgnore = [
     \ '\.pyc$', '^__pycache__$',
-    \ '\.git$', 'node_modules$'
+    \ '\.git$', 'node_modules$', '^\~$'
     \]
 
 let g:NERDTreeMinimalUI = 1  " Hide help text
@@ -337,18 +337,10 @@ if executable('rls')
         \ })
 endif
 
-let g:asyncomplete_auto_popup = 0
-
-function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-
-inoremap <silent><expr> <TAB>
-  \ pumvisible() ? "\<C-n>" :
-  \ <SID>check_back_space() ? "\<TAB>" :
-  \ asyncomplete#force_refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <expr> <c-j>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <c-k> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Command LSP
 nnoremap <localleader>d :LspDefinition<CR>
+nnoremap <localleader>sr :LspReferences<CR>
+nnoremap <localleader>st :LspTypeDefinition<CR>
