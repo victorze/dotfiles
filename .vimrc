@@ -23,6 +23,7 @@ Plug 'digitaltoad/vim-pug'
 Plug 'jwalton512/vim-blade'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'neoclide/vim-jsx-improve'
+Plug 'posva/vim-vue'
 
 Plug 'cseelus/vim-colors-lucid'
 Plug 'morhetz/gruvbox'
@@ -70,15 +71,16 @@ autocmd Filetype typescript setlocal ts=2 sw=2 sts=0 expandtab
 autocmd Filetype html setlocal ts=2 sw=2 sts=0 expandtab
 autocmd Filetype scss setlocal ts=2 sw=2 sts=0 expandtab
 autocmd Filetype css setlocal ts=2 sw=2 sts=0 expandtab
+autocmd Filetype vue setlocal ts=2 sw=2 sts=0 expandtab
 
 autocmd FileType gitcommit setlocal colorcolumn=72 tw=72
 
 " ## Theme & Colorscheme
 set termguicolors  " Active true colors on terminal
 let g:gruvbox_contrast_dark = "hard"
-set background=light
+set background=dark
 let ayucolor="mirage"
-colorscheme github
+colorscheme hyper
 let g:airline_theme='distinguished'
 
 " ## Buffers
@@ -135,6 +137,9 @@ nnoremap <leader>d "+d
 nnoremap <leader>p "+p
 vnoremap <leader>p "+p
 
+" Copy word
+nnoremap <leader>c yiw
+
 " Close buffer
 nnoremap <leader>w :bd<CR>
 
@@ -171,16 +176,10 @@ vnoremap H 0
 nnoremap L $
 vnoremap L $
 
-" Jump paragraphs
-nnoremap <s-j> }
-nnoremap <s-k> {
-
 " Disabling the old keys
 inoremap <esc> <nop>
-nnoremap 0 <nop>
 nnoremap $ <nop>
-nnoremap } <nop>
-nnoremap { <nop>
+nnoremap 0 <nop>
 
 " You can see all the groups - Highlight
 nnoremap <leader>g :so $VIMRUNTIME/syntax/hitest.vim<CR>
@@ -192,12 +191,12 @@ nnoremap <localleader>p :let @+=expand('%:p')<CR>
 nnoremap <localleader>g zz15<c-e>
 
 " Run app
-nnoremap <leader>rp :!python %:t<CR>
+nnoremap <leader>rp :!clear && python3 %:t<CR>
 "nnoremap <leader>tp :!python -m unittest discover<CR>
-nnoremap <leader>tp :!python -m pytest<CR>
+nnoremap <leader>tp :!python3 -m pytest<CR>
 nnoremap <leader>rh :!php %:t<CR>
 nnoremap <leader>th :!./vendor/bin/phpunit<CR>
-nnoremap <leader>rn :!node %:t<CR>
+nnoremap <leader>rn :!clear && node %:t<CR>
 nnoremap <leader>rs :!npm run build<CR>
 nnoremap <leader>rc :!clear && gcc -Wall % && ./a.out<CR>
 nnoremap <leader>rl :!g++ % && ./a.out<CR>
@@ -212,12 +211,6 @@ nnoremap <leader>td :!dotnet test<CR>
 " Delete spaces at end of line in current file
 nnoremap <localleader>c :%s/\s\+$//e<CR>
 
-" Convert 1 tab to 4 spaces (view)
-nnoremap <localleader>t :set tabstop=4<CR>
-
-" Convert 1 tab to 4 spaces in current file
-nnoremap <localleader>r :retab<CR>
-
 " Consult documentation in Zeal
 nnoremap <leader>z :!zeal "<cword>"<CR><CR>
 
@@ -227,9 +220,24 @@ nnoremap <c-l> A;<esc>
 
 " Abbreviations
 iabbrev sop System.out.print
-iabbrev clg console.log(
+iabbrev cl console.log(
 iabbrev clt console.table(
 iabbrev cw Console.WriteLine(
+
+" win32 gvim
+if has("gui_win32")
+    set guifont=Consolas:h10:cANSI
+    set guioptions-=m  " hide the menu bar
+    set guioptions-=T  " hide the menu tools
+    set guioptions-=r  " hide the bar scroll
+    set guioptions-=L  " hide the bar scroll
+    "set linespace=10
+    set columns=80
+    set lines=17
+    noremap <s-z> <esc>
+    set wildignore+=*\\vendor\\*,*\\node_modules\\*,*.swp,*.zip,*.exe,*\\venv\\*
+    " prompt $p$_$g$s
+endif
 
 
 " --------------------------------------------
@@ -264,27 +272,10 @@ let g:mta_filetypes = {
 
 " ## ctrlp
 set runtimepath^=~/.vim/bundle/ctrlp.vim
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/*,*/node_modules/*,*/venv/*,*/build/*
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/*,*/node_modules/*,*/venv/*,*/build/*,*/~/*;
 
 
-" win32 gvim
-if has("gui_win32")
-    set guifont=Consolas:h10:cANSI
-    set guioptions-=m  " hide the menu bar
-    set guioptions-=T  " hide the menu tools
-    set guioptions-=r  " hide the bar scroll
-    set guioptions-=L  " hide the bar scroll
-    "set linespace=10
-    set columns=80
-    set lines=17
-    noremap <s-z> <esc>
-    set wildignore+=*\\vendor\\*,*\\node_modules\\*,*.swp,*.zip,*.exe,*\\venv\\*
-    "hi Cursor guifg=black guibg=#89ca78
-    " prompt $p$_$g$s
-endif
-
-
-" LANGUAGE SERVER PROTOCOL
+"  ## LANGUAGE SERVER PROTOCOL
 
 " Python
 if executable('pyls')
@@ -292,7 +283,7 @@ if executable('pyls')
         \ 'name': 'pyls',
         \ 'cmd': {server_info->['pyls']},
         \ 'whitelist': ['python'],
-        \ 'workspace_config': {'pyls': {'plugins': {'jedi': {'environment': '/home/victorze/.local/share/virtualenvs/peewee-orm-emZpsE8W'}}}}
+        \ 'workspace_config': {'pyls': {'plugins': {'jedi': {'environment': '/home/victorze/.local/share/virtualenvs/flasky-IQlH4ERO'}}}}
         \ })
 endif
 
@@ -340,7 +331,22 @@ endif
 inoremap <expr> <c-j>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <c-k> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
+" Tab to show the autocomplete
+let g:asyncomplete_auto_popup = 0
+
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <TAB>
+  \ pumvisible() ? "\<C-n>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ asyncomplete#force_refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
 " Command LSP
 nnoremap <localleader>d :LspDefinition<CR>
 nnoremap <localleader>sr :LspReferences<CR>
 nnoremap <localleader>st :LspTypeDefinition<CR>
+nnoremap <localleader>sd :LspDocumentDiagnostics<CR>
