@@ -9,6 +9,9 @@
   "editor.renderLineHighlight": "none",
   "editor.detectIndentation": false,
   "editor.tabSize": 2,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "files.trimTrailingWhitespace": false,
+  "files.insertFinalNewline": true,
   "[javascript]": {
     "editor.tabSize": 2
   },
@@ -21,14 +24,23 @@
   "terminal.integrated.rendererType": "dom",
   "terminal.integrated.fontSize": 12,
   "terminal.integrated.fontWeightBold": "100",
-  "files.trimTrailingWhitespace": true,
-  "files.insertFinalNewline": true,
   "window.menuBarVisibility": "toggle",
-  "explorer.openEditors.visible": 0,
   "window.zoomLevel": 0,
+  "explorer.openEditors.visible": 0,
   "markdown.preview.fontSize": 12,
   "liveServer.settings.donotShowInfoMsg": true,
   "extensions.ignoreRecommendations": false,
+  "debug.console.fontSize": 12.5,
+  "workbench.colorTheme": "Material Theme Ocean",
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "git.enableSmartCommit": true,
+  "html.mirrorCursorOnMatchingTag": false,
+
   "vim.leader": "<space>",
   "vim.useSystemClipboard": true,
   "vim.incsearch": true,
@@ -98,7 +110,7 @@
         "s"
       ],
       "commands": [
-        "workbench.action.files.save"
+        "workbench.action.files.saveAll"
       ]
     },
     {
@@ -126,7 +138,5 @@
         "workbench.view.explorer",
       ]
     },
-  ],
-  "workbench.colorTheme": "Material Theme Ocean",
-  "debug.console.fontSize": 12.5,
+  ]
 }
