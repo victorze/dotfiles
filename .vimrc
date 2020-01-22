@@ -12,11 +12,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'mattn/emmet-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
-
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'itchyny/lightline.vim'
 
 Plug 'leafgarland/typescript-vim'
 Plug 'digitaltoad/vim-pug'
@@ -37,6 +33,7 @@ Plug 'tomasiser/vim-code-dark'
 Plug 'rakr/vim-one'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'mhartington/oceanic-next'
+Plug 'wadackel/vim-dogrun'
 call plug#end()
 
 
@@ -48,6 +45,7 @@ call plug#end()
 set notitle
 set mouse=a
 set noshowmode
+set guicursor+=a:blinkon0
 
 set colorcolumn=80      " Set & show limit column
 set scrolloff=3         " Display at least 3 lines around you cursor
@@ -82,6 +80,7 @@ set background=dark
 let ayucolor="mirage"
 colorscheme hyper
 let g:airline_theme='distinguished'
+"let g:airline_theme='deus'
 
 " ## Buffers
 set hidden  " Allow change buffers without saving
@@ -196,7 +195,7 @@ nnoremap <leader>rp :!clear && python3 %:t<CR>
 nnoremap <leader>tp :!python3 -m pytest<CR>
 nnoremap <leader>rh :!php %:t<CR>
 nnoremap <leader>th :!./vendor/bin/phpunit<CR>
-nnoremap <leader>rn :!clear && node %:t<CR>
+nnoremap <leader>rn :!node %:t<CR>
 nnoremap <leader>rs :!npm run build<CR>
 nnoremap <leader>rc :!clear && gcc -Wall % && ./a.out<CR>
 nnoremap <leader>rl :!g++ % && ./a.out<CR>
@@ -273,80 +272,3 @@ let g:mta_filetypes = {
 " ## ctrlp
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/*,*/node_modules/*,*/venv/*,*/build/*,*/~/*;
-
-
-"  ## LANGUAGE SERVER PROTOCOL
-
-" Python
-if executable('pyls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'pyls',
-        \ 'cmd': {server_info->['pyls']},
-        \ 'whitelist': ['python'],
-        \ 'workspace_config': {'pyls': {'plugins': {'jedi': {'environment': '/home/victorze/.local/share/virtualenvs/flasky-IQlH4ERO'}}}}
-        \ })
-endif
-
-" PHP
-au User lsp_setup call lsp#register_server({
-    \ 'name': 'intelephense',
-    \ 'cmd': {server_info->['intelephense', '--stdio']},
-    \ 'initialization_options': {"storagePath": "~/.temp-lsp/intelephense"},
-    \ 'whitelist': ['php'],
-    \ 'workspace_config': { 'intelephense': {
-    \   'files.associations': ['*.php'],
-    \ }},
-    \ })
-
-" Typescript
-if executable('typescript-language-server')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'typescript-language-server',
-        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
-        \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
-        \ 'whitelist': ['typescript', 'typescript.tsx'],
-        \ })
-endif
-
-" Javascript
-if executable('typescript-language-server')
-    au User lsp_setup call lsp#register_server({
-      \ 'name': 'javascript support using typescript-language-server',
-      \ 'cmd': { server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
-      \ 'root_uri': { server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_directory(lsp#utils#get_buffer_path(), '.git/..'))},
-      \ 'whitelist': ['javascript', 'javascript.jsx', 'javascriptreact']
-      \ })
-endif
-
-" Rust
-if executable('rls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'rls',
-        \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
-        \ 'workspace_config': {'rust': {'clippy_preference': 'on'}},
-        \ 'whitelist': ['rust'],
-        \ })
-endif
-
-inoremap <expr> <c-j>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <c-k> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-" Tab to show the autocomplete
-let g:asyncomplete_auto_popup = 0
-
-function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-
-inoremap <silent><expr> <TAB>
-  \ pumvisible() ? "\<C-n>" :
-  \ <SID>check_back_space() ? "\<TAB>" :
-  \ asyncomplete#force_refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-" Command LSP
-nnoremap <localleader>d :LspDefinition<CR>
-nnoremap <localleader>sr :LspReferences<CR>
-nnoremap <localleader>st :LspTypeDefinition<CR>
-nnoremap <localleader>sd :LspDocumentDiagnostics<CR>
