@@ -12,9 +12,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'mattn/emmet-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
-Plug 'itchyny/lightline.vim'
 
-Plug 'leafgarland/typescript-vim'
+Plug 'HerringtonDarkholme/yats.vim'
 Plug 'digitaltoad/vim-pug'
 Plug 'jwalton512/vim-blade'
 Plug 'Glench/Vim-Jinja2-Syntax'
@@ -30,8 +29,6 @@ Plug 'cocopon/iceberg.vim'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'dracula/vim'
 Plug 'tomasiser/vim-code-dark'
-Plug 'rakr/vim-one'
-Plug 'drewtempelmeyer/palenight.vim'
 Plug 'mhartington/oceanic-next'
 Plug 'wadackel/vim-dogrun'
 call plug#end()
@@ -78,9 +75,12 @@ set termguicolors  " Active true colors on terminal
 let g:gruvbox_contrast_dark = "hard"
 set background=dark
 let ayucolor="mirage"
-colorscheme hyper
-let g:airline_theme='distinguished'
+colorscheme dogrun
+"let g:airline_theme='distinguished'
 "let g:airline_theme='deus'
+"let g:airline_theme='iceberg'
+let g:airline_theme='lucius'
+hi jinjaTagDelim guifg=#a763a7
 
 " ## Buffers
 set hidden  " Allow change buffers without saving
@@ -257,6 +257,11 @@ let NERDTreeShowHidden = 1
 nnoremap <leader>n :NERDTreeToggle<CR>
 
 
+" ## ctrlp
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/*,*/node_modules/*,*/venv/*,*/build/*,*/~/*;
+
+
 " ## Airline
 " Mappings to change buffer
 nmap <leader>j <Plug>AirlineSelectPrevTab
@@ -268,7 +273,3 @@ let g:airline#extensions#tabline#fnamemod = ':t'  " Show just the filename
 let g:mta_filetypes = {
     \ 'php' : 1,
     \}
-
-" ## ctrlp
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/*,*/node_modules/*,*/venv/*,*/build/*,*/~/*;
