@@ -22,14 +22,9 @@ Plug 'posva/vim-vue'
 
 Plug 'cseelus/vim-colors-lucid'
 Plug 'morhetz/gruvbox'
-Plug 'ayu-theme/ayu-vim'
-Plug 'sjl/badwolf'
 Plug 'victorze/foo'
 Plug 'cocopon/iceberg.vim'
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'dracula/vim'
 Plug 'tomasiser/vim-code-dark'
-Plug 'mhartington/oceanic-next'
 Plug 'wadackel/vim-dogrun'
 call plug#end()
 
@@ -75,12 +70,21 @@ set termguicolors  " Active true colors on terminal
 let g:gruvbox_contrast_dark = "hard"
 set background=dark
 let ayucolor="mirage"
-colorscheme dogrun
-"let g:airline_theme='distinguished'
-"let g:airline_theme='deus'
-"let g:airline_theme='iceberg'
-let g:airline_theme='lucius'
+colorscheme lucid
+let g:airline_theme='distinguished'
 hi jinjaTagDelim guifg=#a763a7
+hi bladeKeyword guifg=#db0088
+
+" lucid
+hi ColorColumn guibg=#312e38
+hi MatchParen guifg=NONE guibg=NONE
+hi Comment cterm=NONE
+
+" default
+"hi LineNr guifg=#495162
+"hi CursorLineNr guifg=#a7aebe
+"hi NonText guifg=NONE
+
 
 " ## Buffers
 set hidden  " Allow change buffers without saving
@@ -195,8 +199,9 @@ nnoremap <leader>rp :!clear && python3 %:t<CR>
 nnoremap <leader>tp :!python3 -m pytest<CR>
 nnoremap <leader>rh :!php %:t<CR>
 nnoremap <leader>th :!./vendor/bin/phpunit<CR>
-nnoremap <leader>rn :!node %:t<CR>
+nnoremap <leader>rn :!clear && node %:t<CR>
 nnoremap <leader>rs :!npm run build<CR>
+nnoremap <leader>tn :!clear && npm run test<CR>
 nnoremap <leader>rc :!clear && gcc -Wall % && ./a.out<CR>
 nnoremap <leader>rl :!g++ % && ./a.out<CR>
 nnoremap <leader>rb :!bash %:t<CR>
