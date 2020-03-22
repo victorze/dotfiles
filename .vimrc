@@ -13,6 +13,12 @@ Plug 'mattn/emmet-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
 
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'digitaltoad/vim-pug'
 Plug 'jwalton512/vim-blade'
@@ -70,15 +76,15 @@ set termguicolors  " Active true colors on terminal
 let g:gruvbox_contrast_dark = "hard"
 set background=dark
 let ayucolor="mirage"
-colorscheme lucid
+colorscheme hyper
 let g:airline_theme='distinguished'
-hi jinjaTagDelim guifg=#a763a7
-hi bladeKeyword guifg=#db0088
+"hi jinjaTagDelim guifg=#a763a7
+"hi bladeKeyword guifg=#db0088
 
 " lucid
-hi ColorColumn guibg=#312e38
-hi MatchParen guifg=NONE guibg=NONE
-hi Comment cterm=NONE
+"hi ColorColumn guibg=#312e38
+"hi MatchParen guifg=NONE guibg=NONE
+"hi Comment cterm=NONE
 
 " default
 "hi LineNr guifg=#495162
@@ -199,7 +205,7 @@ nnoremap <leader>rp :!clear && python3 %:t<CR>
 nnoremap <leader>tp :!python3 -m pytest<CR>
 nnoremap <leader>rh :!php %:t<CR>
 nnoremap <leader>th :!./vendor/bin/phpunit<CR>
-nnoremap <leader>rn :!clear && node %:t<CR>
+nnoremap <leader>rn :!cls && node %:t<CR>
 nnoremap <leader>rs :!npm run build<CR>
 nnoremap <leader>tn :!clear && npm run test<CR>
 nnoremap <leader>rc :!clear && gcc -Wall % && ./a.out<CR>
@@ -278,3 +284,16 @@ let g:airline#extensions#tabline#fnamemod = ':t'  " Show just the filename
 let g:mta_filetypes = {
     \ 'php' : 1,
     \}
+
+" ## LSP
+
+inoremap <expr> <c-j>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <c-k> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" Command
+nnoremap <localleader>d :LspDefinition<CR>
+nnoremap <localleader>r :LspReferences<CR>
+nnoremap <localleader>st :LspTypeDefinition<CR>
+nnoremap <localleader>sd :LspDocumentDiagnostics<CR>
+
+let g:lsp_diagnostics_enabled = 0
