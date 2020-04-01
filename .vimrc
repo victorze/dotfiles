@@ -1,4 +1,4 @@
- scriptencoding utf-8
+scriptencoding utf-8
 
 " .........................................................
 " # Plugins
@@ -32,6 +32,7 @@ Plug 'victorze/foo'
 Plug 'cocopon/iceberg.vim'
 Plug 'tomasiser/vim-code-dark'
 Plug 'wadackel/vim-dogrun'
+Plug 'kaicataldo/material.vim'
 call plug#end()
 
 
@@ -77,7 +78,9 @@ set termguicolors  " Active true colors on terminal
 let g:gruvbox_contrast_dark = "hard"
 set background=dark
 let ayucolor="mirage"
-colorscheme hyper
+let g:material_theme_style = 'ocean'
+colorscheme material
+"let g:airline_theme='deus'
 let g:airline_theme='distinguished'
 
 "hi jinjaTagDelim guifg=#a763a7
