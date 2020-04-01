@@ -1,4 +1,4 @@
-scriptencoding utf-8
+ scriptencoding utf-8
 
 " .........................................................
 " # Plugins
@@ -44,6 +44,7 @@ set notitle
 set mouse=a
 set noshowmode
 set guicursor+=a:blinkon0
+set hlsearch
 
 set colorcolumn=80      " Set & show limit column
 set scrolloff=3         " Display at least 3 lines around you cursor
@@ -78,6 +79,7 @@ set background=dark
 let ayucolor="mirage"
 colorscheme hyper
 let g:airline_theme='distinguished'
+
 "hi jinjaTagDelim guifg=#a763a7
 "hi bladeKeyword guifg=#db0088
 
@@ -205,7 +207,7 @@ nnoremap <leader>rp :!clear && python3 %:t<CR>
 nnoremap <leader>tp :!python3 -m pytest<CR>
 nnoremap <leader>rh :!php %:t<CR>
 nnoremap <leader>th :!./vendor/bin/phpunit<CR>
-nnoremap <leader>rn :!cls && node %:t<CR>
+nnoremap <leader>rn :!clear && node %:t<CR>
 nnoremap <leader>rs :!npm run build<CR>
 nnoremap <leader>tn :!clear && npm run test<CR>
 nnoremap <leader>rc :!clear && gcc -Wall % && ./a.out<CR>
@@ -285,15 +287,17 @@ let g:mta_filetypes = {
     \ 'php' : 1,
     \}
 
-" ## LSP
+"  ## LANGUAGE SERVER PROTOCOL
 
 inoremap <expr> <c-j>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <c-k> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-" Command
+let g:lsp_diagnostics_enabled = 0 " disable diagnostics support (warnings, errors)
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+imap <c-space> <Plug>(asyncomplete_force_refresh)
+
+" Command LSP
 nnoremap <localleader>d :LspDefinition<CR>
 nnoremap <localleader>r :LspReferences<CR>
-nnoremap <localleader>st :LspTypeDefinition<CR>
-nnoremap <localleader>sd :LspDocumentDiagnostics<CR>
-
-let g:lsp_diagnostics_enabled = 0
