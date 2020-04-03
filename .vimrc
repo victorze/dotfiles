@@ -78,9 +78,7 @@ set termguicolors  " Active true colors on terminal
 let g:gruvbox_contrast_dark = "hard"
 set background=dark
 let ayucolor="mirage"
-let g:material_theme_style = 'ocean'
-colorscheme material
-"let g:airline_theme='deus'
+colorscheme hyper
 let g:airline_theme='distinguished'
 
 "hi jinjaTagDelim guifg=#a763a7
@@ -292,13 +290,10 @@ let g:mta_filetypes = {
 
 "  ## LANGUAGE SERVER PROTOCOL
 
-inoremap <expr> <c-j>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <c-k> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+set completeopt-=preview
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
 let g:lsp_diagnostics_enabled = 0 " disable diagnostics support (warnings, errors)
-autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 imap <c-space> <Plug>(asyncomplete_force_refresh)
 
 " Command LSP
