@@ -206,13 +206,13 @@ nnoremap <localleader>g zz15<c-e>
 nnoremap <leader>rp :!clear && python3 %:t<CR>
 "nnoremap <leader>tp :!python -m unittest discover<CR>
 nnoremap <leader>tp :!python3 -m pytest<CR>
-nnoremap <leader>rh :!php %:t<CR>
+nnoremap <leader>rh :!clear && php %:t<CR>
 nnoremap <leader>th :!./vendor/bin/phpunit<CR>
 nnoremap <leader>rn :!clear && node %:t<CR>
 nnoremap <leader>rs :!npm run build<CR>
 nnoremap <leader>tn :!clear && npm run test<CR>
-nnoremap <leader>rc :!clear && gcc -Wall % && ./a.out<CR>
-nnoremap <leader>rl :!g++ % && ./a.out<CR>
+nnoremap <leader>rc :!clear && gcc -Wall -g -std=c17 % && ./a.out<CR>
+nnoremap <leader>rl :!clear && g++ -Wall -g -std=c++17 % && ./a.out<CR>
 nnoremap <leader>rb :!bash %:t<CR>
 nnoremap <leader>ra :!nasm -f elf64 % -o a.o && ld -o a a.o && ./a<CR>
 nnoremap <leader>rj :!javac %:t && java %:t:r<CR>
@@ -220,12 +220,6 @@ nnoremap <leader>rr :!cargo run<CR>
 nnoremap <leader>rk :!cargo check<CR>
 nnoremap <leader>rd :!dotnet run<CR>
 nnoremap <leader>td :!dotnet test<CR>
-
-" Delete spaces at end of line in current file
-nnoremap <localleader>c :%s/\s\+$//e<CR>
-
-" Consult documentation in Zeal
-nnoremap <leader>z :!zeal "<cword>"<CR><CR>
 
 " Add semicolon
 inoremap <c-l> <esc>A;
@@ -299,3 +293,6 @@ imap <c-space> <Plug>(asyncomplete_force_refresh)
 " Command LSP
 nnoremap <localleader>d :LspDefinition<CR>
 nnoremap <localleader>r :LspReferences<CR>
+
+" Close preview window
+nnoremap <localleader>c :pclose<CR>
