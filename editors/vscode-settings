@@ -1,62 +1,92 @@
 {
-    "editor.fontSize": 12,
-    "editor.lineHeight": 18,
-    "editor.renderIndentGuides": true,
-    "editor.suggestSelection": "first",
-    "editor.minimap.enabled": false,
-    "editor.dragAndDrop": false,
-    "editor.lineNumbers": "relative",
-    "editor.renderLineHighlight": "none",
-    "editor.detectIndentation": false,
+  "workbench.colorTheme": "Hacker",
+  "editor.fontSize": 12,
+  "files.trimTrailingWhitespace": false,
+  "files.insertFinalNewline": true,
+  "editor.lineHeight": 20,
+  "editor.renderIndentGuides": true,
+  "editor.suggestSelection": "first",
+  "editor.minimap.enabled": false,
+  "editor.dragAndDrop": false,
+  "editor.lineNumbers": "relative",
+  "editor.renderLineHighlight": "none",
+  "editor.detectIndentation": false,
+  "editor.tabSize": 2,
+  "editor.tokenColorCustomizations": {
+    "semanticHighlighting": true
+  },
+  "files.exclude": {
+    "**/.venv": true,
+    "**/__pycache__": true,
+    "**/.git": true,
+    "**/node_modules": true,
+  },
+  "[python]": {
     "editor.tabSize": 4,
-    "files.trimTrailingWhitespace": false,
-    "files.insertFinalNewline": true,
-    "files.exclude": {
-        "**/__pycache__": true,
-        "**/.git": true,
-        "**/*.pyc": {
-            "when": "$(basename).py"
-        },
-        "**/.venv": true,
+  },
+  "workbench.activityBar.visible": true,
+  "terminal.integrated.fontSize": 12,
+  "explorer.openEditors.visible": 0,
+  "markdown.preview.fontSize": 12,
+  "debug.console.fontSize": 12,
+  "git.enableSmartCommit": true,
+  "liveServer.settings.donotShowInfoMsg": true,
+  "window.menuBarVisibility": "toggle",
+
+  "vim.leader": "<space>",
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": [
+        "j",
+        "k"
+      ],
+      "after": [
+        "<Esc>"
+      ]
     },
-    "[python]": {
-        "editor.tabSize": 4,
-        "editor.lineHeight": 0,
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "<leader>",
+        "w"
+      ],
+      "commands": [
+        "workbench.action.closeActiveEditor"
+      ]
     },
-    "[typescript]": {
-        "editor.tabSize": 2
+    {
+      "before": [
+        "<leader>",
+        "s"
+      ],
+      "commands": [
+        "workbench.action.files.saveAll"
+      ]
     },
-    "[javascript]": {
-        "editor.tabSize": 2
+    {
+      "before": [
+        "<leader>",
+        "j"
+      ],
+      "commands": [
+        "workbench.action.previousEditor",
+      ]
     },
-    "workbench.activityBar.visible": true,
-    "workbench.startupEditor": "newUntitledFile",
-    "workbench.tree.renderIndentGuides": "none",
-    "terminal.integrated.rendererType": "dom",
-    "terminal.integrated.fontWeightBold": "100",
-    "window.menuBarVisibility": "toggle",
-    "window.zoomLevel": 0,
-    "explorer.openEditors.visible": 0,
-    "markdown.preview.fontSize": 12,
-    "liveServer.settings.donotShowInfoMsg": true,
-    "extensions.ignoreRecommendations": false,
-    "debug.console.fontSize": 12,
-    "[json]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
+    {
+      "before": [
+        "<leader>",
+        "k"
+      ],
+      "commands": [
+        "workbench.action.nextEditor",
+      ]
     },
-    "[jsonc]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
-    },
-    "git.enableSmartCommit": true,
-    "vim.useSystemClipboard": true,
-    "vim.easymotionMarkerFontSize": "12",
-    "kite.showWelcomeNotificationOnStartup": false,
-    "terminal.integrated.fontSize": 12,
-    "python.jediEnabled": false,
-    "workbench.iconTheme": "eq-material-theme-icons-ocean",
-    "emmet.includeLanguages": {
-        "javascript": "javascriptreact"
-    },
-    "workbench.colorTheme": "Horizon",
-    "workbench.statusBar.visible": true
+  ],
+  "workbench.sideBar.location": "right",
+  "extensions.ignoreRecommendations": false,
+  "workbench.startupEditor": "newUntitledFile",
+  "window.zoomLevel": 0,
 }
