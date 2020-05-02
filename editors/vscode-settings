@@ -1,6 +1,6 @@
 {
   "workbench.colorTheme": "Hacker",
-  "editor.fontSize": 12,
+  "editor.fontSize": 11.5,
   "files.trimTrailingWhitespace": false,
   "files.insertFinalNewline": true,
   "editor.lineHeight": 20,
