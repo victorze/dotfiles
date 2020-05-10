@@ -8,6 +8,18 @@ Alt + Down
 Para borrar una linea
 Ctrl + D
 
+Duplicar linea
+Ctrl + Alt + down
+Ctrl + Alt + up
+
+Para navegar de miembro a miembro (variables y métodos)
+Ctrl + Shift + up
+Ctrl + Shift + down
+
+Selección progresiva
+Shift + Alt + up
+Shift + Alt + down
+
 Para ir y venir durante la edición
 Alt + right
 Alt + left
@@ -20,12 +32,9 @@ Ctrl + Shift + o
 
 
 
+
 Solución rápida
 Ctrl + 1
-
-Para navegar de miembro a miembro (variables y métodos)
-Ctrl + Shift + up
-Ctrl + Shift + down
 
 Seleccionar clase y presionar F4 para ver su jerarquía de tipos
 
