@@ -1,0 +1,2 @@
+# clipboards vim
+https://vi.stackexchange.com/questions/84/how-can-i-copy-text-to-the-system-clipboard-from-vim
