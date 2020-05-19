@@ -1,0 +1,21 @@
+https://blog.jetbrains.com/idea/2020/03/top-15-intellij-idea-shortcuts/
+
+# Ordena los imports
+Ctrl + Alt + o
+
+# Aplica formato al código
+Ctrl + Alt + L
+
+# Duplica linea
+Ctrl + d
+
+# Mueve una linea arriba y abajo
+Shift + Alt + up
+Shift + Alt + down
+
+# Elimina linea
+Ctrl + x
+
+# Agrega una nueva linea
+Ctrl + Alt + Enter  # encima de la linea actual
+Shift + Enter       # debajo de la linea actual
