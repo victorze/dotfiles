@@ -13,6 +13,12 @@ Plug 'mattn/emmet-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
 
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'digitaltoad/vim-pug'
 Plug 'jwalton512/vim-blade'
@@ -122,13 +128,21 @@ nnoremap <leader>a ggvG$
 nnoremap <localleader>g zz15<c-e>
 
 " Run app
-nnoremap <leader>rp :!clear && python3 %:t<CR>
-nnoremap <leader>rh :!clear && php %:t<CR>
-nnoremap <leader>rn :!clear && node %:t<CR>
+nnoremap <leader>rp :!clear && python3 %R>
+nnoremap <leader>tl :!clear && pylint %:p<CR>
+nnoremap <leader>tk :!clear && flake8 %:p<CR>
+nnoremap <leader>td :!clear && black --line-length=79 --diff %:p<CR>
+nnoremap <leader>tf :!clear && black --line-length=79 %:p<CR>
 
 " Current word to uppercase
 inoremap <c-u> <esc>viwU<esc>Ea
 nnoremap <c-u> viwU<esc>
+
+" Insert mode to normal mode
+inoremap jk <esc>
+
+" Disabling the old keys
+inoremap <esc> <nop>
 
 
 " --------------------------------------------
@@ -139,7 +153,7 @@ nnoremap <c-u> viwU<esc>
 " Ignored files
 let g:NERDTreeIgnore = [
     \ '\.pyc$', '^__pycache__$',
-    \ '\.git$', 'node_modules$', '^\~$'
+    \ '\.git$', 'node_modules$', 'venv$'
     \]
 
 let g:NERDTreeMinimalUI = 1  " Hide help text
@@ -165,3 +179,17 @@ let g:airline#extensions#tabline#fnamemod = ':t'  " Show just the filename
 let g:mta_filetypes = {
     \ 'php' : 1,
     \}
+
+
+"  ## LANGUAGE SERVER PROTOCOL
+
+inoremap <expr> <c-j>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <c-k> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+let g:lsp_diagnostics_enabled = 0 " disable diagnostics support (warnings, errors)
+
+" Command LSP
+nnoremap <leader>ld :LspDefinition<CR>
+nnoremap <leader>lr :LspReferences<CR>
+nnoremap <leader>ln :LspRename<CR>
+nnoremap <leader>li :LspHover<CR>
