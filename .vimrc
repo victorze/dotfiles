@@ -20,15 +20,10 @@ Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 Plug 'HerringtonDarkholme/yats.vim'
-Plug 'digitaltoad/vim-pug'
-Plug 'jwalton512/vim-blade'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'neoclide/vim-jsx-improve'
-Plug 'posva/vim-vue'
 
-Plug 'morhetz/gruvbox'
 Plug 'victorze/foo'
-Plug 'cocopon/iceberg.vim'
 call plug#end()
 
 
@@ -127,22 +122,36 @@ nnoremap <leader>a ggvG$
 " Top cursor on screen
 nnoremap <localleader>g zz15<c-e>
 
-" Run app
-nnoremap <leader>rp :!clear && python3 %R>
-nnoremap <leader>tl :!clear && pylint %:p<CR>
-nnoremap <leader>tk :!clear && flake8 %:p<CR>
-nnoremap <leader>td :!clear && black --line-length=79 --diff %:p<CR>
-nnoremap <leader>tf :!clear && black --line-length=79 %:p<CR>
-
 " Current word to uppercase
 inoremap <c-u> <esc>viwU<esc>Ea
 nnoremap <c-u> viwU<esc>
+
+" Add a semicolon to end of line
+inoremap <c-l> <esc>A;<esc>
+nnoremap <c-l> A;<esc>
 
 " Insert mode to normal mode
 inoremap jk <esc>
 
 " Disabling the old keys
 inoremap <esc> <nop>
+
+" Run
+" ------ Python
+nnoremap <leader>rp :!clear && python3 %:p<CR>
+nnoremap <localleader>pl :!clear && pylint %:p<CR>
+nnoremap <localleader>pk :!clear && flake8 %:p<CR>
+nnoremap <localleader>pd :!clear && black --line-length=79 --diff %:p<CR>
+nnoremap <localleader>pf :!clear && black --line-length=79 %:p<CR>
+
+" ------ JS
+nnoremap <leader>rn :!clear && node %:p<cr>
+
+" ------ pHP
+nnoremap <leader>rh :!clear && php %:p<CR>
+nnoremap <localleader>hs :!clear && php-cs-fixer fix --diff %:p<CR>
+nnoremap <localleader>hl :!clear && ./vendor/bin/psalm --show-info=true<CR>
+nnoremap <localleader>ht :!clear && ./vendor/bin/phpunit<CR>
 
 
 " --------------------------------------------
