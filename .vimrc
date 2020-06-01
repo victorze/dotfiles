@@ -22,6 +22,7 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'neoclide/vim-jsx-improve'
+Plug 'jwalton512/vim-blade'
 
 Plug 'victorze/foo'
 call plug#end()
@@ -55,7 +56,7 @@ autocmd FileType gitcommit setlocal colorcolumn=72 tw=72
 set termguicolors
 let g:gruvbox_contrast_dark = "hard"
 set background=dark
-colorscheme hyper
+colorscheme mr-robot
 let g:airline_theme='distinguished'
 
 " ## Buffers
@@ -138,21 +139,36 @@ inoremap <esc> <nop>
 
 " Run
 " ------ Python
-nnoremap <leader>rp :!clear && python3 %:p<CR>
-nnoremap <localleader>pl :!clear && pylint %:p<CR>
-nnoremap <localleader>pk :!clear && flake8 %:p<CR>
-nnoremap <localleader>pd :!clear && black --line-length=79 --diff %:p<CR>
-nnoremap <localleader>pf :!clear && black --line-length=79 %:p<CR>
+nnoremap <leader>rpp :!clear && python3 %:p<CR>
+nnoremap <leader>rpl :!clear && pylint %:p<CR>
+nnoremap <leader>rpk :!clear && flake8 %:p<CR>
+nnoremap <leader>rpd :!clear && black --line-length=79 --diff %:p<CR>
+nnoremap <leader>rpf :!clear && black --line-length=79 %:p<CR>
 
 " ------ JS
-nnoremap <leader>rn :!clear && node %:p<cr>
+nnoremap <leader>rnn :!clear && node %:p<cr>
 
-" ------ pHP
-nnoremap <leader>rh :!clear && php %:p<CR>
-nnoremap <localleader>hs :!clear && php-cs-fixer fix --diff %:p<CR>
-nnoremap <localleader>hl :!clear && ./vendor/bin/psalm --show-info=true<CR>
-nnoremap <localleader>ht :!clear && ./vendor/bin/phpunit<CR>
+" ------ Ruby
+nnoremap <leader>rbb :!clear && ruby %:p<cr>
+nnoremap <leader>rbc :!clear && ruby -cw %:p<cr>
 
+" ------ Clojure
+nnoremap <leader>rcc :!clear && lein run<cr>
+nnoremap <leader>rct :!clear && lein test<cr>
+
+" ------ PHP
+nnoremap <leader>rhh :!clear && php %:p<CR>
+nnoremap <leader>rhs :!clear && php-cs-fixer fix --diff %:p<CR>
+nnoremap <leader>rhl :!clear && ./vendor/bin/psalm --show-info=true<CR>
+nnoremap <leader>rht :!clear && ./vendor/bin/phpunit<CR>
+
+" ------ CSharp
+nnoremap <leader>rss :!clear && dotnet run<CR>
+nnoremap <leader>rst :!clear && dotnet test<CR>
+
+" ------ Java
+nnoremap <leader>rjj :!clear && mvn clean test<CR>
+nnoremap <leader>rjp :!clear && mvn clean package<CR>
 
 " --------------------------------------------
 " # Plugins Settings
