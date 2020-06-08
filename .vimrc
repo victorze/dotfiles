@@ -53,6 +53,7 @@ autocmd Filetype typescript setlocal ts=2 sw=2 sts=0 expandtab
 autocmd FileType gitcommit setlocal colorcolumn=72 tw=72
 
 " ## Theme & Colorscheme
+syntax enable
 set termguicolors
 let g:gruvbox_contrast_dark = "hard"
 set background=dark
@@ -120,6 +121,9 @@ nnoremap <localleader>s :wa<CR>
 " Select content document
 nnoremap <leader>a ggvG$
 
+" Format code block
+noremap <localleader>f vi{=
+
 " Top cursor on screen
 nnoremap <localleader>g zz15<c-e>
 
@@ -145,8 +149,11 @@ nnoremap <leader>rpk :!clear && flake8 %:p<CR>
 nnoremap <leader>rpd :!clear && black --line-length=79 --diff %:p<CR>
 nnoremap <leader>rpf :!clear && black --line-length=79 %:p<CR>
 
-" ------ JS
+" ------ Javascript
 nnoremap <leader>rnn :!clear && node %:p<cr>
+
+" ------ Typescript
+nnoremap <leader>rtc :!clear && tsc<cr>
 
 " ------ Ruby
 nnoremap <leader>rbb :!clear && ruby %:p<cr>
@@ -218,3 +225,4 @@ nnoremap <leader>ld :LspDefinition<CR>
 nnoremap <leader>lr :LspReferences<CR>
 nnoremap <leader>ln :LspRename<CR>
 nnoremap <leader>li :LspHover<CR>
+nnoremap <leader>lg :LspDocumentDiagnostics<CR>
