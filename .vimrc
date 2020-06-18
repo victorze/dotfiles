@@ -141,41 +141,29 @@ inoremap jk <esc>
 " Disabling the old keys
 inoremap <esc> <nop>
 
-" Run
-" ------ Python
-nnoremap <leader>rpp :!clear && python3 %:p<CR>
-nnoremap <leader>rpl :!clear && pylint %:p<CR>
-nnoremap <leader>rpk :!clear && flake8 %:p<CR>
-nnoremap <leader>rpd :!clear && black --line-length=79 --diff %:p<CR>
-nnoremap <leader>rpf :!clear && black --line-length=79 %:p<CR>
 
-" ------ Javascript
-nnoremap <leader>rnn :!clear && node %:p<cr>
+" --------------------------------------------
+" # GVIM setting
+" --------------------------------------------
 
-" ------ Typescript
-nnoremap <leader>rtc :!clear && tsc<cr>
+" win32 gvim
+if has("gui_win32")
+    set guifont=Consolas:h10:cANSI
+    set guioptions-=m  " hide the menu bar
+    set guioptions-=T  " hide the menu tools
+    set guioptions-=r  " hide the bar scroll
+    set guioptions-=L  " hide the bar scroll
+    set columns=80
+    set lines=15
+    noremap <s-z> <esc>
+    set wildignore+=*\\vendor\\*,*\\node_modules\\*,*.swp,*.zip,*.exe,*\\venv\\*,*\\.venv\\*
+    set guicursor+=a:blinkon0
+    set backspace=indent,eol,start " backspace will always work on insert mode
 
-" ------ Ruby
-nnoremap <leader>rbb :!clear && ruby %:p<cr>
-nnoremap <leader>rbc :!clear && ruby -cw %:p<cr>
+    " Disable beep sound
+    set belloff=all
+endif
 
-" ------ Clojure
-nnoremap <leader>rcc :!clear && lein run<cr>
-nnoremap <leader>rct :!clear && lein test<cr>
-
-" ------ PHP
-nnoremap <leader>rhh :!clear && php %:p<CR>
-nnoremap <leader>rhs :!clear && php-cs-fixer fix --diff %:p<CR>
-nnoremap <leader>rhl :!clear && ./vendor/bin/psalm --show-info=true<CR>
-nnoremap <leader>rht :!clear && ./vendor/bin/phpunit<CR>
-
-" ------ CSharp
-nnoremap <leader>rss :!clear && dotnet run<CR>
-nnoremap <leader>rst :!clear && dotnet test<CR>
-
-" ------ Java
-nnoremap <leader>rjj :!clear && mvn clean test<CR>
-nnoremap <leader>rjp :!clear && mvn clean package<CR>
 
 " --------------------------------------------
 " # Plugins Settings
