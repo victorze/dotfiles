@@ -148,6 +148,7 @@ inoremap <esc> <nop>
 
 " win32 gvim
 if has("gui_win32")
+    set notitle
     set guifont=Consolas:h10:cANSI
     set guioptions-=m  " hide the menu bar
     set guioptions-=T  " hide the menu tools
