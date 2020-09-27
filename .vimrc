@@ -26,8 +26,8 @@ Plug 'jwalton512/vim-blade'
 
 Plug 'victorze/foo'
 Plug 'morhetz/gruvbox'
+Plug 'rakr/vim-one'
 call plug#end()
-
 
 " --------------------------------------------
 " # Settings
@@ -56,10 +56,12 @@ autocmd FileType gitcommit setlocal colorcolumn=72 tw=72
 " ## Theme & Colorscheme
 syntax enable
 set termguicolors
-let g:gruvbox_contrast_dark = "hard"
+"let g:gruvbox_contrast_dark = "hard"
 set background=dark
-colorscheme gruvbox
-"let g:airline_theme='distinguished'
+colorscheme mr-robot
+let g:airline_theme='distinguished'
+"let g:airline_theme='monochrome'
+"hi Normal guibg=NONE ctermbg=NONE
 
 " ## Buffers
 set hidden  " Allow change buffers without saving
@@ -137,25 +139,30 @@ inoremap <c-l> <esc>A;<esc>
 nnoremap <c-l> A;<esc>
 
 " Insert mode to normal mode
-"inoremap jk <esc>
+inoremap jk <esc>
 
 " Disabling the old keys
-"inoremap <esc> <nop>
+inoremap <esc> <nop>
+
+" Run app
+nnoremap <leader>rn :!clear && node %:t<CR>
+nnoremap <leader>rp :!clear && python3 %:t<CR>
 
 
 " --------------------------------------------
-" # GVIM setting (Windows 10)
+" # GVIM setting
 " --------------------------------------------
 
+" win32 gvim
 if has("gui_win32")
     set notitle
-    set guifont=Consolas:h10cANSI
+    set guifont=Consolas:h10:cANSI
     set guioptions-=m  " hide the menu bar
     set guioptions-=T  " hide the menu tools
     set guioptions-=r  " hide the bar scroll
     set guioptions-=L  " hide the bar scroll
-    set columns=90
-    set lines=25
+    set columns=80
+    set lines=15
     noremap <s-z> <esc>
     set wildignore+=*\\vendor\\*,*\\node_modules\\*,*.swp,*.zip,*.exe,*\\venv\\*,*\\.venv\\*
     set guicursor+=a:blinkon0
