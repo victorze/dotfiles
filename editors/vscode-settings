@@ -1,92 +1,24 @@
 {
-  "workbench.colorTheme": "Hacker",
-  "editor.fontSize": 11.5,
-  "files.trimTrailingWhitespace": false,
-  "files.insertFinalNewline": true,
-  "editor.lineHeight": 20,
-  "editor.renderIndentGuides": true,
-  "editor.suggestSelection": "first",
-  "editor.minimap.enabled": false,
-  "editor.dragAndDrop": false,
-  "editor.lineNumbers": "relative",
-  "editor.renderLineHighlight": "none",
-  "editor.detectIndentation": false,
-  "editor.tabSize": 2,
-  "editor.tokenColorCustomizations": {
-    "semanticHighlighting": true
-  },
-  "files.exclude": {
-    "**/.venv": true,
-    "**/__pycache__": true,
-    "**/.git": true,
-    "**/node_modules": true,
-  },
-  "[python]": {
+    "window.menuBarVisibility": "toggle",
+    "workbench.colorTheme": "Palenight Theme",
+    "workbench.sideBar.location": "right",
+    "workbench.startupEditor": "newUntitledFile",
+    "editor.fontSize": 12,
+    "editor.lineHeight": 30,
+    "editor.dragAndDrop": false,
+    "editor.lineNumbers": "relative",
     "editor.tabSize": 4,
-  },
-  "workbench.activityBar.visible": true,
-  "terminal.integrated.fontSize": 12,
-  "explorer.openEditors.visible": 0,
-  "markdown.preview.fontSize": 12,
-  "debug.console.fontSize": 12,
-  "git.enableSmartCommit": true,
-  "liveServer.settings.donotShowInfoMsg": true,
-  "window.menuBarVisibility": "toggle",
-
-  "vim.leader": "<space>",
-  "vim.useSystemClipboard": true,
-  "vim.useCtrlKeys": true,
-  "vim.insertModeKeyBindings": [
-    {
-      "before": [
-        "j",
-        "k"
-      ],
-      "after": [
-        "<Esc>"
-      ]
+    "editor.renderLineHighlight": "none",
+    "terminal.integrated.fontSize": 12,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.exclude": {
+        "**/.venv": true,
+        "**/__pycache__": true,
+        "**/.git": true,
+        "**/node_modules": true,
     },
-  ],
-  "vim.normalModeKeyBindingsNonRecursive": [
-    {
-      "before": [
-        "<leader>",
-        "w"
-      ],
-      "commands": [
-        "workbench.action.closeActiveEditor"
-      ]
+    "[javascript]": {
+        "editor.tabSize": 2,
     },
-    {
-      "before": [
-        "<leader>",
-        "s"
-      ],
-      "commands": [
-        "workbench.action.files.saveAll"
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "j"
-      ],
-      "commands": [
-        "workbench.action.previousEditor",
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "k"
-      ],
-      "commands": [
-        "workbench.action.nextEditor",
-      ]
-    },
-  ],
-  "workbench.sideBar.location": "right",
-  "extensions.ignoreRecommendations": false,
-  "workbench.startupEditor": "newUntitledFile",
-  "window.zoomLevel": 0,
 }
