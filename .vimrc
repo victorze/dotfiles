@@ -8,10 +8,11 @@ scriptencoding utf-8
 call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdtree'
 Plug 'mattn/emmet-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
@@ -26,8 +27,11 @@ Plug 'jwalton512/vim-blade'
 
 Plug 'victorze/foo'
 Plug 'morhetz/gruvbox'
+Plug 'tomasiser/vim-code-dark'
 Plug 'rakr/vim-one'
+Plug 'jacoborus/tender.vim'
 call plug#end()
+
 
 " --------------------------------------------
 " # Settings
@@ -51,17 +55,18 @@ set expandtab
 set autoindent
 autocmd Filetype javascript setlocal ts=2 sw=2 sts=0 expandtab
 autocmd Filetype typescript setlocal ts=2 sw=2 sts=0 expandtab
+autocmd Filetype html setlocal ts=2 sw=2 sts=0 expandtab
+autocmd Filetype css setlocal ts=2 sw=2 sts=0 expandtab
 autocmd FileType gitcommit setlocal colorcolumn=72 tw=72
 
 " ## Theme & Colorscheme
 syntax enable
 set termguicolors
-"let g:gruvbox_contrast_dark = "hard"
+let g:gruvbox_contrast_dark = "hard"
 set background=dark
 colorscheme mr-robot
 let g:airline_theme='distinguished'
-"let g:airline_theme='monochrome'
-"hi Normal guibg=NONE ctermbg=NONE
+"let g:airline_theme = 'codedark'
 
 " ## Buffers
 set hidden  " Allow change buffers without saving
@@ -144,32 +149,31 @@ inoremap jk <esc>
 " Disabling the old keys
 inoremap <esc> <nop>
 
-" Run app
-nnoremap <leader>rn :!clear && node %:t<CR>
-nnoremap <leader>rp :!clear && python3 %:t<CR>
-
 
 " --------------------------------------------
-" # GVIM setting
+" # GVIM setting (Windows 10)
 " --------------------------------------------
 
-" win32 gvim
 if has("gui_win32")
     set notitle
-    set guifont=Consolas:h10:cANSI
+    set guifont=Consolas:h10cANSI
     set guioptions-=m  " hide the menu bar
     set guioptions-=T  " hide the menu tools
     set guioptions-=r  " hide the bar scroll
     set guioptions-=L  " hide the bar scroll
-    set columns=80
-    set lines=15
+    set columns=90
+    set lines=25
     noremap <s-z> <esc>
-    set wildignore+=*\\vendor\\*,*\\node_modules\\*,*.swp,*.zip,*.exe,*\\venv\\*,*\\.venv\\*
     set guicursor+=a:blinkon0
     set backspace=indent,eol,start " backspace will always work on insert mode
 
     " Disable beep sound
     set belloff=all
+
+    " Run app
+    nnoremap <leader>rp :!python %:p<CR>
+    nnoremap <leader>rn :!node %:p<CR>
+    nnoremap <leader>rh :!php %:p<CR>
 endif
 
 
@@ -181,7 +185,8 @@ endif
 " Ignored files
 let g:NERDTreeIgnore = [
     \ '\.pyc$', '^__pycache__$',
-    \ '\.git$', 'node_modules$', 'venv$'
+    \ '\.git$', 'node_modules$', 'vendor$','venv$', '.venv$',
+    \ '.idea$', '.mvn$', 'target$', '.settings$', '.classpath$', '.project$', '.factorypath', '.iml$'
     \]
 
 let g:NERDTreeMinimalUI = 1  " Hide help text
@@ -193,7 +198,10 @@ nnoremap <leader>n :NERDTreeToggle<CR>
 
 " ## ctrlp
 set runtimepath^=~/.vim/bundle/ctrlp.vim
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/*,*/node_modules/*,*/venv/*,*/build/*,*/~/*;
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\.git$\|.idea$\|.mvn$\|vendor$\|node_modules$\|venv$\|.venv$\|build$\|target$',
+    \ 'file': '\.so$\|\.dat$|\.DS_Store$'
+    \ }
 
 
 " ## Airline
@@ -214,7 +222,7 @@ let g:mta_filetypes = {
 inoremap <expr> <c-j>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <c-k> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-let g:lsp_diagnostics_enabled = 0 " disable diagnostics support (warnings, errors)
+"let g:lsp_diagnostics_enabled = 0 " disable diagnostics support (warnings, errors)
 
 " Command LSP
 nnoremap <leader>ld :LspDefinition<CR>
