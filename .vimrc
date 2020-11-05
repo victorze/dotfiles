@@ -14,6 +14,10 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
@@ -39,7 +43,6 @@ call plug#end()
 
 " ## GUI
 set mouse=a
-set hlsearch
 set colorcolumn=80
 set scrolloff=3         " Display at least 3 lines around you cursor
 
@@ -64,7 +67,7 @@ syntax enable
 set termguicolors
 let g:gruvbox_contrast_dark = "hard"
 set background=dark
-colorscheme mr-robot
+colorscheme hyper
 let g:airline_theme='distinguished'
 "let g:airline_theme = 'codedark'
 
@@ -82,6 +85,8 @@ set encoding=utf-8  " windows needs to be reminded about utf-8
 
 " Search
 set ignorecase
+set hlsearch
+set incsearch
 
 " Jump between matching HTML/XML tags
 runtime macros/matchit.vim
@@ -100,7 +105,7 @@ nnoremap <leader>ev :edit $MYVIMRC<CR>
 nnoremap <leader>es :source $MYVIMRC<CR>
 
 " You can see all the groups - Highlight
-nnoremap <leader>g :so $VIMRUNTIME/syntax/hitest.vim<CR>
+nnoremap <leader>h :so $VIMRUNTIME/syntax/hitest.vim<CR>
 
 " Copy to clipboard
 vnoremap <leader>y "+y
@@ -143,11 +148,9 @@ nnoremap <c-u> viwU<esc>
 inoremap <c-l> <esc>A;<esc>
 nnoremap <c-l> A;<esc>
 
-" Insert mode to normal mode
-inoremap jk <esc>
-
-" Disabling the old keys
-inoremap <esc> <nop>
+" Run file
+nnoremap <leader>rp :!clear && python3 %:p<CR>
+nnoremap <leader>rn :!clear && node %:p<CR>
 
 
 " --------------------------------------------
@@ -170,7 +173,7 @@ if has("gui_win32")
     " Disable beep sound
     set belloff=all
 
-    " Run app
+    " Run file
     nnoremap <leader>rp :!python %:p<CR>
     nnoremap <leader>rn :!node %:p<CR>
     nnoremap <leader>rh :!php %:p<CR>
@@ -215,6 +218,9 @@ let g:airline#extensions#tabline#fnamemod = ':t'  " Show just the filename
 let g:mta_filetypes = {
     \ 'php' : 1,
     \}
+
+" ## Vim Fugitive
+nnoremap <leader>g :G 
 
 
 "  ## LANGUAGE SERVER PROTOCOL
