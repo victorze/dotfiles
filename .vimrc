@@ -18,16 +18,11 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
-
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'neoclide/vim-jsx-improve'
 Plug 'jwalton512/vim-blade'
+Plug 'digitaltoad/vim-pug'
 
 Plug 'victorze/foo'
 Plug 'morhetz/gruvbox'
@@ -188,7 +183,7 @@ endif
 " Ignored files
 let g:NERDTreeIgnore = [
     \ '\.pyc$', '^__pycache__$',
-    \ '\.git$', 'node_modules$', 'vendor$','venv$', '.venv$',
+    \ '\.git$', 'venv$', '.venv$',
     \ '.idea$', '.mvn$', 'target$', '.settings$', '.classpath$', '.project$', '.factorypath', '.iml$'
     \]
 
@@ -221,18 +216,3 @@ let g:mta_filetypes = {
 
 " ## Vim Fugitive
 nnoremap <leader>g :G 
-
-
-"  ## LANGUAGE SERVER PROTOCOL
-
-inoremap <expr> <c-j>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <c-k> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-"let g:lsp_diagnostics_enabled = 0 " disable diagnostics support (warnings, errors)
-
-" Command LSP
-nnoremap <leader>ld :LspDefinition<CR>
-nnoremap <leader>lr :LspReferences<CR>
-nnoremap <leader>ln :LspRename<CR>
-nnoremap <leader>li :LspHover<CR>
-nnoremap <leader>lg :LspDocumentDiagnostics<CR>
