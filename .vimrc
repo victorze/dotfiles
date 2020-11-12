@@ -25,10 +25,6 @@ Plug 'jwalton512/vim-blade'
 Plug 'digitaltoad/vim-pug'
 
 Plug 'victorze/foo'
-Plug 'morhetz/gruvbox'
-Plug 'tomasiser/vim-code-dark'
-Plug 'rakr/vim-one'
-Plug 'jacoborus/tender.vim'
 call plug#end()
 
 
@@ -143,6 +139,18 @@ nnoremap <c-u> viwU<esc>
 inoremap <c-l> <esc>A;<esc>
 nnoremap <c-l> A;<esc>
 
+" Go end/start line
+nnoremap H 0
+vnoremap H 0
+nnoremap L $
+vnoremap L $
+
+" Insert mode to normal mode
+inoremap jk <esc>
+
+" Disabling the old keys
+inoremap <esc> <nop>
+
 " Run file
 nnoremap <leader>rp :!clear && python3 %:p<CR>
 nnoremap <leader>rn :!clear && node %:p<CR>
@@ -183,7 +191,7 @@ endif
 " Ignored files
 let g:NERDTreeIgnore = [
     \ '\.pyc$', '^__pycache__$',
-    \ '\.git$', 'venv$', '.venv$',
+    \ '\.git$', 'node_modules$', 'vendor$','venv$', '.venv$',
     \ '.idea$', '.mvn$', 'target$', '.settings$', '.classpath$', '.project$', '.factorypath', '.iml$'
     \]
 
@@ -215,4 +223,4 @@ let g:mta_filetypes = {
     \}
 
 " ## Vim Fugitive
-nnoremap <leader>g :G 
+nnoremap <leader>g :G
