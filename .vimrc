@@ -25,6 +25,16 @@ Plug 'jwalton512/vim-blade'
 Plug 'digitaltoad/vim-pug'
 
 Plug 'victorze/foo'
+Plug 'morhetz/gruvbox'
+Plug 'tomasiser/vim-code-dark'
+Plug 'rakr/vim-one'
+Plug 'jacoborus/tender.vim'
+
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
 call plug#end()
 
 
@@ -51,6 +61,7 @@ autocmd Filetype javascript setlocal ts=2 sw=2 sts=0 expandtab
 autocmd Filetype typescript setlocal ts=2 sw=2 sts=0 expandtab
 autocmd Filetype html setlocal ts=2 sw=2 sts=0 expandtab
 autocmd Filetype css setlocal ts=2 sw=2 sts=0 expandtab
+autocmd Filetype pug setlocal ts=2 sw=2 sts=0 expandtab
 autocmd FileType gitcommit setlocal colorcolumn=72 tw=72
 
 " ## Theme & Colorscheme
@@ -98,6 +109,17 @@ nnoremap <leader>es :source $MYVIMRC<CR>
 " You can see all the groups - Highlight
 nnoremap <leader>h :so $VIMRUNTIME/syntax/hitest.vim<CR>
 
+"Do not use arrows 😤
+nnoremap <Up> :echo "Do not use arrows 🤬"<cr>
+nnoremap <Down> :echo "Do not use arrows 😤"<cr>
+nnoremap <Left> :echo "Do not use arrows 😡"<cr>
+nnoremap <Right> :echo "Do not use arrows 😠"<cr>
+
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
 " Copy to clipboard
 vnoremap <leader>y "+y
 nnoremap <leader>y "+y
@@ -137,19 +159,6 @@ nnoremap <c-u> viwU<esc>
 
 " Add a semicolon to end of line
 inoremap <c-l> <esc>A;<esc>
-nnoremap <c-l> A;<esc>
-
-" Go end/start line
-nnoremap H 0
-vnoremap H 0
-nnoremap L $
-vnoremap L $
-
-" Insert mode to normal mode
-inoremap jk <esc>
-
-" Disabling the old keys
-inoremap <esc> <nop>
 
 " Run file
 nnoremap <leader>rp :!clear && python3 %:p<CR>
@@ -191,7 +200,7 @@ endif
 " Ignored files
 let g:NERDTreeIgnore = [
     \ '\.pyc$', '^__pycache__$',
-    \ '\.git$', 'node_modules$', 'vendor$','venv$', '.venv$',
+    \ '\.git$', 'venv$', '.venv$', 'vendor$', 'node_modules$',
     \ '.idea$', '.mvn$', 'target$', '.settings$', '.classpath$', '.project$', '.factorypath', '.iml$'
     \]
 
@@ -224,3 +233,25 @@ let g:mta_filetypes = {
 
 " ## Vim Fugitive
 nnoremap <leader>g :G
+
+" ## vim Blade
+let g:blade_custom_directives = ['csrf', 'props']
+
+let g:blade_custom_directives_pairs = {
+    \   'error': 'enderror',
+    \   'cache': 'endcache',
+\ }
+
+"  ## LANGUAGE SERVER PROTOCOL
+
+inoremap <expr> <c-j>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <c-k> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+let g:lsp_diagnostics_enabled = 0 " disable diagnostics support (warnings, errors)
+
+" Command LSP
+nnoremap <leader>ld :LspDefinition<CR>
+nnoremap <leader>lr :LspReferences<CR>
+nnoremap <leader>ln :LspRename<CR>
+nnoremap <leader>li :LspHover<CR>
+nnoremap <leader>lg :LspDocumentDiagnostics<CR>
