@@ -39,3 +39,5 @@ setxkbmap latam &
 feh --bg-scale Wallpapers/jimi-hendrix.jpg &
 picom &
 udiskie -t &
+cbatticon &
+nm-applet &
