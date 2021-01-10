@@ -12,29 +12,12 @@ Plug 'preservim/nerdtree'
 Plug 'mattn/emmet-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
-Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-
-Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'Glench/Vim-Jinja2-Syntax'
-Plug 'neoclide/vim-jsx-improve'
-Plug 'jwalton512/vim-blade'
-Plug 'digitaltoad/vim-pug'
-
+Plug 'yuezk/vim-js'
+Plug 'maxmellon/vim-jsx-pretty'
 Plug 'victorze/foo'
-Plug 'morhetz/gruvbox'
-Plug 'tomasiser/vim-code-dark'
-Plug 'rakr/vim-one'
-Plug 'jacoborus/tender.vim'
-
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
 call plug#end()
 
 
@@ -53,15 +36,12 @@ set number
 set relativenumber
 
 " ## Indentation
-set shiftwidth=4
-set softtabstop=4
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 set autoindent
-autocmd Filetype javascript setlocal ts=2 sw=2 sts=0 expandtab
-autocmd Filetype typescript setlocal ts=2 sw=2 sts=0 expandtab
-autocmd Filetype html setlocal ts=2 sw=2 sts=0 expandtab
-autocmd Filetype css setlocal ts=2 sw=2 sts=0 expandtab
-autocmd Filetype pug setlocal ts=2 sw=2 sts=0 expandtab
+autocmd Filetype python setlocal ts=4 sw=4 sts=4 expandtab
+autocmd Filetype php setlocal ts=4 sw=4 sts=4 expandtab
 autocmd FileType gitcommit setlocal colorcolumn=72 tw=72
 
 " ## Theme & Colorscheme
@@ -109,12 +89,6 @@ nnoremap <leader>es :source $MYVIMRC<CR>
 " You can see all the groups - Highlight
 nnoremap <leader>h :so $VIMRUNTIME/syntax/hitest.vim<CR>
 
-"Do not use arrows 😤
-nnoremap <Up> :echo "Do not use arrows 🤬"<cr>
-nnoremap <Down> :echo "Do not use arrows 😤"<cr>
-nnoremap <Left> :echo "Do not use arrows 😡"<cr>
-nnoremap <Right> :echo "Do not use arrows 😠"<cr>
-
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -161,8 +135,9 @@ nnoremap <c-u> viwU<esc>
 inoremap <c-l> <esc>A;<esc>
 
 " Run file
-nnoremap <leader>rp :!clear && python3 %:p<CR>
 nnoremap <leader>rn :!clear && node %:p<CR>
+nnoremap <leader>rp :!clear && python3 %:p<CR>
+nnoremap <leader>rh :!clear && php %:p<CR>
 
 
 " --------------------------------------------
@@ -186,8 +161,8 @@ if has("gui_win32")
     set belloff=all
 
     " Run file
-    nnoremap <leader>rp :!python %:p<CR>
     nnoremap <leader>rn :!node %:p<CR>
+    nnoremap <leader>rp :!python %:p<CR>
     nnoremap <leader>rh :!php %:p<CR>
 endif
 
@@ -233,25 +208,3 @@ let g:mta_filetypes = {
 
 " ## Vim Fugitive
 nnoremap <leader>g :G
-
-" ## vim Blade
-let g:blade_custom_directives = ['csrf', 'props']
-
-let g:blade_custom_directives_pairs = {
-    \   'error': 'enderror',
-    \   'cache': 'endcache',
-\ }
-
-"  ## LANGUAGE SERVER PROTOCOL
-
-inoremap <expr> <c-j>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <c-k> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-let g:lsp_diagnostics_enabled = 0 " disable diagnostics support (warnings, errors)
-
-" Command LSP
-nnoremap <leader>ld :LspDefinition<CR>
-nnoremap <leader>lr :LspReferences<CR>
-nnoremap <leader>ln :LspRename<CR>
-nnoremap <leader>li :LspHover<CR>
-nnoremap <leader>lg :LspDocumentDiagnostics<CR>
