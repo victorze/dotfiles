@@ -92,7 +92,7 @@ nnoremap <Right> :echo "Do not use arrows 😠"<cr>
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w
+nnoremap <C-l> <C-w>l
 
 " Copy to clipboard
 vnoremap <leader>y "+y
@@ -136,7 +136,6 @@ nnoremap <c-u> viwU<esc>
 
 " Add a semicolon to end of line
 inoremap <c-l> <esc>A;<esc>
-nnoremap <c-l> A;<esc>
 
 " Insert mode to normal mode
 inoremap jk <esc>
