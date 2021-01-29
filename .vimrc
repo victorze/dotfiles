@@ -3,8 +3,6 @@ scriptencoding utf-8
 " .........................................................
 " # Plugins
 " .........................................................
-
-" vim-plug plugins
 call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -13,7 +11,6 @@ Plug 'mattn/emmet-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
 
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
@@ -47,11 +44,8 @@ autocmd FileType gitcommit setlocal colorcolumn=72 tw=72
 " ## Theme & Colorscheme
 syntax enable
 set termguicolors
-let g:gruvbox_contrast_dark = "hard"
-set background=dark
 colorscheme hyper
 let g:airline_theme='distinguished'
-"let g:airline_theme = 'codedark'
 
 " ## Buffers
 set hidden  " Allow change buffers without saving
@@ -84,15 +78,21 @@ let g:maplocalleader = ','
 
 " Edit .vimrc
 nnoremap <leader>ev :edit $MYVIMRC<CR>
-nnoremap <leader>es :source $MYVIMRC<CR>
+nnoremap <leader>ls :source $MYVIMRC<CR>
 
 " You can see all the groups - Highlight
 nnoremap <leader>h :so $VIMRUNTIME/syntax/hitest.vim<CR>
 
+"Do not use arrows 😤
+nnoremap <Up> :echo "Do not use arrows 🤬"<cr>
+nnoremap <Down> :echo "Do not use arrows 😤"<cr>
+nnoremap <Left> :echo "Do not use arrows 😡"<cr>
+nnoremap <Right> :echo "Do not use arrows 😠"<cr>
+
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+nnoremap <C-l> <C-w
 
 " Copy to clipboard
 vnoremap <leader>y "+y
@@ -118,14 +118,17 @@ nnoremap <leader>s :w<CR>
 " Save all files
 nnoremap <localleader>s :wa<CR>
 
-" Select content document
-nnoremap <leader>a ggvG$
+" Format file
+nnoremap <leader>f ggvG$=
 
 " Format code block
 noremap <localleader>f vi{=
 
+" Select content document
+nnoremap <leader>a ggvG$
+
 " Top cursor on screen
-nnoremap <localleader>g zz15<c-e>
+nnoremap <localleader>g zz25<c-e>
 
 " Current word to uppercase
 inoremap <c-u> <esc>viwU<esc>Ea
@@ -133,6 +136,23 @@ nnoremap <c-u> viwU<esc>
 
 " Add a semicolon to end of line
 inoremap <c-l> <esc>A;<esc>
+nnoremap <c-l> A;<esc>
+
+" Insert mode to normal mode
+inoremap jk <esc>
+
+" Go to the beginning of the current line
+nnoremap H 0
+vnoremap H 0
+
+" Go to the end of the current line
+nnoremap L $
+vnoremap L $
+
+" Disabling the old keys
+inoremap <esc> <nop>
+nnoremap 0 <nop>
+nnoremap $ <nop>
 
 " Run file
 nnoremap <leader>rn :!clear && node %:p<CR>
@@ -175,8 +195,7 @@ endif
 " Ignored files
 let g:NERDTreeIgnore = [
     \ '\.pyc$', '^__pycache__$',
-    \ '\.git$', 'venv$', '.venv$', 'vendor$', 'node_modules$',
-    \ '.idea$', '.mvn$', 'target$', '.settings$', '.classpath$', '.project$', '.factorypath', '.iml$'
+    \ '\.git$', 'venv$', '.venv$'
     \]
 
 let g:NERDTreeMinimalUI = 1  " Hide help text
@@ -192,6 +211,7 @@ let g:ctrlp_custom_ignore = {
     \ 'dir':  '\.git$\|.idea$\|.mvn$\|vendor$\|node_modules$\|venv$\|.venv$\|build$\|target$',
     \ 'file': '\.so$\|\.dat$|\.DS_Store$'
     \ }
+let g:ctrlp_show_hidden = 1
 
 
 " ## Airline
@@ -205,6 +225,3 @@ let g:airline#extensions#tabline#fnamemod = ':t'  " Show just the filename
 let g:mta_filetypes = {
     \ 'php' : 1,
     \}
-
-" ## Vim Fugitive
-nnoremap <leader>g :G
