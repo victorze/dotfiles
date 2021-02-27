@@ -1,18 +1,23 @@
+// Place your key bindings in this file to override the defaults
 [
     {
-        "key": "ctrl+[Semicolon]",
-        "command": "workbench.action.terminal.toggleTerminal"
-    },
-    {
-        "key": "ctrl+[Period]",
+        "key": "ctrl+q",
         "command": "workbench.action.toggleSidebarVisibility"
     },
     {
-        "key": "ctrl+alt+n",
+        "key": "alt+j",
         "command": "workbench.action.terminal.focusNext"
     },
     {
-        "key": "ctrl+m",
+        "key": "alt+oem_3",
         "command": "workbench.action.toggleMaximizedPanel"
+    },
+    {
+        "key": "ctrl+shift+s",
+        "command": "workbench.action.files.saveAll"
+    },
+    {
+        "key": "ctrl+k s",
+        "command": "-workbench.action.files.saveAll"
     }
 ]
