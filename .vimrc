@@ -60,9 +60,9 @@ syntax enable
 set termguicolors
 let g:gruvbox_contrast_dark = "hard"
 set background=dark
-colorscheme iceberg
+colorscheme challenger_deep
 " let g:airline_theme='distinguished'
-" hi LineNR guibg=#1e1c31
+hi LineNR guibg=#1e1c31
 
 " ## Buffers
 set hidden  " Allow change buffers without saving
