@@ -14,7 +14,21 @@ Plug 'tpope/vim-commentary'
 
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
+
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+
 Plug 'victorze/foo'
+Plug 'morhetz/gruvbox'
+Plug 'ayu-theme/ayu-vim'
+Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep'  }
+Plug 'whatyouhide/vim-gotham'
+Plug 'cocopon/iceberg.vim'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'nanotech/jellybeans.vim'
 call plug#end()
 
 
@@ -24,7 +38,7 @@ call plug#end()
 
 " ## GUI
 set mouse=a
-set colorcolumn=80
+" set colorcolumn=80
 set scrolloff=3         " Display at least 3 lines around you cursor
 
 " ## Lines
@@ -44,8 +58,11 @@ autocmd FileType gitcommit setlocal colorcolumn=72 tw=72
 " ## Theme & Colorscheme
 syntax enable
 set termguicolors
-colorscheme hyper
-let g:airline_theme='distinguished'
+let g:gruvbox_contrast_dark = "hard"
+set background=dark
+colorscheme iceberg
+" let g:airline_theme='distinguished'
+" hi LineNR guibg=#1e1c31
 
 " ## Buffers
 set hidden  " Allow change buffers without saving
@@ -137,26 +154,9 @@ nnoremap <c-u> viwU<esc>
 " Add a semicolon to end of line
 inoremap <c-l> <esc>A;<esc>
 
-" Insert mode to normal mode
-inoremap jk <esc>
-
-" Go to the beginning of the current line
-nnoremap H 0
-vnoremap H 0
-
-" Go to the end of the current line
-nnoremap L $
-vnoremap L $
-
-" Disabling the old keys
-inoremap <esc> <nop>
-nnoremap 0 <nop>
-nnoremap $ <nop>
-
 " Run file
 nnoremap <leader>rn :!clear && node %:p<CR>
-nnoremap <leader>rp :!clear && python3 %:p<CR>
-nnoremap <leader>rh :!clear && php %:p<CR>
+nnoremap <leader>rc :!clear && gcc %:p && ./a.out<CR>
 
 
 " --------------------------------------------
@@ -224,3 +224,17 @@ let g:airline#extensions#tabline#fnamemod = ':t'  " Show just the filename
 let g:mta_filetypes = {
     \ 'php' : 1,
     \}
+
+"  ## LANGUAGE SERVER PROTOCOL
+
+inoremap <expr> <c-j>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <c-k> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+let g:lsp_diagnostics_enabled = 0 " disable diagnostics support (warnings, errors)
+
+"" Command LSP
+nnoremap <leader>ld :LspDefinition<CR>
+nnoremap <leader>lr :LspReferences<CR>
+nnoremap <leader>ln :LspRename<CR>
+nnoremap <leader>li :LspHover<CR>
+nnoremap <leader>lg :LspDocumentDiagnostics<CR>
