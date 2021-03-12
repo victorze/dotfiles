@@ -38,11 +38,11 @@ call plug#end()
 
 " ## GUI
 set mouse=a
-" set colorcolumn=80
+set colorcolumn=80
 set scrolloff=3         " Display at least 3 lines around you cursor
 
 " ## Lines
-set nowrap
+" set nowrap
 set number
 set relativenumber
 
@@ -51,6 +51,7 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 set autoindent
+autocmd Filetype c setlocal ts=4 sw=4 sts=4 expandtab
 autocmd Filetype python setlocal ts=4 sw=4 sts=4 expandtab
 autocmd Filetype php setlocal ts=4 sw=4 sts=4 expandtab
 autocmd FileType gitcommit setlocal colorcolumn=72 tw=72
@@ -60,9 +61,9 @@ syntax enable
 set termguicolors
 let g:gruvbox_contrast_dark = "hard"
 set background=dark
-colorscheme challenger_deep
-" let g:airline_theme='distinguished'
-hi LineNR guibg=#1e1c31
+colorscheme hyper
+let g:airline_theme='distinguished'
+" hi LineNR guibg=#1e1c31
 
 " ## Buffers
 set hidden  " Allow change buffers without saving
@@ -129,7 +130,7 @@ nnoremap <leader>w :bd<CR>
 " Close all buffers
 nnoremap <localleader>w :bufdo bd<CR>
 
-" Save file
+" Save file.
 nnoremap <leader>s :w<CR>
 
 " Save all files
@@ -153,9 +154,15 @@ nnoremap <c-u> viwU<esc>
 
 " Add a semicolon to end of line
 inoremap <c-l> <esc>A;<esc>
+nnoremap <c-l> A;<esc>
+
+" View file content in terminal. hack copy WSL2
+nnoremap <leader>c :!clear && cat %:p<CR>
 
 " Run file
 nnoremap <leader>rn :!clear && node %:p<CR>
+nnoremap <leader>rp :!clear && node %:p<CR>
+nnoremap <leader>rh :!clear && php %:p<CR>
 nnoremap <leader>rc :!clear && gcc %:p && ./a.out<CR>
 
 
