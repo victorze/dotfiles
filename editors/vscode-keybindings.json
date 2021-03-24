@@ -1,10 +1,6 @@
 // Place your key bindings in this file to override the defaults
 [
     {
-        "key": "ctrl+q",
-        "command": "workbench.action.toggleSidebarVisibility"
-    },
-    {
         "key": "alt+j",
         "command": "workbench.action.terminal.focusNext"
     },
@@ -12,12 +8,18 @@
         "key": "alt+oem_3",
         "command": "workbench.action.toggleMaximizedPanel"
     },
-    {
-        "key": "ctrl+shift+s",
-        "command": "workbench.action.files.saveAll"
+     {
+        "key": "ctrl+.",
+        "command": "workbench.action.toggleSidebarVisibility"
     },
     {
-        "key": "ctrl+k s",
-        "command": "-workbench.action.files.saveAll"
-    }
+        "key": "ctrl+n",
+        "command": "workbench.view.explorer",
+        "when": "viewContainer.workbench.view.explorer.enabled"
+    },
+    {
+        "key": "ctrl+shift+e",
+        "command": "-workbench.view.explorer",
+        "when": "viewContainer.workbench.view.explorer.enabled"
+    },
 ]
