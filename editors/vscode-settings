@@ -1,24 +1,143 @@
 {
-    "window.menuBarVisibility": "toggle",
-    "workbench.colorTheme": "Palenight Theme",
-    "workbench.sideBar.location": "right",
-    "workbench.startupEditor": "newUntitledFile",
-    "editor.fontSize": 12,
-    "editor.lineHeight": 30,
-    "editor.dragAndDrop": false,
-    "editor.lineNumbers": "relative",
-    "editor.tabSize": 4,
+    "editor.fontSize": 13,
+    "editor.lineHeight": 18,
     "editor.renderLineHighlight": "none",
-    "terminal.integrated.fontSize": 12,
+    "editor.lineNumbers": "relative",
+    "editor.fontFamily": "Consolas, 'Courier New', monospace",
+    "editor.rulers": [80],
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    },
     "files.trimTrailingWhitespace": true,
     "files.insertFinalNewline": true,
     "files.exclude": {
-        "**/.venv": true,
-        "**/__pycache__": true,
         "**/.git": true,
-        "**/node_modules": true,
+        "**/vendor": true,
     },
-    "[javascript]": {
-        "editor.tabSize": 2,
+    "terminal.integrated.fontSize": 13,
+    "debug.console.fontSize": 13,
+    "window.menuBarVisibility": "toggle",
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.sideBar.location": "right",
+    "workbench.iconTheme": "file-icons",
+    "workbench.colorTheme": "Mayukai Mono",
+
+    // Themes customization
+    "workbench.colorCustomizations": {
+        "[lucy]": {
+            "editorCursor.foreground": "#e3cf65",
+            "editorCursor.background": "#404040"
+        }
     },
+
+    // Vim
+    "vim.useSystemClipboard": true,
+    "vim.leader": "<space>",
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-f>": false
+    },
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "<C-l>"
+            ],
+            "after": [
+                "<Esc>",
+                "A",
+                ";"
+            ]
+        },
+        {
+            "before": [
+                "<C-k>"
+            ],
+            "after": [
+                "<Esc>",
+                "A"
+            ]
+        },
+        {
+            "before": [
+                "<C-u>"
+            ],
+            "after": [
+                "<Esc>",
+                "v",
+                "i",
+                "w",
+                "U",
+                "e",
+                "a",
+            ]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<leader>",
+                "f"
+            ],
+            "after": [
+                "v",
+                "i",
+                "{",
+                "="
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "s"
+            ],
+            "commands": [
+                "workbench.action.files.save"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "a"
+            ],
+            "commands": [
+                "workbench.action.files.saveAll"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "w"
+            ],
+            "commands": [
+                "workbench.action.closeActiveEditor"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "k"
+            ],
+            "commands": [
+                "workbench.action.nextEditor"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "j"
+            ],
+            "commands": [
+                "workbench.action.previousEditor"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "d"
+            ],
+            "commands": [
+                "editor.action.revealDefinition"
+            ]
+        }
+    ]
 }
