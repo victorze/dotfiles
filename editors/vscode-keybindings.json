@@ -1,15 +1,19 @@
 // Place your key bindings in this file to override the defaults
 [
     {
+        "key": "alt+[Semicolon]",
+        "command": "workbench.action.toggleMaximizedPanel"
+    },
+    {
+        "key": "ctrl+[Semicolon]",
+        "command": "workbench.action.terminal.toggleTerminal"
+    },
+    {
         "key": "alt+j",
         "command": "workbench.action.terminal.focusNext"
     },
     {
-        "key": "alt+oem_3",
-        "command": "workbench.action.toggleMaximizedPanel"
-    },
-     {
-        "key": "ctrl+.",
+        "key": "ctrl+q",
         "command": "workbench.action.toggleSidebarVisibility"
     },
     {
@@ -21,5 +25,9 @@
         "key": "ctrl+shift+e",
         "command": "-workbench.view.explorer",
         "when": "viewContainer.workbench.view.explorer.enabled"
+    },
+    {
+        "key": "ctrl+[Period]",
+        "command": "workbench.action.closeSidebar"
     },
 ]
