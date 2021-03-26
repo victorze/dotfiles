@@ -1,10 +1,11 @@
 {
-    "editor.fontSize": 13,
-    "editor.lineHeight": 18,
+    "editor.fontSize": 12.5,
+    "editor.lineHeight": 20,
     "editor.renderLineHighlight": "none",
     "editor.lineNumbers": "relative",
     "editor.fontFamily": "Consolas, 'Courier New', monospace",
-    "editor.rulers": [80],
+    "editor.dragAndDrop": false,
+    "editor.tabSize": 2,
     "emmet.includeLanguages": {
         "javascript": "javascriptreact"
     },
@@ -12,15 +13,14 @@
     "files.insertFinalNewline": true,
     "files.exclude": {
         "**/.git": true,
-        "**/vendor": true,
     },
     "terminal.integrated.fontSize": 13,
     "debug.console.fontSize": 13,
     "window.menuBarVisibility": "toggle",
     "workbench.startupEditor": "newUntitledFile",
-    "workbench.sideBar.location": "right",
     "workbench.iconTheme": "file-icons",
-    "workbench.colorTheme": "Mayukai Mono",
+    "workbench.colorTheme": "Night Owl",
+    "workbench.sideBar.location": "right",
 
     // Themes customization
     "workbench.colorCustomizations": {
@@ -35,9 +35,10 @@
     "vim.leader": "<space>",
     "vim.handleKeys": {
         "<C-a>": false,
-        "<C-f>": false
+        "<C-f>": false,
+        "<C-r>": false,
     },
-    "vim.insertModeKeyBindings": [
+    "vim.insertModeKeyBindingsNonRecursive": [
         {
             "before": [
                 "<C-l>"
@@ -97,7 +98,7 @@
         {
             "before": [
                 "<leader>",
-                "a"
+                "S"
             ],
             "commands": [
                 "workbench.action.files.saveAll"
@@ -138,6 +139,18 @@
             "commands": [
                 "editor.action.revealDefinition"
             ]
-        }
-    ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "a"
+            ],
+            "after": [
+                "g",
+                "g",
+                "V",
+                "G",
+            ]
+        },
+    ],
 }
