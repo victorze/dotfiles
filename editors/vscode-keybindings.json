@@ -27,7 +27,15 @@
         "when": "viewContainer.workbench.view.explorer.enabled"
     },
     {
-        "key": "ctrl+[Period]",
-        "command": "workbench.action.closeSidebar"
+        "key": "ctrl+f",
+        "command": "workbench.files.action.collapseExplorerFolders"
+    },
+    {
+        "key": "ctrl+t",
+        "command": "workbench.action.selectTheme"
+    },
+    {
+        "key": "ctrl+k ctrl+t",
+        "command": "-workbench.action.selectTheme"
     },
 ]
