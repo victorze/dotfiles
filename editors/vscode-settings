@@ -3,31 +3,51 @@
     "editor.lineHeight": 20,
     "editor.renderLineHighlight": "none",
     "editor.lineNumbers": "relative",
-    "editor.fontFamily": "Consolas, 'Courier New', monospace",
+    "editor.fontFamily": "monospace, consolas",
+    "editor.fontLigatures": false,
     "editor.dragAndDrop": false,
-    "editor.tabSize": 2,
+    "editor.tabSize": 4,
     "emmet.includeLanguages": {
         "javascript": "javascriptreact"
+    },
+    "[javascript]": {
+        "editor.tabSize": 2,
     },
     "files.trimTrailingWhitespace": true,
     "files.insertFinalNewline": true,
     "files.exclude": {
         "**/.git": true,
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
     },
     "terminal.integrated.fontSize": 13,
     "debug.console.fontSize": 13,
     "window.menuBarVisibility": "toggle",
     "workbench.startupEditor": "newUntitledFile",
     "workbench.iconTheme": "file-icons",
-    "workbench.colorTheme": "Night Owl",
-    "workbench.sideBar.location": "right",
+    "workbench.colorTheme": "lucy",
+
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "redhat.telemetry.enabled": true,
 
     // Themes customization
     "workbench.colorCustomizations": {
         "[lucy]": {
             "editorCursor.foreground": "#e3cf65",
-            "editorCursor.background": "#404040"
-        }
+            "editorCursor.background": "#404040",
+            "terminalCursor.foreground": "#e3cf65",
+            "terminalCursor.background": "#404040",
+            "terminal.background": "#1a1d27",
+        },
+    },
+    "editor.tokenColorCustomizations": {
+        "[Omni]": {
+            "variables": "#c7c7d1",
+            "functions": "#7de892",
+        },
     },
 
     // Vim
@@ -36,7 +56,6 @@
     "vim.handleKeys": {
         "<C-a>": false,
         "<C-f>": false,
-        "<C-r>": false,
     },
     "vim.insertModeKeyBindingsNonRecursive": [
         {
@@ -74,18 +93,7 @@
         }
     ],
     "vim.normalModeKeyBindingsNonRecursive": [
-        {
-            "before": [
-                "<leader>",
-                "f"
-            ],
-            "after": [
-                "v",
-                "i",
-                "{",
-                "="
-            ]
-        },
+
         {
             "before": [
                 "<leader>",
@@ -152,5 +160,28 @@
                 "G",
             ]
         },
+        {
+            "before": [
+                "<leader>",
+                "f"
+            ],
+            "after": [
+                "v",
+                "i",
+                "{",
+                "=",
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "r"
+            ],
+            "commands": [
+                "workbench.action.files.save",
+                "workbench.action.debug.start"
+                // "workbench.action.debug.run"
+            ]
+        }
     ],
 }
