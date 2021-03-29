@@ -13,13 +13,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-commentary'
 
 Plug 'yuezk/vim-js'
-Plug 'maxmellon/vim-jsx-pretty'
-
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
+" Plug 'maxmellon/vim-jsx-pretty'
 
 Plug 'victorze/foo'
 Plug 'morhetz/gruvbox'
@@ -153,17 +147,11 @@ inoremap <c-u> <esc>viwU<esc>Ea
 nnoremap <c-u> viwU<esc>
 
 " Add a semicolon to end of line
-inoremap <c-l> <esc>A;<esc>
-nnoremap <c-l> A;<esc>
-
-" View file content in terminal. hack copy WSL2
-nnoremap <leader>c :!clear && cat %:p<CR>
+inoremap <c-l> <esc>A;
+inoremap <c-k> <esc>A
 
 " Run file
 nnoremap <leader>rn :!clear && node %:p<CR>
-nnoremap <leader>rp :!clear && node %:p<CR>
-nnoremap <leader>rh :!clear && php %:p<CR>
-nnoremap <leader>rc :!clear && gcc %:p && ./a.out<CR>
 
 
 " --------------------------------------------
@@ -231,17 +219,3 @@ let g:airline#extensions#tabline#fnamemod = ':t'  " Show just the filename
 let g:mta_filetypes = {
     \ 'php' : 1,
     \}
-
-"  ## LANGUAGE SERVER PROTOCOL
-
-inoremap <expr> <c-j>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <c-k> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-let g:lsp_diagnostics_enabled = 0 " disable diagnostics support (warnings, errors)
-
-"" Command LSP
-nnoremap <leader>ld :LspDefinition<CR>
-nnoremap <leader>lr :LspReferences<CR>
-nnoremap <leader>ln :LspRename<CR>
-nnoremap <leader>li :LspHover<CR>
-nnoremap <leader>lg :LspDocumentDiagnostics<CR>
