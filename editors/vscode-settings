@@ -27,7 +27,6 @@
     "window.menuBarVisibility": "toggle",
     "workbench.startupEditor": "newUntitledFile",
     "workbench.iconTheme": "file-icons",
-    "workbench.colorTheme": "lucy",
 
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
@@ -38,9 +37,15 @@
         "[lucy]": {
             "editorCursor.foreground": "#e3cf65",
             "editorCursor.background": "#404040",
+            "panel.background": "#1a1d27",
             "terminalCursor.foreground": "#e3cf65",
             "terminalCursor.background": "#404040",
             "terminal.background": "#1a1d27",
+            "activityBar.background": "#1a1d27",
+            "activityBar.border": "#1a1d27",
+            "sideBar.background": "#1a1d27",
+            "sideBarSectionHeader.background": "#1a1d27",
+            "sideBar.border": "#1a1d27",
         },
     },
     "editor.tokenColorCustomizations": {
@@ -178,9 +183,27 @@
                 "r"
             ],
             "commands": [
-                "workbench.action.files.save",
+                "workbench.action.files.saveAll",
+                "workbench.action.debug.run"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "R"
+            ],
+            "commands": [
+                "workbench.action.files.saveAll",
                 "workbench.action.debug.start"
-                // "workbench.action.debug.run"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "t"
+            ],
+            "commands": [
+                "dotnet-test-explorer.runAllTests",
             ]
         }
     ],
