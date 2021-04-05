@@ -3,10 +3,9 @@
     "editor.lineHeight": 20,
     "editor.renderLineHighlight": "none",
     "editor.lineNumbers": "relative",
-    "editor.fontFamily": "monospace, consolas",
+    "editor.fontFamily": "'Fira code',  consolas, monospace",
     "editor.fontLigatures": false,
     "editor.dragAndDrop": false,
-    "editor.tabSize": 4,
     "emmet.includeLanguages": {
         "javascript": "javascriptreact"
     },
@@ -22,8 +21,8 @@
         "**/.settings": true,
         "**/.factorypath": true
     },
-    "terminal.integrated.fontSize": 13,
-    "debug.console.fontSize": 13,
+    "terminal.integrated.fontSize": 12.5,
+    "debug.console.fontSize": 12.5,
     "window.menuBarVisibility": "toggle",
     "workbench.startupEditor": "newUntitledFile",
     "workbench.iconTheme": "file-icons",
@@ -180,6 +179,18 @@
         {
             "before": [
                 "<leader>",
+                "p"
+            ],
+            "after": [
+                "v",
+                "i",
+                "p",
+                "=",
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
                 "r"
             ],
             "commands": [
@@ -203,8 +214,11 @@
                 "t"
             ],
             "commands": [
-                "dotnet-test-explorer.runAllTests",
+                // "dotnet-test-explorer.runAllTests",
+                "workbench.action.files.saveAll",
+                "java.test.explorer.runAll"
             ]
         }
     ],
+    "workbench.colorTheme": "lucy",
 }
