@@ -13,16 +13,9 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-commentary'
 
 Plug 'yuezk/vim-js'
-" Plug 'maxmellon/vim-jsx-pretty'
+Plug 'maxmellon/vim-jsx-pretty'
 
 Plug 'victorze/foo'
-Plug 'morhetz/gruvbox'
-Plug 'ayu-theme/ayu-vim'
-Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep'  }
-Plug 'whatyouhide/vim-gotham'
-Plug 'cocopon/iceberg.vim'
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'nanotech/jellybeans.vim'
 call plug#end()
 
 
@@ -36,7 +29,7 @@ set colorcolumn=80
 set scrolloff=3         " Display at least 3 lines around you cursor
 
 " ## Lines
-" set nowrap
+set nowrap
 set number
 set relativenumber
 
@@ -45,19 +38,14 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 set autoindent
-autocmd Filetype c setlocal ts=4 sw=4 sts=4 expandtab
-autocmd Filetype python setlocal ts=4 sw=4 sts=4 expandtab
-autocmd Filetype php setlocal ts=4 sw=4 sts=4 expandtab
 autocmd FileType gitcommit setlocal colorcolumn=72 tw=72
 
 " ## Theme & Colorscheme
 syntax enable
 set termguicolors
-let g:gruvbox_contrast_dark = "hard"
 set background=dark
-colorscheme hyper
+colorscheme pharo
 let g:airline_theme='distinguished'
-" hi LineNR guibg=#1e1c31
 
 " ## Buffers
 set hidden  " Allow change buffers without saving
@@ -72,13 +60,21 @@ set nobackup        " disable backup files (use git)
 set encoding=utf-8  " windows needs to be reminded about utf-8
 
 " Search
-set ignorecase
+" set ignorecase
 set hlsearch
 set incsearch
 
 " Jump between matching HTML/XML tags
 runtime macros/matchit.vim
 
+" Copy to windows system clipboard
+let s:clip = '/mnt/c/Windows/System32/clip.exe'
+if executable(s:clip)
+  augroup WSLYank
+    autocmd!
+    autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
+  augroup END
+endif"
 
 " --------------------------------------------
 " Mappings
@@ -136,19 +132,21 @@ nnoremap <leader>f ggvG$=
 " Format code block
 noremap <localleader>f vi{=
 
+" Format paragraph
+noremap <localleader>p vip=
+
 " Select content document
 nnoremap <leader>a ggvG$
 
 " Top cursor on screen
-nnoremap <localleader>g zz25<c-e>
+nnoremap <localleader>g zz20<c-e>
 
 " Current word to uppercase
 inoremap <c-u> <esc>viwU<esc>Ea
-nnoremap <c-u> viwU<esc>
 
 " Add a semicolon to end of line
 inoremap <c-l> <esc>A;
-inoremap <c-k> <esc>A
+inoremap <c-o> <esc>A
 
 " Run file
 nnoremap <leader>rn :!clear && node %:p<CR>
