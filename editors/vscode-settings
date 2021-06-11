@@ -1,224 +1,168 @@
 {
-    "editor.fontSize": 12.5,
-    "editor.lineHeight": 20,
-    "editor.renderLineHighlight": "none",
-    "editor.lineNumbers": "relative",
-    "editor.fontFamily": "'Fira code',  consolas, monospace",
-    "editor.fontLigatures": false,
-    "editor.dragAndDrop": false,
-    "emmet.includeLanguages": {
-        "javascript": "javascriptreact"
-    },
-    "[javascript]": {
-        "editor.tabSize": 2,
-    },
-    "files.trimTrailingWhitespace": true,
-    "files.insertFinalNewline": true,
-    "files.exclude": {
-        "**/.git": true,
-        "**/.classpath": true,
-        "**/.project": true,
-        "**/.settings": true,
-        "**/.factorypath": true
-    },
-    "terminal.integrated.fontSize": 12.5,
-    "debug.console.fontSize": 12.5,
-    "window.menuBarVisibility": "toggle",
-    "workbench.startupEditor": "newUntitledFile",
-    "workbench.iconTheme": "file-icons",
-
-    "editor.suggestSelection": "first",
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "redhat.telemetry.enabled": true,
-
-    // Themes customization
-    "workbench.colorCustomizations": {
-        "[lucy]": {
-            "editorCursor.foreground": "#e3cf65",
-            "editorCursor.background": "#404040",
-            "panel.background": "#1a1d27",
-            "terminalCursor.foreground": "#e3cf65",
-            "terminalCursor.background": "#404040",
-            "terminal.background": "#1a1d27",
-            "activityBar.background": "#1a1d27",
-            "activityBar.border": "#1a1d27",
-            "sideBar.background": "#1a1d27",
-            "sideBarSectionHeader.background": "#1a1d27",
-            "sideBar.border": "#1a1d27",
-        },
-    },
-    "editor.tokenColorCustomizations": {
-        "[Omni]": {
-            "variables": "#c7c7d1",
-            "functions": "#7de892",
-        },
-    },
-
-    // Vim
-    "vim.useSystemClipboard": true,
-    "vim.leader": "<space>",
-    "vim.handleKeys": {
-        "<C-a>": false,
-        "<C-f>": false,
-    },
-    "vim.insertModeKeyBindingsNonRecursive": [
+  "editor.fontFamily": "consolas,'Fira code', monospace",
+  "editor.fontSize": 13,
+  "editor.lineHeight": 20,
+  "editor.renderLineHighlight": "none",
+  "editor.lineNumbers": "relative",
+  "editor.detectIndentation": false,
+  "editor.tabSize": 2,
+  "editor.dragAndDrop": false,
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "terminal.integrated.defaultProfile.windows": "Ubuntu-20.04 (WSL)",
+  "terminal.integrated.fontSize": 13,
+  "debug.console.fontSize": 13,
+  "window.menuBarVisibility": "toggle",
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.sideBar.location": "right",
+  "workbench.colorTheme": "Visual Studio Dark",
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "[python]": {
+    "editor.tabSize": 4,
+  },
+  "[php]": {
+    "editor.tabSize": 4,
+  },
+  "workbench.colorCustomizations": {
+    "[Visual Studio Dark]": {
+      "editor.background": "#0d1117"
+    }
+  },
+  "editor.tokenColorCustomizations": {
+    "[Abyss]": {
+      "variables": "#bbbbbb",
+      "textMateRules": [
         {
-            "before": [
-                "<C-l>"
-            ],
-            "after": [
-                "<Esc>",
-                "A",
-                ";"
-            ]
-        },
-        {
-            "before": [
-                "<C-k>"
-            ],
-            "after": [
-                "<Esc>",
-                "A"
-            ]
-        },
-        {
-            "before": [
-                "<C-u>"
-            ],
-            "after": [
-                "<Esc>",
-                "v",
-                "i",
-                "w",
-                "U",
-                "e",
-                "a",
-            ]
+          "scope": "variable.parameter",
+          "settings": {
+            "foreground": "#bbbbbb"
+          }
         }
-    ],
-    "vim.normalModeKeyBindingsNonRecursive": [
-
-        {
-            "before": [
-                "<leader>",
-                "s"
-            ],
-            "commands": [
-                "workbench.action.files.save"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "S"
-            ],
-            "commands": [
-                "workbench.action.files.saveAll"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "w"
-            ],
-            "commands": [
-                "workbench.action.closeActiveEditor"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "k"
-            ],
-            "commands": [
-                "workbench.action.nextEditor"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "j"
-            ],
-            "commands": [
-                "workbench.action.previousEditor"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "d"
-            ],
-            "commands": [
-                "editor.action.revealDefinition"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "a"
-            ],
-            "after": [
-                "g",
-                "g",
-                "V",
-                "G",
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "f"
-            ],
-            "after": [
-                "v",
-                "i",
-                "{",
-                "=",
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "p"
-            ],
-            "after": [
-                "v",
-                "i",
-                "p",
-                "=",
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "r"
-            ],
-            "commands": [
-                "workbench.action.files.saveAll",
-                "workbench.action.debug.run"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "R"
-            ],
-            "commands": [
-                "workbench.action.files.saveAll",
-                "workbench.action.debug.start"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "t"
-            ],
-            "commands": [
-                // "dotnet-test-explorer.runAllTests",
-                "workbench.action.files.saveAll",
-                "java.test.explorer.runAll"
-            ]
-        }
-    ],
-    "workbench.colorTheme": "lucy",
+      ]
+    }
+  },
+  // Vim
+  "vim.useSystemClipboard": true,
+  "vim.leader": "<space>",
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false,
+  },
+  "vim.insertModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "<C-l>"
+      ],
+      "after": [
+        "<Esc>",
+        "A",
+        ";"
+      ]
+    },
+    {
+      "before": [
+        "<C-o>"
+      ],
+      "after": [
+        "<Esc>",
+        "A"
+      ]
+    },
+    {
+      "before": [
+        "<C-u>"
+      ],
+      "after": [
+        "<Esc>",
+        "v",
+        "i",
+        "w",
+        "U",
+        "e",
+        "a",
+      ]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "<leader>",
+        "s"
+      ],
+      "commands": [
+        "workbench.action.files.save"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "S"
+      ],
+      "commands": [
+        "workbench.action.files.saveAll"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "w"
+      ],
+      "commands": [
+        "workbench.action.closeActiveEditor"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "k"
+      ],
+      "commands": [
+        "workbench.action.nextEditor"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "j"
+      ],
+      "commands": [
+        "workbench.action.previousEditor"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "d"
+      ],
+      "commands": [
+        "editor.action.revealDefinition"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "a"
+      ],
+      "after": [
+        "g",
+        "g",
+        "V",
+        "G",
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "f"
+      ],
+      "after": [
+        "v",
+        "i",
+        "{",
+        "=",
+      ]
+    },
+  ],
 }
