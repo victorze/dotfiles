@@ -1,15 +1,10 @@
-// Place your key bindings in this file to override the defaults
 [
-    {
-        "key": "alt+[Semicolon]",
-        "command": "workbench.action.toggleMaximizedPanel"
-    },
     {
         "key": "ctrl+[Semicolon]",
         "command": "workbench.action.terminal.toggleTerminal"
     },
     {
-        "key": "alt+j",
+        "key": "ctrl+shift+[Semicolon]",
         "command": "workbench.action.terminal.focusNext"
     },
     {
@@ -17,31 +12,9 @@
         "command": "workbench.action.toggleSidebarVisibility"
     },
     {
-        "key": "ctrl+n",
-        "command": "workbench.view.explorer",
-        "when": "viewContainer.workbench.view.explorer.enabled"
-    },
-    {
         "key": "ctrl+shift+e",
         "command": "-workbench.view.explorer",
         "when": "viewContainer.workbench.view.explorer.enabled"
-    },
-    {
-        "key": "ctrl+f",
-        "command": "workbench.files.action.collapseExplorerFolders"
-    },
-    {
-        "key": "ctrl+t",
-        "command": "workbench.action.selectTheme"
-    },
-    {
-        "key": "ctrl+k ctrl+t",
-        "command": "-workbench.action.selectTheme"
-    },
-    {
-        "key": "ctrl+k",
-        "command": "extension.vim_ctrl+p",
-        "when": "suggestWidgetVisible && vim.active && vim.use<C-p> && !inDebugRepl || vim.active && vim.use<C-p> && !inDebugRepl && vim.mode == 'CommandlineInProgress' || vim.active && vim.use<C-p> && !inDebugRepl && vim.mode == 'SearchInProgressMode'"
     },
     {
         "key": "ctrl+p",
