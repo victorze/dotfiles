@@ -15,7 +15,7 @@
   "window.menuBarVisibility": "toggle",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.sideBar.location": "right",
-  "workbench.colorTheme": "Visual Studio Dark",
+  "workbench.colorTheme": "ƒ - One Dark",
   "emmet.includeLanguages": {
     "javascript": "javascriptreact"
   },
@@ -24,11 +24,6 @@
   },
   "[php]": {
     "editor.tabSize": 4,
-  },
-  "workbench.colorCustomizations": {
-    "[Visual Studio Dark]": {
-      "editor.background": "#0d1117"
-    }
   },
   "editor.tokenColorCustomizations": {
     "[Abyss]": {
@@ -41,7 +36,32 @@
           }
         }
       ]
+    },
+    "[ƒ - One Dark]": {
+      "variables": "#AAB1C0",
+      "textMateRules": [{
+        "scope": "variable.other.readwrite",
+        "settings": {
+          "foreground": "#AAB1C0"
+        }
+      }]
     }
+  },
+  "workbench.colorCustomizations": {
+    "[Visual Studio Dark]": {
+      "editor.background": "#0d1117"
+    },
+    "[Monokai]": {
+      "editor.background": "#0d1117"
+    },
+  },
+  "saveAndRun": {
+    "commands": [
+      {
+        "match": "\\.js$",
+        "cmd": "clear && npm run test",
+      },
+    ]
   },
   // Vim
   "vim.useSystemClipboard": true,
@@ -89,7 +109,7 @@
     {
       "before": [
         "<leader>",
-        "s"
+        "S"
       ],
       "commands": [
         "workbench.action.files.save"
@@ -98,7 +118,7 @@
     {
       "before": [
         "<leader>",
-        "S"
+        "s"
       ],
       "commands": [
         "workbench.action.files.saveAll"
