@@ -16,6 +16,7 @@ Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
 
 Plug 'victorze/foo'
+Plug 'cocopon/iceberg.vim'
 call plug#end()
 
 
@@ -29,7 +30,7 @@ set colorcolumn=80
 set scrolloff=3         " Display at least 3 lines around you cursor
 
 " ## Lines
-set nowrap
+" set nowrap
 set number
 set relativenumber
 
@@ -39,12 +40,13 @@ set softtabstop=2
 set expandtab
 set autoindent
 autocmd FileType gitcommit setlocal colorcolumn=72 tw=72
+autocmd Filetype java setlocal ts=4 sw=4 sts=0 expandtab
 
 " ## Theme & Colorscheme
 syntax enable
 set termguicolors
 set background=dark
-colorscheme pharo
+colorscheme hyper
 let g:airline_theme='distinguished'
 
 " ## Buffers
@@ -60,7 +62,7 @@ set nobackup        " disable backup files (use git)
 set encoding=utf-8  " windows needs to be reminded about utf-8
 
 " Search
-" set ignorecase
+set ignorecase
 set hlsearch
 set incsearch
 
@@ -126,14 +128,8 @@ nnoremap <leader>s :w<CR>
 " Save all files
 nnoremap <localleader>s :wa<CR>
 
-" Format file
-nnoremap <leader>f ggvG$=
-
 " Format code block
-noremap <localleader>f vi{=
-
-" Format paragraph
-noremap <localleader>p vip=
+noremap <leader>f vi{=
 
 " Select content document
 nnoremap <leader>a ggvG$
@@ -148,8 +144,15 @@ inoremap <c-u> <esc>viwU<esc>Ea
 inoremap <c-l> <esc>A;
 inoremap <c-o> <esc>A
 
+" Insert mode to normal mode
+inoremap jk <esc>
+
+" Disabling the old keys
+inoremap <esc> <nop>
+
 " Run file
 nnoremap <leader>rn :!clear && node %:p<CR>
+nnoremap <leader>rj :!clear && npm run test<CR>
 
 
 " --------------------------------------------
