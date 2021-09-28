@@ -1,188 +1,88 @@
 {
-  "editor.fontFamily": "consolas,'Fira code', monospace",
-  "editor.fontSize": 13,
-  "editor.lineHeight": 20,
-  "editor.renderLineHighlight": "none",
-  "editor.lineNumbers": "relative",
-  "editor.detectIndentation": false,
-  "editor.tabSize": 2,
-  "editor.dragAndDrop": false,
-  "files.trimTrailingWhitespace": true,
-  "files.insertFinalNewline": true,
-  "terminal.integrated.defaultProfile.windows": "Ubuntu-20.04 (WSL)",
-  "terminal.integrated.fontSize": 13,
-  "debug.console.fontSize": 13,
-  "window.menuBarVisibility": "toggle",
-  "workbench.startupEditor": "newUntitledFile",
-  "workbench.sideBar.location": "right",
-  "workbench.colorTheme": "ƒ - One Dark",
-  "emmet.includeLanguages": {
-    "javascript": "javascriptreact"
-  },
-  "[python]": {
-    "editor.tabSize": 4,
-  },
-  "[php]": {
-    "editor.tabSize": 4,
-  },
-  "editor.tokenColorCustomizations": {
-    "[Abyss]": {
-      "variables": "#bbbbbb",
-      "textMateRules": [
-        {
-          "scope": "variable.parameter",
-          "settings": {
-            "foreground": "#bbbbbb"
-          }
+    "workbench.colorTheme": "GitHub Dark Default",
+    "editor.fontFamily": "'Ubuntu Mono','Liberation Mono', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "window.menuBarVisibility": "toggle",
+    "editor.fontSize": 13.5,
+    "editor.renderLineHighlight": "none",
+    "editor.tabSize": 2,
+    "editor.lineHeight": 18,
+    "editor.dragAndDrop": false,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "terminal.integrated.fontSize": 14,
+    "debug.console.fontSize": 14,
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.sideBar.location": "left",
+    "workbench.colorCustomizations": {
+        "[GitHub Dark Default]": {
+            "sideBar.background": "#0D1117",
+            "tab.activeBackground": "#090c10",
+            "tab.inactiveBackground": "#0D1117",
+            "editorGroupHeader.tabsBackground": "#0D1117",
+            "terminal.background": "#0D1117",
+            "sideBarSectionHeader.background": "#0D1117",
+            "panel.background": "#0D1117",
+            "terminal.foreground": "#C9D1D9"
         }
-      ]
     },
-    "[ƒ - One Dark]": {
-      "variables": "#AAB1C0",
-      "textMateRules": [{
-        "scope": "variable.other.readwrite",
-        "settings": {
-          "foreground": "#AAB1C0"
+    "editor.tokenColorCustomizations": {
+        "[GitHub Dark Default]": {
+            "textMateRules": [
+                {
+                    "scope": "variable.other.constant",
+                    "settings": {
+                        "foreground": "#C9D1D9"
+                    }
+                },
+                {
+                    "scope": "variable.language.this",
+                    "settings": {
+                        "foreground": "#C9D1D9"
+                    }
+                },
+                {
+                    "scope": "variable.other.property",
+                    "settings": {
+                        "foreground": "#79C0FF"
+                    }
+                },
+                {
+                    "scope": "variable.other.object.property",
+                    "settings": {
+                        "foreground": "#79C0FF"
+                    }
+                },
+                {
+                    "scope": "support.function",
+                    "settings": {
+                        "foreground": "#D2A8FF"
+                    }
+                },
+                {
+                    "scope": "variable.parameter",
+                    "settings": {
+                        "foreground": "#C9D1D9"
+                    }
+                },
+            ]
         }
-      }]
-    }
-  },
-  "workbench.colorCustomizations": {
-    "[Visual Studio Dark]": {
-      "editor.background": "#0d1117"
     },
-    "[Monokai]": {
-      "editor.background": "#0d1117"
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
     },
-  },
-  "saveAndRun": {
-    "commands": [
-      {
-        "match": "\\.js$",
-        "cmd": "clear && npm run test",
-      },
-    ]
-  },
-  // Vim
-  "vim.useSystemClipboard": true,
-  "vim.leader": "<space>",
-  "vim.handleKeys": {
-    "<C-a>": false,
-    "<C-f>": false,
-  },
-  "vim.insertModeKeyBindingsNonRecursive": [
-    {
-      "before": [
-        "<C-l>"
-      ],
-      "after": [
-        "<Esc>",
-        "A",
-        ";"
-      ]
+    "[python]": {
+        "editor.tabSize": 4,
     },
-    {
-      "before": [
-        "<C-o>"
-      ],
-      "after": [
-        "<Esc>",
-        "A"
-      ]
+    "[php]": {
+        "editor.tabSize": 4,
     },
-    {
-      "before": [
-        "<C-u>"
-      ],
-      "after": [
-        "<Esc>",
-        "v",
-        "i",
-        "w",
-        "U",
-        "e",
-        "a",
-      ]
-    }
-  ],
-  "vim.normalModeKeyBindingsNonRecursive": [
-    {
-      "before": [
-        "<leader>",
-        "S"
-      ],
-      "commands": [
-        "workbench.action.files.save"
-      ]
+    "saveAndRun": {
+        "commands": [
+            {
+                "cmd": "clear && npm run fasttest",
+                "useShortcut": true,
+            },
+        ]
     },
-    {
-      "before": [
-        "<leader>",
-        "s"
-      ],
-      "commands": [
-        "workbench.action.files.saveAll"
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "w"
-      ],
-      "commands": [
-        "workbench.action.closeActiveEditor"
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "k"
-      ],
-      "commands": [
-        "workbench.action.nextEditor"
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "j"
-      ],
-      "commands": [
-        "workbench.action.previousEditor"
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "d"
-      ],
-      "commands": [
-        "editor.action.revealDefinition"
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "a"
-      ],
-      "after": [
-        "g",
-        "g",
-        "V",
-        "G",
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "f"
-      ],
-      "after": [
-        "v",
-        "i",
-        "{",
-        "=",
-      ]
-    },
-  ],
+    "workbench.editor.enablePreview": false,
 }
