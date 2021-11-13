@@ -1,5 +1,6 @@
 # clipboards vim
 https://vi.stackexchange.com/questions/84/how-can-i-copy-text-to-the-system-clipboard-from-vim
+sudo apt install vim-gtk3
 
 # bash or zsh:
 export TERM=xterm-256color
