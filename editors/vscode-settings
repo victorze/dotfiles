@@ -85,4 +85,140 @@
         ]
     },
     "workbench.editor.enablePreview": false,
+    
+  // Vim
+  "vim.useSystemClipboard": true,
+  "vim.leader": "<space>",
+  "vim.handleKeys": {
+    "<C-d>": false,
+    "<C-k>": false,
+  },
+  "vim.insertModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "<C-o>"
+      ],
+      "after": [
+        "<Esc>",
+        "A"
+      ]
+    },
+    {
+      "before": [
+        "<C-l>"
+      ],
+      "after": [
+        "<Esc>",
+        "A",
+        ";",
+        "<Esc>"
+      ]
+    },
+    {
+      "before": [
+        "<C-u>"
+      ],
+      "commands": [
+        "editor.action.transformToUppercase"
+      ]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "<leader>",
+        "s"
+      ],
+      "commands": [
+        "workbench.action.files.save"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "S"
+      ],
+      "commands": [
+        "workbench.action.files.saveAll"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "w"
+      ],
+      "commands": [
+        "workbench.action.closeActiveEditor"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "k"
+      ],
+      "commands": [
+        "workbench.action.nextEditor"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "j"
+      ],
+      "commands": [
+        "workbench.action.previousEditor"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "f"
+      ],
+      "after": [
+        "v",
+        "i",
+        "{",
+        "="
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "F"
+      ],
+      "commands": [
+        "editor.action.formatDocument"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "a"
+      ],
+      "after": [
+        "g",
+        "g",
+        "v",
+        "G"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "r"
+      ],
+      "commands": [
+        "extension.saveAndRun.execute"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "i"
+      ],
+      "commands": [
+        "editor.action.organizeImports"
+      ]
+    }
+  ]
 }
