@@ -1,224 +1,273 @@
 {
-    "workbench.colorTheme": "GitHub Dark Default",
-    "editor.fontFamily": "'Ubuntu Mono','Liberation Mono', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
-    "window.menuBarVisibility": "toggle",
-    "editor.fontSize": 13.5,
-    "editor.renderLineHighlight": "none",
-    "editor.tabSize": 2,
-    "editor.lineHeight": 18,
-    "editor.dragAndDrop": false,
-    "files.trimTrailingWhitespace": true,
-    "files.insertFinalNewline": true,
-    "terminal.integrated.fontSize": 14,
-    "debug.console.fontSize": 14,
-    "workbench.startupEditor": "newUntitledFile",
-    "workbench.sideBar.location": "left",
-    "workbench.colorCustomizations": {
-        "[GitHub Dark Default]": {
-            "sideBar.background": "#0D1117",
-            "tab.activeBackground": "#090c10",
-            "tab.inactiveBackground": "#0D1117",
-            "editorGroupHeader.tabsBackground": "#0D1117",
-            "terminal.background": "#0D1117",
-            "sideBarSectionHeader.background": "#0D1117",
-            "panel.background": "#0D1117",
-            "terminal.foreground": "#C9D1D9"
+  /* Editor */
+  "editor.fontFamily": "consolas, 'Ubuntu Mono', monospace",
+  "editor.fontSize": 13,
+  "editor.lineHeight": 19,
+  "editor.tabSize": 2,
+  "editor.lineNumbers": "relative",
+  "editor.dragAndDrop": false,
+  "editor.renderLineHighlight": "none",
+  "editor.linkedEditing": true,
+  "workbench.startupEditor": "newUntitledFile",
+  "editor.suggestSelection": "first",
+  "window.menuBarVisibility": "toggle",
+  "editor.stickyScroll.enabled": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.colorCustomizations": {
+    "editorBracketHighlight.foreground1": "#ECC48D",
+    "editorBracketHighlight.foreground2": "#C792EA",
+    "editorBracketHighlight.foreground3": "#82AAFF",
+    "editor.lineHighlightBackground": "#1073cf2d",
+    "editor.lineHighlightBorder": "#9fced11f",
+    "[GitHub Dark Default]": {
+      "tab.inactiveBackground": "#0D1117",
+      "editorGroupHeader.tabsBackground": "#0D1117",
+      "sideBar.background": "#0D1117",
+      "sideBarSectionHeader.background": "#0D1117",
+      "terminal.background": "#0D1117",
+      "panel.background": "#0D1117"
+    }
+  },
+  "editor.tokenColorCustomizations": {
+    "[GitHub Dark Default]": {
+      "textMateRules": [
+        {
+          "scope": [
+            "punctuation.definition.annotation",
+            "storage.type.annotation",
+            "punctuation.decorator",
+            "entity.other.attribute-name.class.css",
+            "support.function",
+            "meta.function.decorator.python"
+          ],
+          "settings": {
+            "foreground": "#D2A8FF"
+          }
+        },
+        {
+          "scope": "entity.other.attribute-name.pseudo-class.css",
+          "settings": {
+            "foreground": "#FF7B72"
+          }
+        },
+        {
+          "scope": "constant.other.color.rgb-value.hex.css",
+          "settings": {
+            "foreground": "#A5D6FF"
+          }
+        },
+        {
+          "scope": [
+            "support.constant.property-value.css",
+            "constant.numeric.css",
+            "entity.name.namespace",
+            "variable.language.this",
+            "variable.parameter",
+            "variable.other.constant"
+          ],
+          "settings": {
+            "foreground": "#C9D1D9"
+          }
+        },
+        {
+          "scope": "support.class",
+          "settings": {
+            "foreground": "#FFA657"
+          }
+        },
+        {
+          "scope": [
+            "variable.other.constant.property",
+            "variable.other.property",
+            "variable.other.object.property",
+            "keyword.other.unit"
+          ],
+          "settings": {
+            "foreground": "#79C0FF"
+          }
         }
+      ]
     },
-    "editor.tokenColorCustomizations": {
-        "[GitHub Dark Default]": {
-            "textMateRules": [
-                {
-                    "scope": "variable.other.constant",
-                    "settings": {
-                        "foreground": "#C9D1D9"
-                    }
-                },
-                {
-                    "scope": "variable.language.this",
-                    "settings": {
-                        "foreground": "#C9D1D9"
-                    }
-                },
-                {
-                    "scope": "variable.other.property",
-                    "settings": {
-                        "foreground": "#79C0FF"
-                    }
-                },
-                {
-                    "scope": "variable.other.object.property",
-                    "settings": {
-                        "foreground": "#79C0FF"
-                    }
-                },
-                {
-                    "scope": "support.function",
-                    "settings": {
-                        "foreground": "#D2A8FF"
-                    }
-                },
-                {
-                    "scope": "variable.parameter",
-                    "settings": {
-                        "foreground": "#C9D1D9"
-                    }
-                },
-            ]
+    "[Ayu Dark Bordered]": {
+      "textMateRules": [
+        {
+          "scope": "support.class.component.js",
+          "settings": {
+            "foreground": "#FFB454"
+          }
         }
+      ]
     },
-    "emmet.includeLanguages": {
-        "javascript": "javascriptreact"
-    },
-    "[python]": {
-        "editor.tabSize": 4,
-    },
-    "[php]": {
-        "editor.tabSize": 4,
-    },
-    "saveAndRun": {
-        "commands": [
-            {
-                "cmd": "clear && npm run fasttest",
-                "useShortcut": true,
-            },
-        ]
-    },
-    "workbench.editor.enablePreview": false,
-    
+    "[Iceberg]": {
+      "textMateRules": [
+        {
+          "scope": "punctuation.definition.annotation",
+          "settings": {
+            "foreground": "#A093C7"
+          }
+        },
+        {
+          "scope": "support.class.component.js",
+          "settings": {
+            "foreground": "#B4BE82"
+          }
+        },
+        {
+          "scope": "punctuation.section.embedded",
+          "settings": {
+            "foreground": "#E2A478"
+          }
+        },
+        {
+          "scope": [
+            "storage.type.templatetag.django",
+            "storage.type.customtemplatetag.django",
+            "storage.type.variable.django"
+          ],
+          "settings": {
+            "foreground": "#B4BE82"
+          }
+        }
+      ]
+    }
+  },
+  /* Others */
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "terminal.integrated.fontSize": 13,
+  "debug.console.fontSize": 13,
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "django-html": "html"
+  },
+  "saveAndRun": {
+    "commands": [
+      {
+        "match": "\\.js$",
+        "cmd": "clear && node ${file}",
+        "useShortcut": true
+      },
+      {
+        "match": "\\.ts$",
+        "cmd": "clear && npm run ts-node -- ${file}",
+        "useShortcut": true
+      }
+    ]
+  },
+  "workbench.editor.untitled.hint": "hidden",
+  "workbench.editor.enablePreview": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.tabWidth": 2,
+  "prettier.singleQuote": true,
+  "prettier.semi": false,
+
   // Vim
   "vim.useSystemClipboard": true,
   "vim.leader": "<space>",
   "vim.handleKeys": {
     "<C-d>": false,
     "<C-k>": false,
+    "<C-v>": false,
+    "<C-f>": false,
+    "<C-x>": false
   },
   "vim.insertModeKeyBindingsNonRecursive": [
     {
-      "before": [
-        "<C-o>"
-      ],
-      "after": [
-        "<Esc>",
-        "A"
-      ]
+      "before": ["<C-l>"],
+      "after": ["<Esc>", "A"]
     },
     {
-      "before": [
-        "<C-l>"
-      ],
-      "after": [
-        "<Esc>",
-        "A",
-        ";",
-        "<Esc>"
-      ]
+      "before": ["<C-o>"],
+      "after": ["<Esc>", "A", ";"]
     },
     {
-      "before": [
-        "<C-u>"
-      ],
-      "commands": [
-        "editor.action.transformToUppercase"
-      ]
+      "before": ["<C-u>"],
+      "commands": ["editor.action.transformToUppercase"]
     }
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": [
-        "<leader>",
-        "s"
-      ],
-      "commands": [
-        "workbench.action.files.save"
-      ]
+      "before": ["<leader>", "s"],
+      "commands": ["workbench.action.files.save"]
     },
     {
-      "before": [
-        "<leader>",
-        "S"
-      ],
-      "commands": [
-        "workbench.action.files.saveAll"
-      ]
+      "before": ["<leader>", "S"],
+      "commands": ["workbench.action.files.saveAll"]
     },
     {
-      "before": [
-        "<leader>",
-        "w"
-      ],
-      "commands": [
-        "workbench.action.closeActiveEditor"
-      ]
+      "before": ["<leader>", "w"],
+      "commands": ["workbench.action.closeActiveEditor"]
     },
     {
-      "before": [
-        "<leader>",
-        "k"
-      ],
-      "commands": [
-        "workbench.action.nextEditor"
-      ]
+      "before": ["<leader>", "k"],
+      "commands": ["workbench.action.nextEditor"]
     },
     {
-      "before": [
-        "<leader>",
-        "j"
-      ],
-      "commands": [
-        "workbench.action.previousEditor"
-      ]
+      "before": ["<leader>", "j"],
+      "commands": ["workbench.action.previousEditor"]
     },
     {
-      "before": [
-        "<leader>",
-        "f"
-      ],
-      "after": [
-        "v",
-        "i",
-        "{",
-        "="
-      ]
+      "before": ["<leader>", "f"],
+      "after": ["v", "i", "{", "="]
     },
     {
-      "before": [
-        "<leader>",
-        "F"
-      ],
-      "commands": [
-        "editor.action.formatDocument"
-      ]
+      "before": ["<leader>", "F"],
+      "commands": ["editor.action.formatDocument"]
     },
     {
-      "before": [
-        "<leader>",
-        "a"
-      ],
-      "after": [
-        "g",
-        "g",
-        "v",
-        "G"
-      ]
+      "before": ["<leader>", "a"],
+      "after": ["g", "g", "v", "G"]
     },
     {
-      "before": [
-        "<leader>",
-        "r"
-      ],
-      "commands": [
-        "extension.saveAndRun.execute"
-      ]
+      "before": ["<leader>", "r"],
+      "commands": ["extension.saveAndRun.execute"]
     },
     {
-      "before": [
-        "<leader>",
-        "i"
-      ],
-      "commands": [
-        "editor.action.organizeImports"
-      ]
+      "before": ["<leader>", "i"],
+      "commands": ["editor.action.organizeImports"]
+    },
+    {
+      "before": ["<leader>", "d"],
+      "commands": ["editor.action.revealDefinition"]
+    },
+    {
+      "before": ["u"],
+      "commands": ["undo"]
+    },
+    {
+      "before": ["<c-r>"],
+      "commands": ["redo"]
     }
-  ]
+  ],
+  "editor.formatOnSave": true,
+  "workbench.colorTheme": "GitHub Dark Default",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "editor.bracketPairColorization.enabled": false,
+  "[java]": {
+    "editor.defaultFormatter": "redhat.java"
+  },
+
+  // Python
+  "python.linting.pylintEnabled": true,
+  "python.linting.enabled": true,
+  "python.formatting.provider": "black",
+  "python.formatting.blackArgs": ["--skip-string-normalization"],
+  "python.analysis.typeCheckingMode": "off",
+  "[python]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    },
+    "editor.tabSize": 4,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "ms-python.python",
+    "editor.formatOnType": true
+  }
 }
