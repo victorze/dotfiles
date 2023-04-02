@@ -14,11 +14,11 @@ Plug 'tpope/vim-commentary'
 
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
+Plug 'digitaltoad/vim-pug'
 
 Plug 'victorze/foo'
 Plug 'cocopon/iceberg.vim'
 call plug#end()
-
 
 " --------------------------------------------
 " # Settings
@@ -30,23 +30,29 @@ set colorcolumn=80
 set scrolloff=3         " Display at least 3 lines around you cursor
 
 " ## Lines
-" set nowrap
+set wrap
 set number
 set relativenumber
 
 " ## Indentation
-set shiftwidth=2
-set softtabstop=2
+set shiftwidth=4
+set softtabstop=4
 set expandtab
 set autoindent
 autocmd FileType gitcommit setlocal colorcolumn=72 tw=72
-autocmd Filetype java setlocal ts=4 sw=4 sts=0 expandtab
+autocmd Filetype javascript setlocal ts=2 sw=2 sts=0 expandtab
+
+function! Ts2()
+  set shiftwidth=2
+  set softtabstop=2
+endfunction
 
 " ## Theme & Colorscheme
 syntax enable
 set termguicolors
 set background=dark
-colorscheme hyper
+colorscheme oceanic
+let s:bg = '#0B1015'
 let g:airline_theme='distinguished'
 
 " ## Buffers
@@ -76,7 +82,7 @@ if executable(s:clip)
     autocmd!
     autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
   augroup END
-endif"
+endif
 
 " --------------------------------------------
 " Mappings
@@ -93,11 +99,11 @@ nnoremap <leader>ls :source $MYVIMRC<CR>
 " You can see all the groups - Highlight
 nnoremap <leader>h :so $VIMRUNTIME/syntax/hitest.vim<CR>
 
-"Do not use arrows 😤
-nnoremap <Up> :echo "Do not use arrows 🤬"<cr>
-nnoremap <Down> :echo "Do not use arrows 😤"<cr>
-nnoremap <Left> :echo "Do not use arrows 😡"<cr>
-nnoremap <Right> :echo "Do not use arrows 😠"<cr>
+"Do not use arrows ­ƒÿñ
+nnoremap <Up> :echo "Do not use arrows ­ƒñ¼"<cr>
+nnoremap <Down> :echo "Do not use arrows ­ƒÿñ"<cr>
+nnoremap <Left> :echo "Do not use arrows ­ƒÿí"<cr>
+nnoremap <Right> :echo "Do not use arrows ­ƒÿá"<cr>
 
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -125,6 +131,9 @@ nnoremap <localleader>w :bufdo bd<CR>
 " Save file.
 nnoremap <leader>s :w<CR>
 
+" Indent 2 spaces
+nnoremap <leader>2 :call Ts2()<CR>
+
 " Save all files
 nnoremap <localleader>s :wa<CR>
 
@@ -141,8 +150,8 @@ nnoremap <localleader>g zz20<c-e>
 inoremap <c-u> <esc>viwU<esc>Ea
 
 " Add a semicolon to end of line
-inoremap <c-l> <esc>A;
-inoremap <c-o> <esc>A
+inoremap <c-l> <esc>A
+inoremap <c-o> <esc>A;
 
 " Insert mode to normal mode
 inoremap jk <esc>
@@ -151,9 +160,13 @@ inoremap jk <esc>
 inoremap <esc> <nop>
 
 " Run file
-nnoremap <leader>rn :!clear && node %:p<CR>
-nnoremap <leader>rj :!clear && npm run test<CR>
+nnoremap <leader>r :!clear && python3 %:p<CR>
+nnoremap <leader>r :!clear && node %:p<CR>
+nnoremap <leader>r :!clear && php %:p<CR>
+nnoremap <leader>r :!clear && ruby %:p<CR>
 
+nnoremap <leader>t :!clear && npm run test<CR>
+nnoremap <leader>p :!clear && npx prettier --write %:p<CR>
 
 " --------------------------------------------
 " # GVIM setting (Windows 10)
@@ -189,7 +202,7 @@ endif
 " ## NerdTree
 " Ignored files
 let g:NERDTreeIgnore = [
-    \ '\.pyc$', '^__pycache__$',
+    \ '\.pyc$', '^__pycache__$', 'node_modules',
     \ '\.git$', 'venv$', '.venv$'
     \]
 
@@ -203,10 +216,11 @@ nnoremap <leader>n :NERDTreeToggle<CR>
 " ## ctrlp
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\.git$\|.idea$\|.mvn$\|vendor$\|node_modules$\|venv$\|.venv$\|build$\|target$',
+    \ 'dir':  '\.git$\|.idea$\|.mvn$\|vendor$\|node_modules$\|venv$\|.venv$\|build$\|target$\|.next$\|tmp$',
     \ 'file': '\.so$\|\.dat$|\.DS_Store$'
     \ }
 let g:ctrlp_show_hidden = 1
+let g:ctrlp_use_caching = 0
 
 
 " ## Airline
