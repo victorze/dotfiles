@@ -11,10 +11,16 @@ Plug 'mattn/emmet-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'christoomey/vim-sort-motion'
 
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'digitaltoad/vim-pug'
+Plug 'othree/html5.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'evanleck/vim-svelte', {'branch': 'main'}
 
 Plug 'victorze/foo'
 Plug 'cocopon/iceberg.vim'
@@ -35,8 +41,8 @@ set number
 set relativenumber
 
 " ## Indentation
-set shiftwidth=4
-set softtabstop=4
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 set autoindent
 autocmd FileType gitcommit setlocal colorcolumn=72 tw=72
