@@ -270,4 +270,44 @@
     "editor.defaultFormatter": "ms-python.python",
     "editor.formatOnType": true
   }
+  
+  
+  
+  
+  
+  
+    // Python
+  "python.formatting.provider": "black",
+  // "python.formatting.blackArgs": ["--skip-string-normalization", "--line-length", "80"],
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.python",
+    // Isort
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    }
+  },
+  "isort.args": ["--profile", "black"],
+  // Dlint
+  "[django-html][jinja][jinja-html][twig]": {
+    "editor.defaultFormatter": "monosans.djlint"
+  },
+  // Laravel Blde formatter
+  "[blade]": {
+    "editor.defaultFormatter": "shufo.vscode-blade-formatter"
+  },
+   "emmet.includeLanguages": {
+    "django-html": "html"
+  },
+  // PHP Intelephense
+  "[php]": {
+    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+  },
+  // Java
+  "[java]": {
+    "editor.defaultFormatter": "redhat.java"
+  },
+  // XML Red Had
+  "[xml]": {
+    "editor.defaultFormatter": "redhat.vscode-xml"
+  },
 }
