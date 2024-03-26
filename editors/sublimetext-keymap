@@ -1,19 +1,14 @@
 [
+    { "keys": ["ctrl+q"], "command": "toggle_side_bar" },
     { "keys": ["alt+d"], "command": "goto_definition" },
-    { "keys": ["alt+q"], "command": "toggle_side_bar" },
-    { "keys": ["alt+c"], "command": "toggle_comment", "args": { "block": false } },
+    { "keys": ["ctrl+shift+c"], "command": "toggle_comment", "args": { "block": false } },
     { "keys": ["alt+shift+down"], "command": "duplicate_line" },
-    { "keys": ["alt+s"], "command": "save", "args": { "async": true } },
-    { "keys": ["alt+w"], "command": "close" },
 
     { "keys": ["alt+up"], "command": "swap_line_up" },
     { "keys": ["alt+down"], "command": "swap_line_down" },
 
-    { "keys": ["alt+j"], "command": "join_lines" },
+    { "keys": ["ctrl+j"], "command": "join_lines" },
     { "keys": ["alt+f"], "command": "toggle_distraction_free" },
-
-    { "keys": ["alt+u"], "command": "undo" },
-    { "keys": ["alt+r"], "command": "redo" },
 
     // php companion
     { "keys": ["ctrl+alt+g"], "command": "goto_definition_scope" },
